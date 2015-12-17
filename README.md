@@ -1,1 +1,1 @@
-# cloud-computing-hand-ons
+# cloud-computing-hands-on
