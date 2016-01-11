@@ -10,32 +10,32 @@ import org.infinispan.notifications.cachelistener.event.CacheEntryModifiedEvent;
 @Listener
 public abstract class Node {
 
-   protected String id;
-   protected Channel channel;
+    protected String id;
+    protected Channel channel;
 
-   public Node(String i, Channel channel){
-      id = i;
-      channel.register(id,this);
-   }
+    public Node(String i, Channel channel){
+        this.id = i;
+        this.channel = channel;
+        this.channel.register(id,this);
+    }
 
-   @CacheEntryModified
-   public void onCacheModification(CacheEntryModifiedEvent event){
-      if (event.isPre()) return;
-      Message m = (Message) event.getValue();
-      this.receiveMessage(m);
-   }
+    @CacheEntryModified
+    public void onCacheModification(CacheEntryModifiedEvent event){
+        if (event.isPre()) return; // only consider post events
+        Message m = (Message) event.getValue();
+        this.receiveMessage(m);
+    }
 
-   public abstract void receiveMessage(Message msg);
+    public abstract void receiveMessage(Message msg);
 
-   // getters/setters
+    // getters/setters
 
-   public String getId() {
-      return id;
-   }
+    public String getId() {
+        return id;
+    }
 
-   public void setId(String id) {
-      this.id = id;
-   }
-
+    public void setId(String id) {
+        this.id = id;
+    }
 
 }

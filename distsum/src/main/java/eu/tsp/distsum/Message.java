@@ -5,33 +5,38 @@ import java.util.UUID;
 
 public class Message implements Serializable {
 
-   public static final Message EMPTYMSG = new Message("","");
+   public static final Message EMPTYMSG = new Message("",MessageType.NULL);
+
+   enum MessageType {
+      NULL,
+      REPLY,
+      CONSTRAINT,
+      CONSTRAINT_VIOLATION,
+      GET
+   }
 
    private String from;
-   private String type;
+   private MessageType type;
    private Serializable body;
    private UUID id;
 
-   public Message(String from,String type){
-      this.from = from;
-      this.type = type;
-      this.id = UUID.randomUUID();
+   public Message(String from, MessageType type){
+      this(from, type, UUID.randomUUID());
    }
 
-   public Message(String from,String type,Serializable body){
+   public Message(String from, MessageType type,Serializable body){
       this.from = from;
-
-      this.type =type;
+      this.type = type;
       this.body = body;
    }
 
    // getters/setters
 
-   public String getType() {
+   public MessageType getType() {
       return type;
    }
 
-   public void setType(String type) {
+   public void setType(MessageType type) {
       this.type = type;
    }
 

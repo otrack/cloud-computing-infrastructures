@@ -3,7 +3,7 @@ package eu.tsp.distsum;
 import java.io.Serializable;
 
 /**
- * A simple constrain class defining an upper and lower bound
+ * A simple constraint class defining an upper and lower bound
  */
 public class Constraint implements Serializable{
 
@@ -17,7 +17,7 @@ public class Constraint implements Serializable{
 
    public boolean violates(int value){
       if(value < lowBound
-            || value > upperBound){
+              || value > upperBound){
          return true;
       }
       return false;

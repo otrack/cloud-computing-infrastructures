@@ -7,8 +7,8 @@ import org.infinispan.Cache;
  * A communication channel is a map of (String, Message) tuples,
  * where each entry is dedicated to a particular node.
  *
- * Sending a message "m" to a node "N" consists in executing
- * an asynchronous put("N","m") operation on the channel.
+ * Sending a message m to a node N consists in executing
+ * an asynchronous put(N,m) operation on the channel.
  *
  */
 public class Channel {
@@ -24,9 +24,9 @@ public class Channel {
     */
    public void register(final String id, Node node){
       nodes.addListener(
-            node,
-            ComChannelFilterFactory.getInstance().getFilter(new Object[]{id}),
-            null);
+              node,
+              ComChannelFilterFactory.getInstance().getFilter(new Object[]{id}),
+              null);
       nodes.put(id, Message.EMPTYMSG); // we create the entry
    }
 
@@ -39,7 +39,6 @@ public class Channel {
 
    /*
     * Broadcast a message to all nodes, but the coordinator.
-    * The coordinator takes as a result the replies of the nodes
     */
    public void broadCast(Message message){
       for (String node: nodes.keySet()) {

@@ -18,25 +18,28 @@ public class ComChannelFilterFactory implements CacheEventFilterFactory {
       return instance;
    }
 
+   private ComChannelFilterFactory() {}
+
    @Override
    public <K, V> CacheEventFilter<K, V> getFilter(final Object[] params) {
-      return new ComChannelCacheEventFilter<K, V>(params);
+      assert params.length == 1;
+      String id = (String) params[0];
+      return new ComChannelCacheEventFilter<>(id);
    }
 
    private static class ComChannelCacheEventFilter<K,V> implements CacheEventFilter<K, V> , Serializable {
 
-      private Object[] params;
+      private String identifier;
 
-      private ComChannelCacheEventFilter(Object[] p){
-         params = p;
+      private ComChannelCacheEventFilter(String id){
+         this.identifier = id;
       }
 
       @Override
       public boolean accept(K key, V oldValue, Metadata oldMetadata, V newValue, Metadata newMetadata,
             EventType eventType) {
-         return params[0].equals(key);
+         return identifier.equals(key);
       }
-   };
-
+   }
 
 }
