@@ -66,8 +66,8 @@ public class DistributedSum extends MultipleCacheManagersTest{
           }
           System.out.println("Real sum: " + realSum + " Global Sum: " + coord.getGlobalSum());
           System.out.println("********* END OF ROUND " + round + " ********\n\n");
-          assert (0.5 * realSum <= coord.getGlobalSum());
-          assert (1.5 * realSum >= coord.getGlobalSum());
+          assert (0.9 * realSum <= coord.getGlobalSum());
+          assert (1.1 * realSum >= coord.getGlobalSum());
       }
 
        try {

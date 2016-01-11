@@ -10,7 +10,6 @@ public class Message implements Serializable {
    enum MessageType {
       NULL,
       REPLY,
-      CONSTRAINT,
       CONSTRAINT_VIOLATION,
       GET
    }
