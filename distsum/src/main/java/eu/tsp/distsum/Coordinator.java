@@ -91,7 +91,7 @@ public class Coordinator extends Node{
     * Compute the constrains.
     */
    private void computeConstrains() {
-      // compute the drift each constrain will be equal to
+      // compute the drift each constraint will be equal to
       // localValue - drift...localValue + drift
       int drift = (int) Math.ceil(0.1*this.globalSum)/localValues.size();
       for(Map.Entry<String,Integer> entry : localValues.entrySet()){
