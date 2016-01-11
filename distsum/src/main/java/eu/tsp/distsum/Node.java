@@ -16,7 +16,7 @@ public abstract class Node {
     public Node(String i, Channel channel){
         this.id = i;
         this.channel = channel;
-        this.channel.register(id,this);
+        this.channel.register(this);
     }
 
     @CacheEntryModified

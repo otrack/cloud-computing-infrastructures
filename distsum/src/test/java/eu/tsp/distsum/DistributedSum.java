@@ -35,7 +35,7 @@ public class DistributedSum extends MultipleCacheManagersTest{
          workerValues.put(w.getId(), w.getLocalValue());
          workerConstrains.put(w.getId(), w.getConstraint());
          // register worker to the channel
-         channel.register(w.getId(), w);
+         channel.register(w);
       }
 
       // initialize the structures kept by the coordinator

@@ -22,12 +22,12 @@ public class Channel {
     /*
      * Add a node to the channel.
      */
-    public void register(final String id, Node node){
+    public void register(Node node){
         nodes.addListener(
                 node,
-                ComChannelFilterFactory.getInstance().getFilter(new Object[]{id}),
+                ComChannelFilterFactory.getInstance().getFilter(new Object[]{node.getId()}),
                 null);
-        nodes.put(id, Message.EMPTYMSG); // we create the entry
+        nodes.put(node.getId(), Message.EMPTYMSG); // we create the entry
     }
 
     /*
