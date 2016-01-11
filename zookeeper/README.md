@@ -1,1 +1,21 @@
-sudo pip install zk-shell
+## Purpose
+
+Implement a [barrier](https://en.wikipedia.org/wiki/Barrier_(computer_science)) with ZooKeeper.
+
+## Tools
+
+Running instance of ZooKeeper @52.29.122.122 on Amazon AWS.
+
+Python support for ZooKeeper: zk_shell (https://github.com/rgs1/zk_shell)
+
+Install zk_shell using: sudo pip install zk-shell
+
+## First Steps
+
+Use zk_shell to create a znode /yourName
+
+Implement a [barrier recipe](http://zookeeper.apache.org/doc/trunk/recipes.html#sc_leaderElection) in shell, starting from tree /yourName
+(use --run-once and create a barrier znode in /yourName)
+
+
+
