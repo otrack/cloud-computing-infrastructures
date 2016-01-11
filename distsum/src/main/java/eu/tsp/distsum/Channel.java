@@ -13,39 +13,35 @@ import org.infinispan.Cache;
  */
 public class Channel {
 
-   private Cache<String,Message> nodes;
+    private Cache<String,Message> nodes;
 
-   public Channel(Cache<String, Message> c) {
-      nodes =  c;
-   }
+    public Channel(Cache<String, Message> c) {
+        nodes =  c;
+    }
 
-   /*
-    * Add a node to the channel.
-    */
-   public void register(final String id, Node node){
-      nodes.addListener(
-              node,
-              ComChannelFilterFactory.getInstance().getFilter(new Object[]{id}),
-              null);
-      nodes.put(id, Message.EMPTYMSG); // we create the entry
-   }
+    /*
+     * Add a node to the channel.
+     */
+    public void register(final String id, Node node){
+        nodes.addListener(
+                node,
+                ComChannelFilterFactory.getInstance().getFilter(new Object[]{id}),
+                null);
+        nodes.put(id, Message.EMPTYMSG); // we create the entry
+    }
 
-   /*
-    * Send a message to a node.
-    */
-   public void sentTo(String id, Message message){
-      nodes.putAsync(id, message);
-   }
+    /*
+     * Send a message to a node.
+     */
+    public void sentTo(String id, Message message){
+        nodes.putAsync(id, message);
+    }
 
-   /*
-    * Broadcast a message to all nodes, but the coordinator.
-    */
-   public void broadCast(Message message){
-      for (String node: nodes.keySet()) {
-         if (!node.equals(Coordinator.COORDINATOR)) {
-            nodes.put(node,message);
-         }
-      }
-   }
+    /*
+     * Broadcast a message to all nodes, but the coordinator.
+     */
+    public void broadCast(Message message){
+        // TODO complete this code to match the description
+    }
 
 }

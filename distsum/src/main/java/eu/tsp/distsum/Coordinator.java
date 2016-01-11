@@ -106,12 +106,7 @@ public class Coordinator extends Node{
     * Send constraints back to the workers
     */
    private void sendConstrains() {
-      // send the new constraint
-      for (Map.Entry<String, Constraint> entry : constraintMap.entrySet()) {
-         channel.sentTo(
-                 entry.getKey(),
-                 new Message(COORDINATOR, Message.MessageType.CONSTRAINT, entry.getValue()));
-      }
+      // TODO complete this code to match the description
    }
 
 }

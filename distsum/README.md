@@ -9,6 +9,7 @@ The ability to timely detect trends and popularity variations is of great intere
 
 In this hands-on, we consider a group of nodes that each monitor a stream of integers.
 Our goal is to approximate the total sum of these integers over time.
+
 To this end, we consider a particular node among the group of nodes.
 This nodes acts as the coordinator, while the rest of the nodes as workers.
 The coordinator maintains the global sum.
