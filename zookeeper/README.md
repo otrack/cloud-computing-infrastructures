@@ -4,7 +4,7 @@ Implement a [barrier](https://en.wikipedia.org/wiki/Barrier_(computer_science)) 
 
 ## Tools
 
-Running instance of ZooKeeper @52.29.122.122 on Amazon AWS.
+Running instance of ZooKeeper @52.29.223.235:8080 (on Amazon AWS).
 
 Python support for ZooKeeper: zk_shell (https://github.com/rgs1/zk_shell)
 
