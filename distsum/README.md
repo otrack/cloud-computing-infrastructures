@@ -25,4 +25,4 @@ Your task in this hands-on is to complete the existing code available under src/
 To this end, you should search in the .java files the TODO
 tags that will instruct precisely you what to do.
 
-This hands-on is built with [https://maven.apache.org/](Apahe Maven).
+This hands-on is built with [Apahe Maven](https://maven.apache.org).
