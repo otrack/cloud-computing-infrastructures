@@ -24,3 +24,5 @@ Then, the coordinator recomputes the global sum and updates the constraints at e
 Your task in this hands-on is to complete the existing code available under src/main/java.
 To this end, you should search in the .java files the TODO
 tags that will instruct precisely you what to do.
+
+This hands-on is built with [Apache Maven](https://maven.apache.org).
