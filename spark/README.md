@@ -13,7 +13,7 @@ We shall use [Apache Spark](http://spark.apache.org).
 
 We consider the first 20 days of year 2013.
 This data set is available locally at `b313-13.int-evry.fr:/tmp/challenge/data.csv`.
-It weights approximately 130MB.
+It weights approximately 350MB.
 You can copy it using SSH (`scp` command).
 
 This data set reports the NYC taxi trips.
