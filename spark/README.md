@@ -80,7 +80,7 @@ In this task, we do not consider the grid of cells, but solely each route.
 Then, we refine our solution and solve the online problem, leveraging the streaming capabilities of Spark.
 In the last phase, we process the data this time taking into account the grid.
 
-All our code snippet below are in Python -- but one may adapt them it to Scala (or Java).
+All our code snippet below are in Python -- but you may adapt them with few modifications it to Scala (or Java).
 In addition, we use the command *spark-submit* to submit the job locally (using *--master local script.py*).
 
 ### 2.1.1 Phase 1
