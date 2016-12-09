@@ -124,8 +124,3 @@ To side-step the above problem, we propose you to implement and use the algorith
 This algorithm is detailed in the [following](http://www.cs.dartmouth.edu/~ac/Teach/CS49-Fall11/Notes/lecnotes.pdf) document, at pages 8-9.
 This is one of the first so-called sketch algorithm.
 It allows to compute approximately the heavy hitters in a data stream, using a bounded amount of memory.
-
-
-
-
-
