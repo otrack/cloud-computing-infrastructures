@@ -4,7 +4,7 @@ Implement a [barrier](https://en.wikipedia.org/wiki/Barrier_(computer_science)) 
 
 ## Tools
 
-Running instance of ZooKeeper @52.29.223.235:8080 (on Amazon AWS).
+Run Zookeeper in standalone mode on your machine (following [this](https://zookeeper.apache.org/doc/r3.1.2/zookeeperStarted.html) guide).
 
 Python support for ZooKeeper: zk_shell (https://github.com/rgs1/zk_shell)
 
