@@ -19,4 +19,4 @@ Implement a [barrier recipe](http://zookeeper.apache.org/doc/trunk/recipes.html#
 
 *tip:* in zk-shell, the `--run-once` parameter might reveal useful.
 
-<!--while [ `zk-shell --run-once "ls /sutra" localhost:2181 | grep barrier` == "barrier" ]; do echo "waiting"; sleep 1; done) -->
+<!--while [ `zk-shell --run-once "ls /sutra" localhost:2181 | grep barrier` == "barrier" ]; do echo "waiting"; sleep 1; done -->
