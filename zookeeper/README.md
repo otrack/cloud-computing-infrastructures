@@ -15,7 +15,7 @@ On a Linux box, you may install it as follows:
 
 Use *zk_shell* to create a znode `/yourName`.
 
-Implement a [barrier recipe](http://zookeeper.apache.org/doc/trunk/recipes.html#sc_leaderElection) in shell, starting from the sub-tree `/yourName`.
+Implement a [barrier recipe](http://zookeeper.apache.org/doc/trunk/recipes.html#sc_recipes_eventHandles) in shell, starting from the sub-tree `/yourName`.
 
 *tip:* in zk-shell, the `--run-once` parameter might reveal useful.
 
