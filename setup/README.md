@@ -74,7 +74,7 @@ A schema to assemble the Pis is available [here](https://www.modmypi.com/blog/mu
 At the end, you should obtain something similar to the picture below.
 
 <p align="center">
-<img src="https://www.modmypi.com/image/cache/data/rpi-products/cases/multi-pi/DSC_0358-800x609.jpg" width="600">
+<img src="https://www.modmypi.com/image/cache/data/rpi-products/cases/multi-pi/DSC_0358-800x609.jpg" width="400">
 </p>
 
 ## 2.2 Assembling and wiring
@@ -85,7 +85,7 @@ A tower thus contains a total of six Pis
 In a tower, we use one USB hub to power the Pis, and one ethernet hub to interconnect them.
 
 <p align="center">
-<img src="https://www.modmypi.com/image/cache/data/rpi-products/accessories/usb/hubs/naked-usb-hub-800x609.jpg" width="600">
+<img src="https://www.modmypi.com/image/cache/data/rpi-products/accessories/usb/hubs/naked-usb-hub-800x609.jpg" width="400">
 </p>
 
 Discuss with another student team to assemble a tower.
@@ -95,7 +95,7 @@ Check that you manage to reach all the Raspberry Pis in your cluster.
 ## 3. Kubernetes
 
 We now have to install the Kubernetes (k8s) software in the cluster.
-The step below take inspiration from the following [guildelines](https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster).
+The steps below take inspiration from the guildelines [here](https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster) and the official  [there](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm)
 
 ## 3.1 Installation
 
@@ -121,7 +121,9 @@ Then, install `kubeadm` on each node (in parallel) as follows:
 
 	apt-get update && apt-get install -y kubeadm
 
-## 3.2 Creating the control planes
+## 3.2 Bootstrapping 
+
+## 3.2.1 Master node
 
 To bootstrap the kubernetes cluster, we need to designate an initial master node.
 Choose one of your Raspberry Pis, and run the following command.
@@ -144,7 +146,7 @@ After this command executes, you should obtain something of the form:
     Node join complete:
 	...
 
-## 3.3 Cluster management
+## 3.2.1 Remote management
 
 To manage the cluster remotely, we have to install the `kubectl` tool on your local machine.
 Follow the instructions listed [here](https://kubernetes.io/docs/tasks/tools/install-kubectl) for your operating system.
@@ -157,8 +159,18 @@ Then, on your own machine imports the kubernetes configuration as follows:
 	mkdir -p $HOME/.kube
 	scp -i pirate@laperouse.local:/home/pirate/admin.conf $HOME/.kube/config
 
-Check that all the cluster nodes are available as follows.
+It remains to create a network fabric to interconnect containers.
+To this end, we use [flannel](https://github.com/coreos/flannel) which offer a support for ARM CPUs (as required by Raspberry Pi).
+An appropriate configuration file is [available](https://github.com/otrack/cloud-computing-hands-on/tree/master/setup/kube-flannel.yaml) in the directory of this practical.
 
     kubectl config set-context kubernetes
-	kubectl get nodes
+	kubectl create -f kube-flannel.yml
+	
+After a minute, check that the nodes are ready by typing `ubectl get nodes`.
+You should observe something of that form.
+
+    NAME          STATUS    AGE       VERSION
+    black-pearl   Ready     1h        v1.8.3
+    fregate       Ready     1h        v1.8.3
+
 
