@@ -1,12 +1,14 @@
 # A kubernetes cluster of Raspberry Pis
 
 In this practical, we create a cluster of Raspberry Pis by stacking them up appropriately with some hardware support.
-Then, we install a [Kubernetes](kubernetes.io) tool to orchestrate the nodes in the cluster.
-To build a cluster, you should group-up in teams of four students.
+Then, we install [Kubernetes](kubernetes.io) to orchestrate the nodes in the cluster.
 
 The first part of the practical details how to install the [HypriotOS](https://blog.hypriot.com) distribution on a Pi.
 The second part explains how to stack-up Pis using to form the cluster.
 In the last part, we deploy Kubernetes across the cluster and check that our installation is functional.
+
+To build a cluster, you should group-up in teams of four students.
+In what follows, it is assumed that you `git clone` the sources of this practical.
 
 ## 1. HypriotOS
 
@@ -94,8 +96,9 @@ Check that you manage to reach all the Raspberry Pis in your cluster.
 
 ## 3. Kubernetes
 
-We now have to install the Kubernetes (k8s) software in the cluster.
-The steps below take inspiration from the guildelines [here](https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster) and the official  [there](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm)
+We now have to install the Kubernetes (k8s) software in the Raspberry Pi cluster.
+
+The steps below take inspiration from the guildelines [here](https://blog.hypriot.com/post/setup-kubernetes-raspberry-pi-cluster) by the [hypriot](https://blog.hypriot.com) team, as well as the the official documentation [there](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm).
 
 ## 3.1 Installation
 
@@ -121,7 +124,7 @@ Then, install `kubeadm` on each node (in parallel) as follows:
 
 	apt-get update && apt-get install -y kubeadm
 
-## 3.2 Bootstrapping 
+## 3.2 Bootstrapping the cluster
 
 ## 3.2.1 Master node
 
@@ -150,6 +153,7 @@ After this command executes, you should obtain something of the form:
 
 To manage the cluster remotely, we have to install the `kubectl` tool on your local machine.
 Follow the instructions listed [here](https://kubernetes.io/docs/tasks/tools/install-kubectl) for your operating system.
+Please make sure that shell autocompletion is working.
 
 It remains to import the cluster configuration on your local machine.
 To this end, copy the file `/etc/kubernetes/admin.conf` in `/home/pirate` on the master node.
@@ -158,13 +162,12 @@ Then, on your own machine imports the kubernetes configuration as follows:
 
 	mkdir -p $HOME/.kube
 	scp -i pirate@laperouse.local:/home/pirate/admin.conf $HOME/.kube/config
+	kubectl config set-context kubernetes
 
-It remains to create a network fabric to interconnect containers.
-To this end, we use [flannel](https://github.com/coreos/flannel) which offer a support for ARM CPUs (as required by Raspberry Pi).
-An appropriate configuration file is [available](https://github.com/otrack/cloud-computing-hands-on/tree/master/setup/kube-flannel.yaml) in the directory of this practical.
-
-    kubectl config set-context kubernetes
-	kubectl create -f kube-flannel.yml
+It remains to create a network fabric to interconnect the nodes.
+To this end, we use [flannel](https://github.com/coreos/flannel) that offers a support for ARM (the CPU type of a Raspberry Pi).
+    
+	kubectl create -f kube-flannel.yaml
 	
 After a minute, check that the nodes are ready by typing `ubectl get nodes`.
 You should observe something of that form.
@@ -172,7 +175,8 @@ You should observe something of that form.
     NAME          STATUS    AGE       VERSION
     black-pearl   Ready     1h        v1.8.3
     fregate       Ready     1h        v1.8.3
-
+    laperouse     Ready     1h        v1.8.3
+	
 Your fleet is now ready, welcome on board, captain!
 
 <p align="center">
