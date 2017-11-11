@@ -171,7 +171,7 @@ To this end, we use [flannel](https://github.com/coreos/flannel) that offers a s
     
 	kubectl create -f kube-flannel.yaml
 	
-After a minute, check that the nodes are ready by typing `ubectl get nodes`.
+After a minute, check that the nodes are ready by typing `kubectl get nodes`.
 You should observe something of that form.
 
     NAME          STATUS    AGE       VERSION
