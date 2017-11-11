@@ -182,20 +182,12 @@ You should observe something of that form.
 To sidestep [this](https://github.com/coreos/flannel/issues/799) issue, we need to add manually a few iptable rules to each node.
 To this end, you should do the following steps on each Pi.
 
-* Install the persitent version of iptables.
-
-    sudo apt install -y iptables-persistent
-
-* Execute the following commmands.
-
+    sudo apt install -y iptables-persistent # answer "yes" both times
     sudo iptables -P FORWARD ACCEPT
     sudo iptables -t nat -A POSTROUTING -s 10.244.0.0/16 ! -d 10.244.0.0/16 -j MASQUERADE
     sudo iptables -I FORWARD 1 -i cni0 -j ACCEPT -m comment --comment "flannel subnet"
     sudo iptables -I FORWARD 1 -o cni0 -j ACCEPT -m comment --comment "flannel subnet"
-
-* Then, save the rules for the next reboot.
-
-    sudo netfilter-persistent save
+    sudo netfilter-persistent save  # save rules for next reboot.
 
 ## 3.2.3 Dashboard
 
