@@ -146,7 +146,7 @@ After this command executes, you should obtain something of the form:
     Node join complete:
 	...
 
-## 3.2.1 Remote management
+## 3.2.2 Remote management
 
 To manage the cluster remotely, we have to install the `kubectl` tool on your local machine.
 Follow the instructions listed [here](https://kubernetes.io/docs/tasks/tools/install-kubectl) for your operating system.
@@ -173,4 +173,8 @@ You should observe something of that form.
     black-pearl   Ready     1h        v1.8.3
     fregate       Ready     1h        v1.8.3
 
+Your fleet is now ready, welcome on board, captain!
 
+<p align="center">
+<img src="https://blog.hypriot.com/images/kubernetes-setup-cluster/raspberry-pi-cluster.png" width="400">
+</p>
