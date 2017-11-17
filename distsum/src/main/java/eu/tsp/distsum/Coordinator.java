@@ -77,7 +77,7 @@ public class Coordinator extends Node{
    // helpers
 
    /*
-    * Recompute the global sum.
+    * Recompute the g lobal sum.
     */
    private void recomputeValue() {
       this.globalSum = 0;
@@ -107,6 +107,15 @@ public class Coordinator extends Node{
     */
    private void sendConstrains() {
       // TODO complete this code to match the description
+      Message message = null;
+      
+      //for the constraints that we have in our map
+       for (Map.Entry<String, Constraint> entry : constraintMap.entrySet()) {
+           //We create a message for the node to which we have to send it
+           message = new Message(Coordinator.COORDINATOR, Message.MessageType.CONSTRAINT_VIOLATION, entry.getValue());
+           //We send the message to the node
+           channel.sentTo(entry.getKey(), message);
+       }
    }
 
 }

@@ -1,5 +1,6 @@
 package eu.tsp.distsum;
 
+import java.util.Map;
 import org.infinispan.Cache;
 
 /**
@@ -42,6 +43,13 @@ public class Channel {
      */
     public void broadCast(Message message){
         // TODO complete this code to match the description
+        for (Map.Entry<String, Message> entry : nodes.entrySet()) {
+            String key = entry.getKey();
+            if(!key.equals(Coordinator.COORDINATOR))
+            {
+                entry.setValue(message);
+            }
+        }
     }
 
 }

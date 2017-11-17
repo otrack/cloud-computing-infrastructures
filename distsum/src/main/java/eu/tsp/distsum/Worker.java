@@ -27,6 +27,12 @@ public class Worker extends Node {
         }
 
         // TODO if the message is a new constraint update local constraint accordingly
+        if(msg.getType().equals(Message.MessageType.CONSTRAINT_VIOLATION))
+        {
+            setConstraint((Constraint)msg.getBody());
+            reply.setBody(localValue);
+            channel.sentTo(Coordinator.COORDINATOR,reply);
+        }
     }
 
     public boolean update(int newValue){
