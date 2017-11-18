@@ -4,42 +4,39 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * The coordinator that maintains the global sum
- * and computes the localConstraints given to the worker nodes.
+ * The master maintains the global sum.
+ * It also computes the constraints given to the slaves.
  */
-public class Coordinator extends Node{
+public class Master extends Node{
 
-   public static final String COORDINATOR = "COORDINATOR";
+   public static final String MASTER = "MASTER";
 
    private Map<String,Integer> localValues;   // the local values of all the worker nodes
    private Map<String,Constraint> constraintMap;  // the local constraints of all the worker nodes
-   private int globalSum;                     // global sum
+   private int globalSum;                     // the (approximated) global sum
 
-   private Channel channel;                // communication medium
-
-   public Coordinator(Channel com) {
-      super(COORDINATOR,com);
+   public Master(Channel com) {
+      super(MASTER,com);
       localValues = new HashMap<>();
       constraintMap = new HashMap<>();
-      this.channel = com;
    }
 
    /*
     * Receive a message from some worker.
-    * This solely happens when there is a constraint violation at some worker node.
+    * This solely happens when there is a constraint violation at that node.
     */
    @Override
    public void receiveMessage(Message msg) {
       if (msg.getType().equals(Message.MessageType.REPLY)) {
          localValues.put(msg.getFrom(), (Integer) msg.getBody());
          // compute the new global sum
-         recomputeValue();
+         recomputeGlobalSum();
          // compute the constraints
-         computeConstrains();
+         computeConstraints();
          // send the constraints to the workers
-         sendConstrains();
+         sendConstraints();
       } else if (msg.getType().equals(Message.MessageType.CONSTRAINT_VIOLATION)) {
-         channel.broadCast(new Message(COORDINATOR, Message.MessageType.GET, null));
+         channel.broadcast(new Message(MASTER, Message.MessageType.GET, null));
       } else {
          throw new RuntimeException("Invalid message");
       }
@@ -53,15 +50,15 @@ public class Coordinator extends Node{
 
    public void setLocalValues(Map<String, Integer> localValues) {
       this.localValues = localValues;
-      recomputeValue();
+      recomputeGlobalSum();
    }
 
-   public Map<String, Constraint> getConstrains() {
+   public Map<String, Constraint> getConstraints() {
       return constraintMap;
    }
 
-   public void setConstrains(Map<String, Constraint> constrains) {
-      this.constraintMap = constrains;
+   public void setConstraints(Map<String, Constraint> constraints) {
+      this.constraintMap = constraints;
    }
 
    public int getGlobalSum() {
@@ -73,40 +70,38 @@ public class Coordinator extends Node{
    }
 
 
-
    // helpers
 
    /*
     * Recompute the global sum.
     */
-   private void recomputeValue() {
+   private void recomputeGlobalSum() {
       this.globalSum = 0;
-      // iterate over local values and sum to compute the global sum globalSum
+      // iterate over all the local values and sum them
       for(Map.Entry<String,Integer> entry : localValues.entrySet()){
          this.globalSum += entry.getValue();
       }
    }
 
    /*
-    * Compute the constrains.
+    * Compute the constraints.
     */
-   private void computeConstrains() {
-      // compute the drift each constraint will be equal to
-      // localValue - drift...localValue + drift
+   private void computeConstraints() {
       int drift = (int) Math.ceil(0.1*this.globalSum)/localValues.size();
       for(Map.Entry<String,Integer> entry : localValues.entrySet()){
          // get the current local globalSum;
          int localValue = entry.getValue();
          // store the new constraint
-         constraintMap.put(entry.getKey(),new Constraint(localValue-drift,localValue+drift));
+         constraintMap.put(entry.getKey(),
+                 new Constraint(localValue-drift,localValue+drift));
       }
    }
 
    /*
     * Send constraints back to the workers
     */
-   private void sendConstrains() {
-      // TODO complete this code to match the description
+   private void sendConstraints() {
+     // TODO
    }
 
 }

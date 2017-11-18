@@ -7,16 +7,16 @@ import java.io.Serializable;
  */
 public class Constraint implements Serializable{
 
-   private int lowBound;
+   private int lowerBound;
    private int upperBound;
 
    public Constraint(int low, int high) {
-      lowBound = low;
+      lowerBound = low;
       upperBound = high;
    }
 
    public boolean violates(int value){
-      if(value < lowBound
+      if(value < lowerBound
               || value > upperBound){
          return true;
       }

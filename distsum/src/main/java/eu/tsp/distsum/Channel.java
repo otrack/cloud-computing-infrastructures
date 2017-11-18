@@ -13,35 +13,35 @@ import org.infinispan.Cache;
  */
 public class Channel {
 
-    private Cache<String,Message> nodes;
+   private Cache<String,Message> nodes;
 
-    public Channel(Cache<String, Message> c) {
-        nodes =  c;
-    }
+   public Channel(Cache<String, Message> c) {
+      nodes =  c;
+   }
 
-    /*
-     * Add a node to the channel.
-     */
-    public void register(Node node){
-        nodes.addListener(
-                node,
-                ComChannelFilterFactory.getInstance().getFilter(new Object[]{node.getId()}),
-                null);
-        nodes.put(node.getId(), Message.EMPTYMSG); // we create the entry
-    }
+   /*
+    * Add a node to the channel.
+    */
+   public void register(final String id, Node node){
+      nodes.addListener(
+              node,
+              NodeFilterFactory.getInstance().getFilter(new Object[]{id}),
+              null);
+      nodes.put(id, Message.EMPTYMSG); // we create the entry
+   }
 
-    /*
-     * Send a message to a node.
-     */
-    public void sentTo(String id, Message message){
-        nodes.putAsync(id, message);
-    }
+   /*
+    * Send a message to node id.
+    */
+   public void send(String id, Message message){
+      // TODO
+   }
 
-    /*
-     * Broadcast a message to all nodes, but the coordinator.
-     */
-    public void broadCast(Message message){
-        // TODO complete this code to match the description
-    }
+   /*
+    * Broadcast a message to all the nodes, but the master.
+    */
+   public void broadcast(Message message){
+      // TODO
+   }
 
 }

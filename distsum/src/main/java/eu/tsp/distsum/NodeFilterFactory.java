@@ -7,31 +7,31 @@ import org.infinispan.notifications.cachelistener.filter.EventType;
 
 import java.io.Serializable;
 
-public class ComChannelFilterFactory implements CacheEventFilterFactory {
+public class NodeFilterFactory implements CacheEventFilterFactory {
 
-   private static ComChannelFilterFactory instance;
+   private static NodeFilterFactory instance;
 
-   public static ComChannelFilterFactory getInstance(){
+   public static NodeFilterFactory getInstance(){
       if (instance==null) {
-         instance = new ComChannelFilterFactory();
+         instance = new NodeFilterFactory();
       }
       return instance;
    }
 
-   private ComChannelFilterFactory() {}
+   private NodeFilterFactory() {}
 
    @Override
    public <K, V> CacheEventFilter<K, V> getFilter(final Object[] params) {
       assert params.length == 1;
       String id = (String) params[0];
-      return new ComChannelCacheEventFilter<>(id);
+      return new NodeFilter<>(id);
    }
 
-   private static class ComChannelCacheEventFilter<K,V> implements CacheEventFilter<K, V> , Serializable {
+   private static class NodeFilter<K,V> implements CacheEventFilter<K, V> , Serializable {
 
       private String identifier;
 
-      private ComChannelCacheEventFilter(String id){
+      private NodeFilter(String id){
          this.identifier = id;
       }
 

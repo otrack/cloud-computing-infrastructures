@@ -7,6 +7,7 @@ import org.infinispan.notifications.cachelistener.event.CacheEntryModifiedEvent;
 /**
  * A node is an abstract object that has a identifier and listens to a channel.
  */
+
 @Listener
 public abstract class Node {
 
@@ -16,7 +17,7 @@ public abstract class Node {
     public Node(String i, Channel channel){
         this.id = i;
         this.channel = channel;
-        this.channel.register(this);
+        this.channel.register(id,this);
     }
 
     @CacheEntryModified

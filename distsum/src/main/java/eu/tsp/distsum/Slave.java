@@ -2,14 +2,14 @@ package eu.tsp.distsum;
 
 /**
  * The worker node tracks a stream of integers, and maintains a local sum of such values.
- * When an update violates its local constraint, the worker informs the coordinator.
+ * When an update violates its local constraint, the worker informs the master.
  */
-public class Worker extends Node {
+public class Slave extends Node {
 
     private int localValue;
     private Constraint constraint;
 
-    public Worker(String id, int initialValue, Constraint c, Channel com) {
+    public Slave(String id, int initialValue, Constraint c, Channel com) {
         super(id,com);
         localValue = initialValue;
         constraint =  c;
@@ -20,24 +20,25 @@ public class Worker extends Node {
 
         Message reply = new Message(id, Message.MessageType.REPLY);
 
-        // If the message is a get then set the local sum as the body of the reply
+        // If the message is a get, then set the local sum as the body of the reply
         if(msg.getType().equals(Message.MessageType.GET)){
             reply.setBody(localValue);
-            channel.sentTo(Coordinator.COORDINATOR,reply);
+            channel.send(Master.MASTER,reply);
         }
 
-        // TODO if the message is a new constraint update local constraint accordingly
+        // if the message is a new constraint, update the local constraint accordingly
+	// TODO
     }
 
-    public boolean update(int newValue){
+    // a new message is received in the stream
+    public void update(int newValue){
         localValue += newValue;
+        // if there is a constraint violation, inform the master
         if(constraint.violates(localValue)) {
-            channel.sentTo(
-                    Coordinator.COORDINATOR,
+            channel.send(
+                    Master.MASTER,
                     new Message(id, Message.MessageType.CONSTRAINT_VIOLATION,localValue));
-            return true;
         }
-        return false;
     }
 
     // getters/setters
