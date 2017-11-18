@@ -195,13 +195,10 @@ Our last step is to create a convenient dashboard to see the activity on our clu
 
      kubectl create -f kube-dashboard.yaml 
 	 
-The dashboard should be operational shortly.
-We access it by first proxying the API server locally, then connecting to it with our favorite browser.
-(The authentification page can be skipped.)
-
-     kubectl proxy
-	 my-favorite-browser http://localhost:8001
-
+The dashboard should be operational in a few instants.
+To access it, first proxy the API server by typing `kubectl proxy` in the console, then access it [here](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy).
+The authentification page can be skipped.
+    
 Your fleet is now ready, welcome on board, captain!
 
 <p align="center">
