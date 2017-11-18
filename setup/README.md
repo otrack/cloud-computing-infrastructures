@@ -176,7 +176,7 @@ You should observe something of that form.
 
     NAME          STATUS    AGE       VERSION
     black-pearl   Ready     1h        v1.8.3
-    fregate       Ready     1h        v1.8.3
+    surcouf       Ready     1h        v1.8.3
     laperouse     Ready     1h        v1.8.3
 
 To sidestep [this](https://github.com/coreos/flannel/issues/799) issue, we need to add manually a few iptable rules to each node.
