@@ -1,0 +1,10 @@
+eu/tsp/distsum/Channel.class
+eu/tsp/distsum/Message.class
+eu/tsp/distsum/Slave.class
+eu/tsp/distsum/NodeFilterFactory$1.class
+eu/tsp/distsum/NodeFilterFactory$NodeFilter.class
+eu/tsp/distsum/Node.class
+eu/tsp/distsum/Constraint.class
+eu/tsp/distsum/Master.class
+eu/tsp/distsum/NodeFilterFactory.class
+eu/tsp/distsum/Message$MessageType.class
