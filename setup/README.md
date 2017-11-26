@@ -19,8 +19,7 @@ In terms of hardware, you will need a SD card and an ethernet cable to connect t
 
 ### 1.1 The flash software
 
-To install an operating system on a Raspberry Pi, we follow the instructions given [online](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
-These instructions are based on the [flash](https://github.com/hypriot/flash) tool.
+To install an operating system on a Raspberry Pi, we follow a set of instructions based on the [flash](https://github.com/hypriot/flash) tool.
 
 First of all, we need to download and install the tool.
 
