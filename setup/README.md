@@ -58,7 +58,7 @@ Install the public part on the Raspberry Pi and the private part on your compute
 Check that everything is working properly.
 
 Once you manage to install a Pi, repeat the above operation for two additional ones.
-Thus, in total, your team should have a total of three operational Pis.
+Thus, your team should have a total of three operational Pis.
 
 ## 2. Cluster
 
