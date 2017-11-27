@@ -53,7 +53,7 @@ The default login is `pirate` and the password `hypriot`.
 	ssh pirate@laperouse.local
 	
 To ease networking operations, we use the same SSH key everywhere.
-The private and public parts of the key are respectively available [here](https://github.com/otrack/cloud-computing-hands-on/setup/pi) and [there](https://github.com/otrack/cloud-computing-hands-on/setup/pi.pub).
+The private and public parts of the key are respectively available under the name `pi` and `pi.pub`.
 Install the public part on the Raspberry Pi and the private part on your computer.
 Check that everything is working properly.
 
