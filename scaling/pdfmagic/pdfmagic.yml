@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pdfmagic
+  labels:
+    app: pdfmagic
+spec:
+  containers:
+  - name: pdfmagic
+    image: 0track/pdfmagic:arm
+    resources:
+      requests:
+        cpu: 0.5
+    ports:
+    - containerPort: 8080
