@@ -1,0 +1,10 @@
+{
+  "kind": "Namespace",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "surcouf",
+    "labels": {
+      "name": "surcouf"
+    }
+  }
+}

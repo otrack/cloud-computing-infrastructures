@@ -53,12 +53,12 @@ The default login is `pirate` and the password `hypriot`.
 	ssh pirate@laperouse.local
 	
 To ease networking operations, we use the same SSH key everywhere.
-The private and public parts of the key are respectively available under the name `pi` and `pi.pub`.
+The private and public parts of the key are respectively available [here](https://github.com/otrack/cloud-computing-hands-on/setup/pi) and [there](https://github.com/otrack/cloud-computing-hands-on/setup/pi.pub).
 Install the public part on the Raspberry Pi and the private part on your computer.
 Check that everything is working properly.
 
 Once you manage to install a Pi, repeat the above operation for two additional ones.
-Thus, your team should have a total of three operational Pis.
+Thus, in total, your team should have a total of three operational Pis.
 
 ## 2. Cluster
 
@@ -169,7 +169,7 @@ Then, on your own machine imports the kubernetes configuration as follows:
 It remains to create a network fabric to interconnect nodes.
 To this end, we use [flannel](https://github.com/coreos/flannel) that offers a support for ARM (the CPU type of a Raspberry Pi).
     
-	kubectl create -f ./kube-flannel.yaml
+	kubectl create -f ./kube-flannel.yml
 	
 After a minute, check that the nodes are ready by typing `kubectl get nodes`.
 You should observe something of that form.
@@ -193,7 +193,7 @@ To this end, you should do the following steps on each Pi.
 
 Our last step is to create a convenient [dashboard](https://github.com/kubernetes/dashboard) to see the activity in the cluster.
 
-     kubectl create -f kube-dashboard.yaml 
+     kubectl create -f kube-dashboard.yml 
 	 
 The dashboard should be operational shortly.
 We access it by first proxying the API server locally, then connecting to it with our favorite browser.
