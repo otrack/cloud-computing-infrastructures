@@ -81,7 +81,7 @@ However, please note that there are two difficulties inherent to its use.
 
  * First, the access to the cluster is firewalled.
 It is necessary to bypass the firewall to access the cluster.
-This requires to execute a ssh tunnel, e.g., `ssh -f -i raspi/pi pirate@157.159.16.55 -L 6443:localhost:6443 -N` to access the kubernetes REST server.
+This requires to execute a ssh tunnel, e.g., `ssh -f -i raspi/pi pirate@157.159.16.104 -L 6443:localhost:6443 -N` to access the kubernetes REST server.
 In addition, the `kubectl` command should be immediately following by `--insecure-skip-tls-verify` to bypass the certificate check.
 
  * Second, Raspberry Pis use ARM chips.
