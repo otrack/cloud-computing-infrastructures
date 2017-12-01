@@ -90,7 +90,7 @@ This is possible by either running the docker build command on one of the one.
 Alternatively, you may cross-compile directly on your local machine, as detailed [here](https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/).
 
 **[Q]** To use this deployment, copy the `config` file from `configs/raspi` to `~/.kube`.
-In this file, modify the entry `server: https://157.159.16.55:6443` to `server: https://localhost:6443`.
+In this file, modify the entry `server: https://157.159.16.104:6443` to `server: https://localhost:6443`.
 Create a SSH tunnel and check that the connection to the API server is working by typing `kubectl config use-context raspi` followed by `kubectl get nodes`.
 You should see the 18 Raspberry Pis nodes in a `ready` state.
 Create a unique namespace for your experiment as explained in Section 3.2.
