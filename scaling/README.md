@@ -29,12 +29,12 @@ The service relies on the `convert` command as well as two external Python libra
  * [webpy](http://webpy.org) contains several building blocks to create a web server in Python. 
 
 In a nutshell, the Pdfmagic service works as follows.
-When a client connects to the service (lines 23-31 in pdfmagic.py), a welcome page is sent that contains a form with a single input field named `myfile`.
+When a client connects to the service (lines 25-33 in pdfmagic.py), a welcome page is sent that contains a form with a single input field named `myfile`.
 This field is of the `file` type and serves to upload the jpg image.
-When Pdfmagic receives the file via a POST request (lines 33-43), the `convert` utility of Linux is called.
+When Pdfmagic receives the file via a POST request (lines 35-45), the `convert` utility of Linux is called.
 This utility does the actual transformation.
 The client is then asked to fetch a page that holds the result.
-Let us notice that to avoid collisions on the file names between several clients, Pdfmagic generates a random unique identifier for each request (line 37).
+Let us notice that to avoid collisions on the file names between several clients, Pdfmagic generates a random unique identifier for each request (line 39).
 
 **[Q]** Run the Pdfmagic service locally and execute an access to convert an image into a pdf document.
 Where is located the pdf document on the server before being sent back to the client?
