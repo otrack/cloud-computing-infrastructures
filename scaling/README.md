@@ -34,7 +34,7 @@ This field is of the `file` type and serves to upload the jpg image.
 When Pdfmagic receives the file via a POST request (lines 33-43), the `convert` utility of Linux is called.
 This utility does the actual transformation.
 The client is then asked to fetch a page that holds the result.
-To avoid collisions on the file names between several clients, Pdfmagic generates a random unique identifier for each request (line 37).
+Let us notice that to avoid collisions on the file names between several clients, Pdfmagic generates a random unique identifier for each request (line 37).
 
 **[Q]** Run the Pdfmagic service locally and execute an access to convert an image into a pdf document.
 Where is located the pdf document on the server before being sent back to the client?
