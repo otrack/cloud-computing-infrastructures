@@ -153,7 +153,8 @@ Your image is now available for any public use.
 At core, there are two approaches to deploy a container in Kubernetes.
 The first one consists in using the `kubectl run` command.
 The second approach relies on a template file and the command `kubectl create`.
-The file `pdfmagic.yml` contains a draft of a temaplte for the `pdfmagic` service.
+The file `pdfmagic.yml` contains a draft of template for the `pdfmagic` service.
+It is located under the `pdfmagic` directory.
 
 **[Q]** Correct the template to use your image by changing the line `image: 0track/pdfmagic:arm`.
 Deploy a pod by typing `kubectl create -f pdfmagic.yml`.
@@ -186,7 +187,7 @@ It is parameterized with the host of the Pdfmagic service and the number of time
 
 **[Q]** Run the workload for one client by varying the number of images that are pushed.
 What is the average time taken by Pdfmagic to answer?
-Plot the time distribution for 100 images.
+Make a plot of the time distribution for 100 images.
 
 ### 5.2 Multiple clients
 
