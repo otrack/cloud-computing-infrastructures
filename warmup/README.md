@@ -1,9 +1,9 @@
 # Introduction to Kubernetes
 
-Kubernetes (k8s) is a software to orchestrate containers across a cluster of machines.
-This practical provides a brief introduction to kubernetes and explains how to access an existing deployment.
+Kubernetes (for short, k8s) is a software to orchestrate containers across a cluster of machines.
+This practical provides an introduction to kubernetes and explains how to access an existing deployment in room B313.
 
-Hereafter, we asume some workable knowledge of the [Docker](https://www.docker.com) software to manage containers.
+Hereafter, we assume some workable knowledge of the [Docker](https://www.docker.com) software to manage containers.
 If this is not the case, and before going further, please follow steps **1-2** of the [Docker tutorial for beginners](https://github.com/docker/labs/tree/master/beginner).
 
 ## 1. What is Kubernetes? [10']
@@ -19,33 +19,34 @@ With Kubernetes, you are able to:
   
  * Limit hardware usage to required resources only.
 
-**[Q]** Read the [Why containers?](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/#why-containers) section of the Kubernetes documentation.
+**[Q]** Read the [Why containers?](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/#why-containers) section of the Kubernetes documentation to understand the motivation behind the use of containers.
 
 To operate a kubernetes cluster, we use the `kubectl` program.
-In roomm B313, this program is already installed.
-If you need to install it on your personnal machine, please read the [following](https://kubernetes.io/docs/tasks/tools/install-kubectl) guide.
+In room B313, this program is already installed.
+If you need to install it on your personal machine, please read the [following](https://kubernetes.io/docs/tasks/tools/install-kubectl) guide.
 
 **[Q]** Install the completion for the `kubectl` command, as explained [here](https://kubernetes.io/docs/tasks/tools/install-kubectl).
 
 ## 2. Learning the basics [60']
 
 The official site of [Kubernetes](https://kubernetes.io) contains several wall-written tutorials.
-They provide an overview of the concpts in Kubernetes and how to use it in practice.
+They provide an overview of the concepts in Kubernetes and how to use it in practice.
 
-**[Q]** Do the six fundamentals [online](https://kubernetes.io/docs/tutorials/kubernetes-basics) basic modules.
+**[Q]** Read the official Kubernetes tutorial, then do the six [online](https://kubernetes.io/docs/tutorials/kubernetes-basics) basic modules.
 
 ## 3. Selecting a Kubernetes cluster [20']
 
 In the next practicals, you access a Kubernetes cluster to practice some core notions of cloud infrastructures.
 Below, we propose you three possible choices of cluster.
 Once you have made a choice, check that your installation is functional.
-To this end, you can type `kubectl get nodes` and should observe all the cluster nodes.
+To this end, you can type `kubectl get nodes` to observe all the cluster nodes.
+Then, you may deploy a small application such as the nginx web server as detailed [here](https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment).
 
 ## 3.1. Minikube  *(beginner)*
 
 In this base approach, we emulate a cluster on the local machine using [minikube](https://github.com/kubernetes/minikube).
 Internally, the program launch a kubernetes cluster inside a virtual machine.
-This is very similar to the environment you used in the online tutorial above.
+This is identical to the environment you used in the online tutorial above.
 In room B313, the `minikube` program is already installed on every machine.
 
 **[Q]** Launch minikube by typing `minikube start`.
@@ -53,7 +54,7 @@ Notice that starting for the first time might take a bit of time -- this is beca
 
 As a side note, do not forget:
 
-* to *shutdown propertly* the VM with `minikube stop` when closing your session.
+* to *shutdown properly* the VM with `minikube stop` when closing your session.
    (Otherwise, the shared files in your home directory are not synced.)
 
 * the `minikube --help` command lists sub-commands that may help to manage your local cluster.
