@@ -194,9 +194,9 @@ What is the average time taken by Pdfmagic to answer?
 The next step is to understand the behavior of the system when several clients access it.
 To this end, a third script named `parallel.sh` is available under the `client` directory.
 This script calls `client.sh` in parallel.
-It takes as input 3 parameters: the Pdfmagic host,the number of clients, and the number of time each client calls the service.
+It takes as input 3 parameters: the Pdfmagic host, the number of clients, and the number of time each client calls the service.
 
-**[Q]** Plot the service latency when 3 push concurrently 100 images.
+**[Q]** Plot the service latency when 3 clients push concurrently 100 images.
 What do you observe?
 
 ## 6. Scaling out the service **[30']**
