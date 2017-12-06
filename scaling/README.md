@@ -54,7 +54,7 @@ For instance, a program `A` can use up to `512MB` of memory and a single core, w
 As an example, a malicious user that spawn a shell in the container of program `A` does not have access to the file system used by `B`.
 
 * A third benefit is the management of dependencies.
-Say for instance, that `A` uses verson `1.2.2` of library `foo`, and program `B` version `1.3.1`.
+Say for instance, that `A` uses verson `1.2.2` of library `foo`, and program `B` version `1.3.1` of the same library.
 Because the two containerized programs access different file systems, each of them may contain a different version of the `foo` library.
 
 **[Q]** Write a Docker file for Pdfmagic under the `pdfmagic` directory.
