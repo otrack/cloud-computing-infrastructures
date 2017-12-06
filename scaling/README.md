@@ -20,8 +20,9 @@ In this section, we investigate the internals of the Pdfmagic service then creat
 
 ### 1.1 Overview
 
-The source code of Pdfmagic is written in Python and provided in the `pdfmagic` directory.
-This service relies on the `convert` command as well as two external Python libraries:
+The source code of Pdfmagic is is named pdfmagic.py.
+This file is written in Python and provided in the `pdfmagic` directory.
+The service relies on the `convert` command as well as two external Python libraries:
 
  * [delegator](https://github.com/kennethreitz/delegator.py) is a utility library that allows to call a system sub-routine.
 
