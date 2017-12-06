@@ -2,8 +2,7 @@
 
 *Disclaimer.* 
 This practical assumes that you know the basics of Kubernetes and have a cluster at your disposal with `kubectl` properly set-up.
-Notice that some guidelines may only provided for [minikube](https://github.com/kubernetes/minikube), the kubernetes cluster emulator.
-Before you start, we advice you to make a copy of this file as well as the provided sources by typing the `git clone https://github.com/otrack/cloud-computing-hands-on` command
+Before you start, we should make a copy of this file as well as the provided sources by typing the `git clone https://github.com/otrack/cloud-computing-hands-on` command
 
 We are interested in scaling-up a web service named Pdfmagic.
 This service allows to convert a jpg image into a pdf document (similarly to several existing internet sites).
