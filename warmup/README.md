@@ -83,15 +83,16 @@ However, please note that there are two difficulties inherent to its use.
  * First, the access to the cluster is firewalled.
 It is necessary to bypass the firewall to access the cluster.
 This requires to execute a ssh tunnel, e.g., `ssh -f -i raspi/pi pirate@157.159.16.104 -L 6443:localhost:6443 -N` to access the kubernetes REST server.
-In addition, the `kubectl` command should be immediately following by `--insecure-skip-tls-verify` to bypass the certificate check.
+In addition, the `kubectl` command should be immediately followed by `--insecure-skip-tls-verify` to bypass the certificate check.
+(This is because the certificate is only valid for the IP address of the machine and not the localhost proxy.)
 
  * Second, Raspberry Pis use ARM chips.
 As a consequence, it is necessary to build appropriate docker images for them.
-This is possible by either running the docker build command on one of the one.
-Alternatively, you may cross-compile directly on your local machine, as detailed [here](https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/).
+This is possible by running the docker `build` command on one of the Raspberry Pis.
+Another (and in fact better) appraoch is to cross-compile directly on your local machine, following the guidelines provided [here](https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/).
 
-**[Q]** To use this deployment, copy the `config` file from `configs/raspi` to `~/.kube`.
+**[Q]** To use the Raspberry Pis deployment, copy the `config` file from `configs/raspi` to `~/.kube`.
 In this file, modify the entry `server: https://157.159.16.104:6443` to `server: https://localhost:6443`.
-Create a SSH tunnel and check that the connection to the API server is working by typing `kubectl config use-context raspi` followed by `kubectl get nodes`.
+Create a SSH tunnel as detailed above then check that the connection to the API server is working by typing `kubectl config use-context raspi` followed by `kubectl get nodes`.
 You should see the 18 Raspberry Pis nodes in a `ready` state.
-Create a unique namespace for your experiment as explained in Section 3.2.
+Finally, create a unique namespace for your experiment as detailed in Section 3.2.
