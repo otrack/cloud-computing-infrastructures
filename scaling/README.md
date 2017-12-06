@@ -215,7 +215,8 @@ The file is named `deploy.yml`.
 
 **[Q]** Correct `deploy.yml` to use your Docker image and deploy 3 pods.
 Add a load balancer to balance the traffic between the 3 pods.
-Plot the service latency when 3 push concurrently 100 images.
+Plot the service latency when 3 clients push concurrently 100 images.
+Make a plot of the time distribution.
 Do you think that this modification is satisfying?
 
 **[Q]** *(optional)* Analyze the performance of a single instance of Pdfmagic.
