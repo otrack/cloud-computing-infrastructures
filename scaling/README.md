@@ -186,8 +186,8 @@ This script simulates a client that pushes several successive images to Pdfmagic
 It is parameterized with the host of the Pdfmagic service and the number of times the service is called.
 
 **[Q]** Run the workload for one client by varying the number of images that are pushed.
-What is the average time taken by Pdfmagic to answer?
 Make a plot of the time distribution for 100 images.
+What is the average time taken by Pdfmagic to answer?
 
 ### 5.2 Multiple clients
 
