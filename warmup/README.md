@@ -25,7 +25,7 @@ To operate a kubernetes cluster, we use the `kubectl` program.
 In room B313, this program is already installed.
 If you need to install it on your personal machine, please read the [following](https://kubernetes.io/docs/tasks/tools/install-kubectl) guide.
 
-**[Q]** Install the completion for the `kubectl` command, as explained [here](https://kubernetes.io/docs/tasks/tools/install-kubectl).
+**[Q]** Install the completion for the `kubectl` command, as explained [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/#enabling-shell-autocompletion).
 
 ## 2. Learning the basics [60']
 
