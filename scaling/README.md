@@ -7,7 +7,7 @@ Before you start, you should make a copy of this file as well as the accompagnin
 We are interested in scaling-up a web service named Pdfmagic.
 This service allows to convert a jpg image into a pdf document (similarly to several existing internet sites).
 The jpg file is sent by the client via a POST request to the service.
-In return, the client received a pdf copy of the file.
+In return, the client received a converted pdf copy of the file.
 
 In what follows, we first get familiar with the internal of the Pdfmagic service.
 Then, we create a Docker file to containerize it and use Kubernetes to deploy it.
@@ -21,9 +21,12 @@ In this section, we investigate the internals of the Pdfmagic service then creat
 ### 1.1 Overview
 
 The source code of Pdfmagic is written in Python and provided in the `pdfmagic` directory.
-This service relies on the `convert` command as well as two external Python library:
+This service relies on the `convert` command as well as two external Python libraries:
+
  * [delegator](https://github.com/kennethreitz/delegator.py) is a utility library that allows to call a system sub-routine.
+
  * [webpy](http://webpy.org) contains several building blocks to create a web server in Python. 
+
 In a nutshell, the Pdfmagic service works as follows.
 When a client connects to the service (lines 23-31 in pdfmagic.py), a welcome page is sent that contains a form with a single input field named `myfile`.
 This field is of the `file` type and serves to upload the jpg image.
