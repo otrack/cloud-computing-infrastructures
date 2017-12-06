@@ -62,7 +62,7 @@ The Docker image should be built using `python:2` as its base image, and should 
 
 **[Q]** Run the container locally and access it to create a pdf document from a jpg image.
 Convert the logo located [here](https://upload.wikimedia.org/wikipedia/en/6/6d/Logo_SP.jpg).
-Where is the pdf document on the server?
+Where is the corresponding pdf document on the server?
 
 Our next step consists in executing the Pdfmagic container on Kubernetes.
 To this end, we need to proceed in two steps:
