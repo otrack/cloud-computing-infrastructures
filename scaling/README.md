@@ -71,7 +71,7 @@ To this end, we need to proceed in two steps:
    This image is fetched by each pod running a container that holds the service.
    
  * Second, we create a pod to run Pdfmagic in the Kubernetes cluster.
-   Here we will learn how to use a template file.
+   To make this step, we will learn how to use a template file.
 
 These two steps are detailed below.
 
