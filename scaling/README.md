@@ -46,7 +46,7 @@ A container is an isolated unit of computation.
 In term of isolation, a container stands between a virtual machine and an (heavyweight) process.
 The containerization of a program serves multiple purposes.
 
-* First, a containerized program sees only part of the operating system (OS) resources.
+* First, a containerized program sees only part of the operating system resources.
 This limits its activity, permitting to multiplex programs on the same hardware with guarantees on the access to resources.
 For instance, a program `A` can use up to `512MB` of memory and a single core, while a program `B` has 3 cores and `1GB` of memory.
 
