@@ -78,7 +78,7 @@ These two steps are detailed below.
 ## 3 Using a container registry [20']
 
 A container registry is a very large database of container images.
-The registry can be private or held by some cloud provider.
+The registry can be private or run by some cloud provider.
 Kubernetes does not enforce the use of a particular registry.
 In what follows, we use [Docker Hub](https://hub.docker.com) as this registry is free for small-scale projects.
 If you already have some preferences for another registry, feel free to use it.
@@ -112,19 +112,19 @@ Notice that it is possible to pull an image without actually executing it using 
 
 It is now time to publish the Pdfmagic container image.
 When using the free tier of Docker Hub, every image is publicily available.
-In particular, this will make the image available for Kubernetes.
+In particular, this will make the image available for our use in Kubernetes.
 
 To publish an image, you first need to register an account in [Docker Hub](https://hub.docker.com).
 Fulfill the form on the right in the main page and verify your email.
 Log in and create a new repository.
 Choose the name `pdfmagic` for your repository and click *Create*.
-Log into the Docker Hub from the command line as follows
+Log into the Docker Hub from the command line below.
+There, you should use the user name and email account you specified during the registration on the platform.
 
 	docker login --username=yourhubusername --email=youremail@something.else
 
-Just with your own user name and email that you used for the account. 
-Enter your password when prompted. If 
-everything worked you will get a message as follows:
+Enter your password when prompted. 
+If everything worked properly you will see a message as follows:
 
 	WARNING: login credentials saved in /home/username/.docker/config.json
 	Login Succeeded
