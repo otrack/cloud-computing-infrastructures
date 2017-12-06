@@ -210,7 +210,8 @@ A second approach is to *scale out* the system, that is to use *more machines* t
 This is called *scaling horizontally* the service.
 In what follows, we will use Kubernetes to implement the second approach by running more Pdfmagic containers.
 Achieving last scaling strategy is possible with the notion of deployment.
-A template file named `deploy.yml` is available under the directory `pdfmagic`.
+A template file to create a deployment of the Pdfmagic service is available under the directory `pdfmagic`.
+The file is named `deploy.yml`.
 
 **[Q]** Correct `deploy.yml` to use your Docker image and deploy 3 pods.
 Add a load balancer to balance the traffic between the 3 pods.
