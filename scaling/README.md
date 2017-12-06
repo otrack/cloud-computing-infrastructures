@@ -207,7 +207,7 @@ A first approach is to *scale up* the service, that is to use a *bigger machine*
 This approach is termed *scaling vertically* the service.
 
 A second approach is to *scale out* the system, that is to use *more machines* to run it.
-This is also termed *horizontal scaling*.
+This is called *scaling horizontally* the service.
 In what follows, we will use Kubernetes to implements the second approach by running more Pdfmagic containers.
 
 Achieving this is possible with the notion of deployment.
