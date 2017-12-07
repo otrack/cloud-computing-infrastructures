@@ -66,7 +66,9 @@ The node B313-13 runs a kubernetes deployment.
 We explain how to use it below.
 
 **[Q]** Copy the `config` file from `configs/b313` to `~/.kube`.
-Then, create a unique namespace for your experiment following [this](https://kubernetes.io/docs/tasks/administer-cluster/namespaces-walkthrough) guide.
+Create a unique namespace for your experiment following [this](https://kubernetes.io/docs/tasks/administer-cluster/namespaces-walkthrough) guide.
+Then, choose the b313 deployment by running `kubectl config use-context b313`.
+
 A namespace isolates your usage of the Kubernetes cluster from other users.
 For instance, using the file `namespace.json` provided under the `configs` directory, one create the `surcouf` namespace as follows:
 
