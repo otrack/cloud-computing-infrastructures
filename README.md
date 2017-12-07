@@ -1,1 +1,1 @@
-# Practicals on cloud related technologies and notions.
+## Practicals on cloud related technologies and notions.
