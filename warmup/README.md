@@ -70,7 +70,7 @@ Then, choose the b313 deployment by running `kubectl config use-context b313`.
 
 **[Q]** Create a unique namespace for your experiment following [this](https://kubernetes.io/docs/tasks/administer-cluster/namespaces-walkthrough) guide.
 A namespace isolates your usage of the Kubernetes cluster from other users.
-For instance, using the file `namespace.json` provided under the `configs` directory, one create the `surcouf` namespace as follows:
+For instance, using the file `namespace.json` provided under the `configs` directory, one can create the `surcouf` namespace as follows:
 
     kubectl create -f namespace.json # create the surcouf namespace
 	kubectl config set-context surcouf --namespace=surcouf --cluster=raspi --user=raspi-admin	
