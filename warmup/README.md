@@ -73,7 +73,7 @@ A namespace isolates your usage of the Kubernetes cluster from other users.
 For instance, using the file `namespace.json` provided under the `configs` directory, one can create the `surcouf` namespace as follows:
 
     kubectl create -f namespace.json # create the surcouf namespace
-	kubectl config set-context surcouf --namespace=surcouf --cluster=raspi --user=raspi-admin	
+	kubectl config set-context surcouf --namespace=surcouf --cluster=b313 --user=b313-admin	
 	kubectl config use-context surcouf
 	kubectl get nodes
 
