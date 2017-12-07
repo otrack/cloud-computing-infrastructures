@@ -38,7 +38,9 @@ They provide an overview of the concepts in Kubernetes and how to use it in prac
 ## 3. Selecting a Kubernetes cluster [20']
 
 In the next practicals, you access a Kubernetes cluster to practice some core notions of cloud infrastructures.
-Below, we propose you three possible choices of cluster.
+Below, we propose you three possible choices of cluster: *minikube*, *the B313 cluster* and *a cluster of Raspberry Pis*.
+Make a choice and follow the instructions below.
+
 Once you have made a choice, check that your installation is functional.
 To this end, you can type `kubectl get nodes` to observe all the cluster nodes.
 Then, you may deploy a small application such as the nginx web server as detailed [here](https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment).
@@ -48,9 +50,9 @@ Then, you may deploy a small application such as the nginx web server as detaile
 In this base approach, we emulate a cluster on the local machine using [minikube](https://github.com/kubernetes/minikube).
 Internally, the program launch a kubernetes cluster inside a virtual machine.
 This is identical to the environment you used in the online tutorial above.
-In room B313, the `minikube` program is already installed on every machine.
 
-**[Q]** Launch minikube by typing `minikube start`.
+**[Q]** In room B313, the `minikube` program is already installed on every machine.
+Launch the program by typing `minikube start`.
 Notice that starting for the first time might take a bit of time -- this is because around 300MB are downloaded.
 
 As a side note, do not forget:
@@ -59,6 +61,10 @@ As a side note, do not forget:
    (Otherwise, the shared files in your home directory are not synced.)
 
 * the `minikube --help` command lists sub-commands that may help to manage your local cluster.
+
+**[Q]** We use docker during the practicals and consequently an access to a docker daemon is required.
+Minikube runs such a daemon.
+To set-up the access to this daemon, we type `eval $(minikube docker-env)` in the terminal.
 
 ## 3.2. B313-13 *(intermediate)*
 
@@ -76,6 +82,14 @@ For instance, using the file `namespace.json` provided under the `configs` direc
 	kubectl config set-context surcouf --namespace=surcouf --cluster=b313 --user=b313-admin	
 	kubectl config use-context surcouf
 	kubectl get nodes
+
+**[Q]** We use docker during the practicals and consequently an access to a docker daemon is required.
+For security reasons, in room b313 we use [docker-machine](https://docs.docker.com/machine) and not docker directly.
+This program launches the docker daemon inside a virtual machine (VM).
+The following steps run docker in the `default` VM using virtualbox, then update the docker environment appropriately.
+
+    docker-machine create default
+	eval $(docker-machine env default)
 
 ## 3.3. A cluster of Raspberry Pis *(expert)*
 
@@ -98,4 +112,6 @@ Another (and in fact better) appraoch is to cross-compile directly on your local
 In this file, modify the entry `server: https://157.159.16.104:6443` to `server: https://localhost:6443`.
 Create a SSH tunnel as detailed above then check that the connection to the API server is working by typing `kubectl config use-context raspi` followed by `kubectl get nodes`.
 You should see the 18 Raspberry Pis nodes in a `ready` state.
-Finally, create a unique namespace for your experiment as detailed in Section 3.2.
+
+**[Q]** As detailed in Section 3.2, create a unique namespace for your experiment and set-up your docker environment.
+

@@ -1,9 +1,5 @@
 # Scaling horizontally a web service
 
-*Disclaimer.* 
-This practical assumes that you know the basics of Kubernetes and have a cluster at your disposal with `kubectl` properly set-up.
-Before you start, you should make a copy of this file as well as the accompagning sources, using the `git clone https://github.com/otrack/cloud-computing-hands-on` command
-
 We are interested in scaling-up a web service named Pdfmagic.
 This service allows to convert a jpg image into a pdf document (similarly to several existing internet sites).
 The jpg file is sent by the client via a POST request to the service.
@@ -13,6 +9,10 @@ In what follows, we first get familiar with the internal of the Pdfmagic service
 Then, we create a Docker file to containerize it and use Kubernetes to deploy it.
 Further, we study the performance of this service  when emulating several clients.
 In a last step, we scale-up the service, adding more containers to handle a higher load and observe how the system responds.
+
+*Note.* 
+This practical assumes that you know the basics of Kubernetes and have a cluster at your disposal with `kubectl` properly set-up.
+Before you start, you should make a copy of this file as well as the accompagning sources, using the `git clone https://github.com/otrack/cloud-computing-hands-on` command
 
 ## 1. The Pdfmagic service [40']
 
