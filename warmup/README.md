@@ -29,7 +29,7 @@ If you need to install it on your personal machine, please read the [following](
 
 ## 2. Learning the basics [60']
 
-The official site of [Kubernetes](https://kubernetes.io) contains several wall-written tutorials.
+The official site of [Kubernetes](https://kubernetes.io) contains several well-written tutorials.
 They provide an overview of the concepts in Kubernetes and how to use it in practice.
 
 **[Q]** Read the official Kubernetes tutorial, then do the six [online](https://kubernetes.io/docs/tutorials/kubernetes-basics) basic modules.
