@@ -225,4 +225,4 @@ What is the underlying problem with the implementaion of Pdfmagic?
 
 **[Q]** *(optional)* Transform the workload `client.sh` into a Kubernetes [job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion).
 Run a workload with 50 prallel clients.
-Plot the response time of the service along time.
+Plot the latency of the service along time.
