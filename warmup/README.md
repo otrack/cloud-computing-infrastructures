@@ -113,5 +113,5 @@ In this file, modify the entry `server: https://157.159.16.104:6443` to `server:
 Create a SSH tunnel as detailed above then check that the connection to the API server is working by typing `kubectl config use-context raspi` followed by `kubectl get nodes`.
 You should see the 18 Raspberry Pis nodes in a `ready` state.
 
-**[Q]** As detailed in Section 3.2, create a unique namespace for your experiment and set-up your docker environment.
+**[Q]** As detailed in Section 3.2, create a unique namespace for your experiments and set-up your docker environment.
 
