@@ -222,3 +222,7 @@ Do you think that this modification is satisfying?
 **[Q]** *(optional)* Analyze the performance of a single instance of Pdfmagic.
 Do you think that the idea of scaling-out the service was the right one?
 What is the underlying problem with the implementaion of Pdfmagic?
+
+**[Q]** *(optional)* Transform the workload `client.sh` into a Kubernetes [job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion).
+Run a workload with 50 prallel clients.
+Plot the response time of the service along time.
