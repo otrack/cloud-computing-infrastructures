@@ -8,6 +8,7 @@ In this practical, we focus on the processing of a data stream originating from 
 This data is made available under the Freedom of Information Law and provides information regarding the pickups, drops-off, and payments made in the NYC medallion taxis.
 The goal is to process this spatio-temporal data stream in order to find the most frequent routes.
 We shall use [Apache Spark](http://spark.apache.org).
+The documention of Spark is available [here](https://spark.apache.org/docs/2.2.0/rdd-programming-guide.html).
 
 ## 1. Data
 
