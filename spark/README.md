@@ -89,7 +89,7 @@ We use the command *spark-submit* to submit the job locally (using *--master loc
 
 ### 2.1.1 Phase 1
 
-1. Split the data into chunks of 1MB using the Bash *split* command.
+1. Split the data into chunks of 1000 lines using the Bash *split* command.
 Hereafter, we use the first chunk, that is the file "aa".
 2. Create a *SparkContex* object and use it to create an rdd from the file *frdd=sc.textFile("data/xaa")*.
 3. Prepare the data of the file before processing it.
