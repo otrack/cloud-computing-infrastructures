@@ -8,7 +8,6 @@ In this practical, we focus on the processing of a data stream originating from 
 This data is made available under the Freedom of Information Law and provides information regarding the pickups, drops-off, and payments made in the NYC medallion taxis.
 The goal is to process this spatio-temporal data stream in order to find the most frequent routes.
 We shall use [Apache Spark](http://spark.apache.org).
-The documention of Spark is available [here](https://spark.apache.org/docs/2.2.0/rdd-programming-guide.html).
 
 ## 1. Data
 
@@ -92,7 +91,7 @@ We use the command *spark-submit* to submit the job locally (using *--master loc
 
 1. Split the data into chunks of 1MB using the Bash *split* command.
 Hereafter, we use the first chunk, that is the file "aa".
-2. Create a *SparkContex* object and use it to create an rdd from the file *frdd=sc.textFile("data/all")*.
+2. Create a *SparkContex* object and use it to create an rdd from the file *frdd=sc.textFile("data/xaa")*.
 3. Prepare the data of the file before processing it.
 (3.1.) Extract the coordinates of the start and end points.
 (3.2.) Use these coordinates to sign the route e.g., "73.981544:40.781475:-73.979439:40.784386".
