@@ -191,4 +191,4 @@ A possible approach to implement this quickly is to use [Spark](http://sparkjava
 
 **[Task]** Create a Docker file to containerize the KVS.
 Compare the consistent hashing and round-robin strategies for data distribution in the wild using Kubernetes.
-  
+
