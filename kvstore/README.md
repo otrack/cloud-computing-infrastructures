@@ -107,7 +107,7 @@ Then, we amend our code to handle the case where a call at the `Store` interface
 **[Task]** Complete the `ConsistentHash` class to encapsulate a strategy of data distribution based on consistent hashing.
 
 **[Task]** The `StoreImpl` class should now extend `ReceiverAdapter`.
-Upon receiving a new view, the KKVS assign a new strategy to the `strategy` field.
+Upon receiving a new view, the KVS assigns a new strategy to the `strategy` field.
 
 **[Task]** Complete the `put` and `get` methods to handle the case where the local node is in charge of storing the key.
 Do not forget that `put(k,v)` returns the value stored under key `k` prior the invocation.
