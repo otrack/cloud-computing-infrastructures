@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.example</groupId>
+  <artifactId>kvstore</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>kvstore</name>
+
+  <properties>
+    <version.jgroups>3.6.14.Final</version.jgroups>
+    <version.maven.compiler>3.6.1</version.maven.compiler>
+    <version.spark>2.5</version.spark>
+    <version.junit>4.10</version.junit>
+  </properties>
+  
+  <dependencies>
+
+    <dependency>
+      <groupId>org.jgroups</groupId>
+      <artifactId>jgroups</artifactId>
+      <version>${version.jgroups}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.sparkjava</groupId>
+      <artifactId>spark-core</artifactId>
+      <version>${version.spark}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${version.junit}</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${version.maven.compiler}</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+    
+  </build>
+  
+</project>
