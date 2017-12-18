@@ -111,7 +111,7 @@ Upon receiving a new view, the KVS assigns a new strategy to the `strategy` fiel
 
 **[Task]** Complete the `put` and `get` methods to handle the case where the local node is in charge of storing the key.
 Do not forget that `put(k,v)` returns the value stored under key `k` prior the invocation.
-The test `StoreTest.baseOperations` should now run with succeed.
+The test `StoreTest.baseOperations` should now run with success.
 
 ### 3.2 Handling remote data
 
