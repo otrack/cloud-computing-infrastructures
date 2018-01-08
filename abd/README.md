@@ -79,7 +79,9 @@ This is simply a set of n/2+1 processes - where n is the total number of process
 
 The `Majority` class contains a skeleton for a quorum system using majority quorums.
 It relies on the `Address` class in JGroups to identify a process.
-The class `Majority` contains a method to return the size of majority and one to pick some majority.
+The class `Majority` contains 
+* a method to return the size of majority, and 
+* a method to pick a *random* majority among all the nodes in the system.
 
 **[Task]** Complete the `Majority` class.
 
