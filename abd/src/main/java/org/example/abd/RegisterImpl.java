@@ -35,7 +35,7 @@ public class RegisterImpl<V> extends ReceiverAdapter implements Register<V>{
     @Override
     public void write(V v) {}
 
-    private V execute(Command cmd){
+    private synchronized V execute(Command cmd){      
         return null;
     }
 

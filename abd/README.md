@@ -100,6 +100,8 @@ When `execute` is called it should
 
 **[Task]** Complete the code of the methods `read`, `write` and `execute` in `RegisterImpl`.
 If the client executes `write`, but the register is not writable, the method throws a new `IllegalStateException`.
+In `execute`, we simply send the command to a quorum of replicas and not to all (as in the course).
+This avoids the need to handle late answers to a request.
 
 Replicas should now answer to requests by applying the core of the ABD algorithm.
 This is the `receive` method that is in charge of executing this logic.
