@@ -55,10 +55,9 @@ However, to implement more complex scenarios and algorithms, we will rely on the
 ## 1.3. Kazoo
 
 We use [kazoo](http://kazoo.readthedocs.org/en/latest/index.html), a Python library for interacting with ZooKeeper.
-Kazoo offers a convenient API to perform CRUD operations (create, read, update and delete), some complex 'ZooKeeper recipes', e.g., barrier, locks, and [watchers](http://kazoo.readthedocs.org/en/latest/api/recipe/watchers.html).
+Kazoo offers a convenient API to perform CRUD operations (Create, Read, Update and Delete), some complex 'ZooKeeper recipes', e.g., barrier, locks, and [watchers](http://kazoo.readthedocs.org/en/latest/api/recipe/watchers.html).
 All details are given in the [API documentation](http://kazoo.readthedocs.org/en/latest/api.html).
 Read the documentation carefully.
-
 
 **[TASK]** Try the examples given in the [online documentation](http://kazoo.readthedocs.org/en/latest/basic_usage.html) and be sure that all the libraries and dependencies are correctly installed.
 
@@ -113,7 +112,7 @@ A master (and any backup) should:
 3. Participate to the master election
 4. Upon a change to **/tasks** or **/workers**
   1. If not the master, skip what follows
-  2. Compute free workers
+  2. CCompute free workers
   3. Compute unassigned tasks
   4. Map unassigned tasks to free workers
 
@@ -141,11 +140,11 @@ To facilitate the implementation of the above architecture, we provide in the Gi
 In more details, *client.py*, *worker.py* and *master.py* contain respectively the skeletons for the client, the worker and the master.
 The file *utils.py* includes a simple task definition, functions to initializes the connection to ZooKeeper and stop it upon the reception of a SIGTERM signal.
 
-**[OPT]** Complete the code of *client.py* to submit a task. Test the correctness of your implementation by listing the content of the ZK tree with zk-shell, and emulating the completion of the task. 
+**[TASK** Complete the code of *client.py* to submit a task. Test the correctness of your implementation by listing the content of the ZK tree with zk-shell, and emulating the completion of the task. 
 
-**[OPT]** Complete the code of *worker.py* that retrieve a task assignment and execute it by calling *utils.task*. Again, you may test your code by running a client and a worker, then simulate the assignment of the task to the worker with zk-shell.
+**[TASK]** Complete the code of *worker.py* that retrieve a task assignment and execute it by calling *utils.task*. Again, you may test your code by running a client and a worker, then simulate the assignment of the task to the worker with zk-shell.
 
-**[OPT]** Finish the implementation of *master.py* and test the correctness of your work.
+**[TASK]** Finish the implementation of *master.py* and test the correctness of your work.
 
 ## 3.2. Fault-Tolerance
 
