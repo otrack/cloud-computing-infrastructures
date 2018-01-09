@@ -22,7 +22,7 @@ We study some key notions such as data consistency, data distribution, replicati
 List of practicals
 
 1. [Basics of Kubernetes](https://github.com/otrack/cloud-computing-hands-on/tree/master/warmup)
-2. [Scaling horizontally a web service](Scaling horizontally a web service)
+2. [Scaling horizontally a web service](https://github.com/otrack/cloud-computing-hands-on/tree/master/scaling)
 3. [Traveling in the Big Apple](https://github.com/otrack/cloud-computing-hands-on/tree/master/spark)
 4. [A key-value store (almost) from Scratch](https://github.com/otrack/cloud-computing-hands-on/tree/master/kvstore)
 5. [A single-writer multiple-readers register in message-passing](https://github.com/otrack/cloud-computing-hands-on/tree/master/abd)
