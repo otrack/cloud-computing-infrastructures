@@ -17,8 +17,8 @@ Items marked **[OPT]** are optional.
 First, we learn the basics of Apache Zookeeper, its internal and how to set-up and start the service.
 Second, we introduce zk-shell, a convenient tool to interactively dialog with ZooKeeper.
 We also learn how to use Kazoo, a powerful Python library to drive ZooKeeper.
-Further, we present the leader election building block to implement.
-Finally, we describe the core of this project, e.g. the master/worker architecture, and explain how to implement it.
+Further, we present the leader election, a key building block of our construction.
+Finally, we describe the core of this project, that is the master/worker architecture, and explain how to implement it.
 
 ## 1. Pre-requisites
 
