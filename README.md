@@ -24,8 +24,8 @@ List of practicals
 1. [Basics of Kubernetes](https://github.com/otrack/cloud-computing-hands-on/tree/master/warmup)
 2. [Scaling horizontally a web service](Scaling horizontally a web service)
 3. [Traveling in the Big Apple](https://github.com/otrack/cloud-computing-hands-on/tree/master/spark)
-4. [A key-value store (almost) from scratch](https://github.com/otrack/cloud-computing-hands-on/tree/master/kvstore)
-5. [A Single-Writer Multiple-Readers Register in Message-passing](https://github.com/otrack/cloud-computing-hands-on/tree/master/abd)
+4. [A key-value store (almost) from Scratch](https://github.com/otrack/cloud-computing-hands-on/tree/master/kvstore)
+5. [A single-writer multiple-readers register in message-passing](https://github.com/otrack/cloud-computing-hands-on/tree/master/abd)
 6. [Coordination in practice with Apache ZooKeeper](https://github.com/otrack/cloud-computing-hands-on/tree/master/zk)
 
 List of lectures
