@@ -14,7 +14,7 @@ You will have to complete all the items marked by **[TASK]** to fulfill successf
 Items marked **[OPT]** are optional.
 
 **Outline.**
-First, we learn the basics of Apache Zookeeper, its how to set-up and start the service.
+First, we learn the basics of Apache Zookeeper, its internal and how to set-up and start the service.
 Second, we introduce zk-shell, a convenient tool to interactively dialog with ZooKeeper.
 We also learn how to use Kazoo, a powerful Python library to drive ZooKeeper.
 Further, we present the leader election building block to implement.
