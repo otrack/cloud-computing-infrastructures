@@ -1,4 +1,4 @@
-## Cloud Computing Infrastructure
+## Cloud Computing Infrastructures
 
 Cloud computing is a decade-old technology paradigm that enables massively distributed computation and storage.
 This new paradigm results from the merge of three technological advances: the virtualization of computing resources, the collapse of storage costs, and the ubiquitous availability of fast networks.
