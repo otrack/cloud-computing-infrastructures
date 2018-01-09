@@ -10,15 +10,15 @@ In this practical, we will implement fault-tolerance techniques in a distributed
 Your objective is to build a *dependable master/worker architecture* that execute *tasks* dispatched by *clients*.
 To this end, you will leverage [Apache ZooKeeper](zookeeper.apache.org), a scalable and fault-tolerant coordination service.
 
-You will have to complete all the items marked by **[TASK]** to fulfill successfully this practical.
-Items marked **[OPT]** are optional.
-
 **Outline.**
 First, we learn the basics of Apache Zookeeper, its internal and how to set-up and start the service.
 Second, we introduce zk-shell, a convenient tool to interactively dialog with ZooKeeper.
 We also learn how to use Kazoo, a powerful Python library to drive ZooKeeper.
 Further, we present the leader election, a key building block of our construction.
 Finally, we describe the core of this project, that is the master/worker architecture, and explain how to implement it.
+
+You will have to complete all the items marked by **[TASK]** to fulfill successfully this practical.
+Items marked **[OPT]** are optional.
 
 ## 1. Pre-requisites
 
