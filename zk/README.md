@@ -34,7 +34,7 @@ It is at the core of the [Hadoop](http://hadoop.apache.org/) stack, a suite of s
 A coordination kernel is a type of service that allows a set of machines to synchronize in order to successfully complete a task.
 ZooKeeper offers an API similar to a file system with some convenient additions such as watches, sequential and ephemeral nodes.
 
-**[TASK]** Read the slides (`zookeeper.pdf`) presenting the ZooKeeper service to have an overview of this service.
+**[TASK]** Read the slides presenting the ZooKeeper service to have an overview of its functionalities (file `zookeeper.pdf` at the root of this project).
 
 **[TASK]** Following the official [guidelines](https://zookeeper.apache.org/doc/r3.1.2/zookeeperStarted.html), install ZooKeeper in stand alone mode.  
 Then, start the coordination service.
