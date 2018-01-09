@@ -27,8 +27,6 @@ There are plenty of very good tutorials online, and you should be able to learn 
 A good tutorial is [here](http://www.learnpython.org/en/).
 We rely on Python 2.7, the most recent version of the 2.x series. 
 
-Fork this repository to start the assignment.
-
 ## 1.1 ZooKeeper
 
 ZooKeeper is a fault-tolerant coordination kernel.
