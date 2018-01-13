@@ -24,15 +24,15 @@ List of practicals
 1. [Basics of Kubernetes](https://github.com/otrack/cloud-computing-hands-on/tree/master/warmup)
 2. [Scaling horizontally a web service](https://github.com/otrack/cloud-computing-hands-on/tree/master/scaling)
 3. [Traveling in the Big Apple](https://github.com/otrack/cloud-computing-hands-on/tree/master/spark)
-4. [A key-value store (almost) from Scratch](https://github.com/otrack/cloud-computing-hands-on/tree/master/kvstore)
+4. [A key-value store (almost) from scratch](https://github.com/otrack/cloud-computing-hands-on/tree/master/kvstore)
 5. [A single-writer multiple-readers register in message-passing](https://github.com/otrack/cloud-computing-hands-on/tree/master/abd)
 6. [Coordination in practice with Apache ZooKeeper](https://github.com/otrack/cloud-computing-hands-on/tree/master/zk)
 
 List of lectures
 
-1. [Introduction to Cloud Computing Architectures](https://drive.google.com/open?id=1jejBazViLenC7e80XI1guqZ_a2xo0aEr1wUV9YvBcZ0)
-2. [Data Dissemination](https://drive.google.com/open?id=1PFjyNro_eNDPgBxkUdjGH647y47g3VYLLHmCS_bOpLQ)
-3. [Data Distribution](https://drive.google.com/open?id=1s0LRrodaYDGN3xfGit6VR9KYeoAoeRbhELBaYFHaoDU)
-4. [Shared Objects & Consistency](https://drive.google.com/open?id=1-Uh3iC97elXSUNvwY1G0up-JaLmj-_wV8reS1bPTe8c)
-5. [Concurrency Control & Replication](https://drive.google.com/open?id=1UFOoTEHiyxdb0u_O37P1m9cKHT6bXEcTkdgF4mmwl3Q)
-6. [Consensus & Coordination Kernels](https://docs.google.com/presentation/d/1jVuYezqp9AgxTaNHWIiAlw5GpgQ0SLBDPNBAQFneOys/edit?usp=sharing)
+1. [Introduction to cloud computing architectures](https://drive.google.com/open?id=1jejBazViLenC7e80XI1guqZ_a2xo0aEr1wUV9YvBcZ0)
+2. [Data dissemination](https://drive.google.com/open?id=1PFjyNro_eNDPgBxkUdjGH647y47g3VYLLHmCS_bOpLQ)
+3. [Data distribution](https://drive.google.com/open?id=1s0LRrodaYDGN3xfGit6VR9KYeoAoeRbhELBaYFHaoDU)
+4. [Shared objects & consistency](https://drive.google.com/open?id=1-Uh3iC97elXSUNvwY1G0up-JaLmj-_wV8reS1bPTe8c)
+5. [Concurrency control & replication](https://drive.google.com/open?id=1UFOoTEHiyxdb0u_O37P1m9cKHT6bXEcTkdgF4mmwl3Q)
+6. [Consensus & coordination kernels](https://docs.google.com/presentation/d/1jVuYezqp9AgxTaNHWIiAlw5GpgQ0SLBDPNBAQFneOys/edit?usp=sharing)
