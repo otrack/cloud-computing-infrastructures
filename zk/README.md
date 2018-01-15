@@ -140,11 +140,11 @@ To facilitate the implementation of the above architecture, we provide in the Gi
 In more details, *client.py*, *worker.py* and *master.py* contain respectively the skeletons for the client, the worker and the master.
 The file *utils.py* includes a simple task definition, functions to initializes the connection to ZooKeeper and stop it upon the reception of a SIGTERM signal.
 
-**[TASK** Complete the code of *client.py* to submit a task. Test the correctness of your implementation by listing the content of the ZK tree with zk-shell, and emulating the completion of the task. 
+**[OPT]** Complete the code of *client.py* to submit a task. Test the correctness of your implementation by listing the content of the ZK tree with zk-shell, and emulating the completion of the task. 
 
-**[TASK]** Complete the code of *worker.py* that retrieve a task assignment and execute it by calling *utils.task*. Again, you may test your code by running a client and a worker, then simulate the assignment of the task to the worker with zk-shell.
+**[OPT]** Complete the code of *worker.py* that retrieve a task assignment and execute it by calling *utils.task*. Again, you may test your code by running a client and a worker, then simulate the assignment of the task to the worker with zk-shell.
 
-**[TASK]** Finish the implementation of *master.py* and test the correctness of your work.
+**[OPT]** Finish the implementation of *master.py* and test the correctness of your work.
 
 ## 3.2. Fault-Tolerance
 
