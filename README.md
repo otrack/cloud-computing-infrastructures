@@ -1,6 +1,6 @@
 ## Cloud Computing Infrastructures
 
-Abstract.
+#### Abstract.
 
 Cloud computing is a decade-old technology paradigm that enables massively distributed computation and storage.
 This new paradigm results from the merge of three technological advances: the virtualization of computing resources, the collapse of storage costs, and the ubiquitous availability of fast networks.
@@ -21,7 +21,7 @@ These ideas are then applied in a third part to the construction of modern distr
 Such stores run on commodity servers and are able to deliver the massive performance needed by the Cloud computing services.
 We study some key notions such as data consistency, data distribution, replication and indexing, and we learn how to think for scalability and fault-tolerance, two fundamentals requirements of modern distributed services.
 
-List of practicals.
+#### List of practicals.
 
 1. [Basics of Kubernetes](https://github.com/otrack/cloud-computing-hands-on/tree/master/warmup)
 2. [Scaling horizontally a web service](https://github.com/otrack/cloud-computing-hands-on/tree/master/scaling)
@@ -30,7 +30,7 @@ List of practicals.
 5. [A single-writer multiple-readers register in message-passing](https://github.com/otrack/cloud-computing-hands-on/tree/master/abd)
 6. [Coordination in practice with Apache ZooKeeper](https://github.com/otrack/cloud-computing-hands-on/tree/master/zk)
 
-List of lectures.
+#### List of lectures.
 
 1. [Introduction to cloud computing architectures](https://drive.google.com/open?id=1jejBazViLenC7e80XI1guqZ_a2xo0aEr1wUV9YvBcZ0)
 2. [Software Virtualization (by Gaël Thomas)](http://www-inf.telecom-sudparis.eu/COURS/chps/paam/virtualisation/ci-virtualisation.pptx.pdf)
