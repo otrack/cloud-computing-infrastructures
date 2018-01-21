@@ -41,4 +41,4 @@ We study some key notions such as data consistency, data distribution, replicati
 7. [Concurrency control & replication](https://drive.google.com/open?id=1UFOoTEHiyxdb0u_O37P1m9cKHT6bXEcTkdgF4mmwl3Q)
 8. [Consensus & coordination kernels](https://docs.google.com/presentation/d/1jVuYezqp9AgxTaNHWIiAlw5GpgQ0SLBDPNBAQFneOys/edit?usp=sharing)
 9. [Inverted Index (by Emmanuel Bernard)](https://emmanuelbernard.com/presentations/inverted-index/#)
-10. [Replicated Data Consistency forLarge Scale Distributed Systems Inverted Index (by Gérald Oster)](https://github.com/otrack/cloud-computing-hands-on/blob/master/lectures/Replicated%20Data%20Consistency%20for%20Large%20Scale%20Distributed%20Systems.pdf)
+10. [Replicated Data Consistency forLarge Scale Distributed Systems Inverted Index (by Gérald Oster)](https://github.com/otrack/cloud-computing-hands-on/raw/master/lectures/Replicated%20Data%20Consistency%20for%20Large%20Scale%20Distributed%20Systems.pdf)
