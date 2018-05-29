@@ -19,7 +19,7 @@ We first examine the principles of resources virtualization and how to deploy an
 In a second part, we review some fundamentals of large-scale distributed systems.
 These ideas are then applied in a third part to the construction of modern distributed data stores.
 Such stores run on commodity servers and are able to deliver the massive performance needed by the Cloud computing services.
-We study some key notions such as data consistency, data distribution, replication and indexing, and we learn how to think for scalability and fault-tolerance, two fundamentals requirements of modern distributed services.
+We study key notions such as data consistency, data distribution, replication and indexing, and we learn how to think for scalability and fault-tolerance, two fundamentals requirements of modern distributed services.
 
 #### List of practicals.
 
