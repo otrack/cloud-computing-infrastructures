@@ -1,7 +1,7 @@
 # Introduction to Kubernetes
 
 Kubernetes (for short, k8s) is a software to orchestrate containers across a cluster of machines.
-This practical provides an introduction to kubernetes and explains how to access an existing deployment in room B313.
+This practical provides an introduction to kubernetes and explains how to access a deployment either in room B313, or in the Google Cloud Platform.
 
 Hereafter, we assume some workable knowledge of the [Docker](https://www.docker.com) software to manage containers.
 If this is not the case, and before going further, please follow steps **1-2** of the [Docker tutorial for beginners](https://github.com/docker/labs/tree/master/beginner).
@@ -35,21 +35,22 @@ They provide an overview of the concepts in Kubernetes and how to use it in prac
 
 **[Q]** Read the official Kubernetes tutorial, then do the six [online](https://kubernetes.io/docs/tutorials/kubernetes-basics) basic modules.
 
-## 3. Selecting a Kubernetes cluster [20']
+## 3. Selecting a Kubernetes cluster [30']
 
-In the next practicals, you access a Kubernetes cluster to practice some core notions of cloud infrastructures.
-Below, we propose you three possible choices of cluster: *minikube*, *the B313 cluster* and *a cluster of Raspberry Pis*.
-Make a choice and follow the instructions below.
+During the next practicals, you will use a Kubernetes cluster to practice and understand the basics of cloud infrastructures.
+Below, we propose you three possible choices of cluster: the *minikube* emulation program, the *Google Cloud Platform* and a cluster of *Raspberry Pis*.
+The instructions below explain how to deploy a k8s cluster in each case.
+(Notice that it is possible to use several k8s clusters concurrently simply by switching from one kubectl configuration to another with `kubectl config use-context`.)
 
-Once you have made a choice, check that your installation is functional.
-To this end, you can type `kubectl get nodes` to observe all the cluster nodes.
-Then, you may deploy a small application such as the nginx web server as detailed [here](https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment).
+Once your k8s cluster is deployed, you may need to check the everything is functional.
+To this end, type `kubectl get nodes` to observe the cluster nodes.
+Then, you may deploy a small application following the steps proposed in either [this](https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment) or [that](https://cloud.google.com/kubernetes-engine/docs/quickstart) tutorial.
 
 ## 3.1. Minikube  *(beginner)*
 
-In this base approach, we emulate a cluster on the local machine using [minikube](https://github.com/kubernetes/minikube).
-Internally, the program launch a kubernetes cluster inside a virtual machine.
-This is identical to the environment you used in the online tutorial above.
+In this base approach, we emulate a cluster on a local machine using [minikube](https://github.com/kubernetes/minikube).
+Internally, the program launch a kubernetes node inside a virtual machine.
+This is similar to the environment you used in the online tutorial above.
 
 **[Q]** In room B313, the `minikube` program is already installed on every machine.
 Launch the program by typing `minikube start`.
@@ -66,20 +67,76 @@ As a side note, do not forget:
 Minikube runs such a daemon.
 To set-up the access to this daemon, we type `eval $(minikube docker-env)` in the terminal.
 
-## 3.2. B313-13 *(intermediate)*
+## 3.2 Google Cloud Platform *(intermediate)*
 
-The node B313-13 runs a kubernetes deployment.
-We explain how to use it below.
+Google has provided us with a Google Cloud Platform (GCP) Education Grant.
+Each student has a coupon to use the GCP platform for this course.
+To retrieve a coupon, follow the link provided in commentary of slide 5 in this course syllabus.
 
-**[Q]** Copy the `config` file from `configs/b313` to `~/.kube`.
-Then, choose the b313 deployment by running `kubectl config use-context b313`.
+Deploying a k8s cluster in GCP can be done either manually via the [console](https://console.cloud.google.com), or programmatically.
+Below, the later is explained using the Google Cloud SDK and in particular the `gcloud` program.
 
-**[Q]** Create a unique namespace for your experiment following [this](https://kubernetes.io/docs/tasks/administer-cluster/namespaces-walkthrough) guide.
-A namespace isolates your usage of the Kubernetes cluster from other users.
+**[Q]** Install then set-up the Google Cloud SDK by following the instructions provided [here](https://cloud.google.com/sdk/install) and [there](https://cloud.google.com/sdk/docs/initializing). 
+In room B313, it is necessary to make use of the [interactive installer](https://cloud.google.com/sdk/docs/downloads-interactive).
+
+GCP is deployed all over the world and split into regions.
+The list of regions and their respective locations is available [here](https://cloud.google.com/compute/docs/regions-zones).
+Each region contains one or more zones, each zone being an isolated location that contains a set of resources.
+Zones exist for dependability purposes, namely if a zone fails it does not impact the others.
+The fully-qualified name for a zone is of the form `<region>-<zone>`. 
+For example, `us-central1-a` refers to zone `a` in region `us-central1`.
+
+The [console](https://console.cloud.google.com) lists all the services available in the GCP cloud platform.
+In this course, we focus on the Kubernetes Eengine (available under *Compute*).
+To create a k8s cluster, it is necessary to define the parameters of the deployment.
+These parameters include the name of the cluster, its zone, the number of nodes and their types.
+For instance, the command below creates a cluster named `my_cluster` in the zone `europe-west1-b`.
+This deployment is made up of one [g1-small](https://cloud.google.com/compute/docs/machine-types) machine.
+(A single machine is sufficient for the beginning as we will not use many ressources.)
+
+	gcloud container clusters create my_cluster --zone=europe-west1-b --num-nodes=1 --machine-type=g1-small
+
+The console allows to follow the creation of the cluster under *Computer -> Kubernetes engine -> clusters*.
+Once the creation is made, we need to retrieve the credentials and store them in the configuration file of kubectl.
+
+	gcloud container clusters get-credentials my_cluster --zone=my_zone
+
+**[Q]** Create a k8s cluster in GCP at the location of your choice.
+
+As a side note, do not forget to *shutdown properly* the cluster when you have finished using it.
+(The credit are limited per coupon.)
+To this end, you may use either the console or type the following command line
+
+	gcloud container clusters delete my_cluster --zone=my_zone
+
+## 3.3. A cluster of Raspberry Pis *(expert)*
+
+In room B313, a cluster of Raspberry Pis runs kubernetes.
+You may also use it in the following.
+However, please note that there are two difficulties inherent to its use.
+
+ * First, the access to the cluster is firewalled.
+It is necessary to bypass the firewall to access the cluster.
+This requires to execute a ssh tunnel, e.g., `ssh -f -i raspi/pi pirate@157.159.16.96 -L 6443:localhost:6443 -N` to access the kubernetes REST server.
+In addition, the `kubectl` command should be immediately followed by `--insecure-skip-tls-verify` to bypass the certificate check.
+(This is because the certificate is only valid for the IP address of the machine and not the localhost proxy.)
+
+ * Second, Raspberry Pis use ARM chips.
+As a consequence, it is necessary to build appropriate docker images for them.
+This is made possible by running the docker `build` command on one of the Raspberry Pis.
+Another (and in fact better) appraoch is to cross-compile directly on your local machine, following the guidelines provided [here](https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images).
+
+**[Q]** To use the Raspberry Pis deployment, copy the `config` file from `configs/raspi` to `~/.kube`.
+In this file, modify the entry `server: https://157.159.16.96:6443` to `server: https://localhost:6443`.
+Create a SSH tunnel as detailed above then check that the connection to the API server is working by typing `kubectl config use-context raspi` followed by `kubectl get nodes`.
+You should see the Raspberry Pis nodes in a `ready` state.
+
+**[Q]** Create a unique namespace following [this](https://kubernetes.io/docs/tasks/administer-cluster/namespaces-walkthrough) guide.
+A namespace isolates your usage of the Kubernetes cluster from other students.
 For instance, using the file `namespace.json` provided under the `configs` directory, one can create the `surcouf` namespace as follows:
 
     kubectl create -f namespace.json # create the surcouf namespace
-	kubectl config set-context surcouf --namespace=surcouf --cluster=b313 --user=b313-admin	
+	kubectl config set-context surcouf --namespace=surcouf --cluster=raspi --user=raspi-admin
 	kubectl config use-context surcouf
 	kubectl get nodes
 
@@ -90,28 +147,3 @@ The following steps run docker in the `default` VM using virtualbox, then update
 
     docker-machine create default
 	eval $(docker-machine env default)
-
-## 3.3. A cluster of Raspberry Pis *(expert)*
-
-In room B313, a cluster of Raspberry Pis runs kubernetes.
-You may also use it in the following.
-However, please note that there are two difficulties inherent to its use.
-
- * First, the access to the cluster is firewalled.
-It is necessary to bypass the firewall to access the cluster.
-This requires to execute a ssh tunnel, e.g., `ssh -f -i raspi/pi pirate@157.159.16.104 -L 6443:localhost:6443 -N` to access the kubernetes REST server.
-In addition, the `kubectl` command should be immediately followed by `--insecure-skip-tls-verify` to bypass the certificate check.
-(This is because the certificate is only valid for the IP address of the machine and not the localhost proxy.)
-
- * Second, Raspberry Pis use ARM chips.
-As a consequence, it is necessary to build appropriate docker images for them.
-This is possible by running the docker `build` command on one of the Raspberry Pis.
-Another (and in fact better) appraoch is to cross-compile directly on your local machine, following the guidelines provided [here](https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/).
-
-**[Q]** To use the Raspberry Pis deployment, copy the `config` file from `configs/raspi` to `~/.kube`.
-In this file, modify the entry `server: https://157.159.16.104:6443` to `server: https://localhost:6443`.
-Create a SSH tunnel as detailed above then check that the connection to the API server is working by typing `kubectl config use-context raspi` followed by `kubectl get nodes`.
-You should see the 18 Raspberry Pis nodes in a `ready` state.
-
-**[Q]** As detailed in Section 3.2, create a unique namespace for your experiments and set-up your docker environment.
-
