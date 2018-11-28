@@ -25,6 +25,7 @@ To operate a kubernetes cluster, we use the `kubectl` program.
 To install this program, please read the [following](https://kubernetes.io/docs/tasks/tools/install-kubectl) guide.
 In case you do not have sudoer rights on the machine you are using, you may install `kubectl` under `~/.local/bin` (or any other appropriate directory) as detailed [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-using-curl).
 Then, add this directory to the `$PATH` variable by modifying appropriately `~/.bashrc`.
+For the moment, there is no need to configure kubectl and you may skip this part of the guide.
 
 **[Q]** Install the completion for the `kubectl` command, as explained [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/#enabling-shell-autocompletion).
 
