@@ -43,7 +43,7 @@ Below, we propose you three possible choices of cluster: the *minikube* emulatio
 The instructions below explain how to deploy a k8s cluster in each case.
 (Notice that it is possible to use several k8s clusters concurrently simply by switching from one kubectl configuration to another with `kubectl config use-context`.)
 
-Once your k8s cluster is deployed, you may need to check the everything is functional.
+Once your k8s cluster is deployed, you may need to check that everything is functional.
 To this end, type `kubectl get nodes` to observe the cluster nodes.
 Then, you may deploy a small application following the steps proposed in either [this](https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment) or [that](https://cloud.google.com/kubernetes-engine/docs/quickstart) tutorial.
 
@@ -73,6 +73,8 @@ To set-up the access to this daemon, we type `eval $(minikube docker-env)` in th
 Google has provided us with a Google Cloud Platform (GCP) Education Grant.
 Each student has a coupon to use the GCP platform for this course.
 To retrieve a coupon, follow the link provided in commentary of slide 5 in this course syllabus.
+Notice that credits are limited per coupon.
+Use the online [calculator](https://cloud.google.com/products/calculator/#tab=container) to approximate the resources at your disposal for the course.
 
 Deploying a k8s cluster in GCP can be done either manually via the [console](https://console.cloud.google.com), or programmatically.
 Below, the later is explained using the Google Cloud SDK and in particular the `gcloud` program.
@@ -105,10 +107,10 @@ Once the creation is made, we need to retrieve the credentials and store them in
 **[Q]** Create a k8s cluster in GCP at the location of your choice.
 
 As a side note, do not forget to *shutdown properly* the cluster when you have finished using it.
-(The credit are limited per coupon.)
 To this end, you may use either the console or type the following command line
 
 	gcloud container clusters delete my_cluster --zone=my_zone
+	
 
 ## 3.3. A cluster of Raspberry Pis *(expert)*
 
