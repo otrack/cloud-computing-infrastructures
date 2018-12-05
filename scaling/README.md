@@ -205,7 +205,7 @@ A second approach is to *scale out* the system, that is to use *more machines* t
 This is called *scaling horizontally* the service.
 In what follows, we will use Kubernetes to implement the second approach by running more Pdfmagic containers in parallel.
 
-Implementing the scale-out strategy is possible with the notion of [https://kubernetes.io/docs/concepts/workloads/controllers/deployment](deployment).
+Implementing the scale-out strategy is possible with the notion of [deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment).
 A deployment describes a set of replicas when the service to run has no mutable persistent data (i.e., it is stateless).
 A template file to create a deployment of the Pdfmagic service is available under the directory `pdfmagic`.
 The file is named `deploy.yml`.
