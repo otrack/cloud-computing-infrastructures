@@ -32,7 +32,7 @@ This utility does the actual transformation.
 The client is then asked to fetch a page that holds the result.
 To avoid collisions on the file names between several clients, Pdfmagic generates a random unique identifier for each request (line 37).
 
-**[Q]** Run the Pdfmagic service locally and execute an access to convert an image into a pdf document.
+**[Q]** Quickly browse through the source code of the Pdfmagic service.
 Where is located the pdf document on the server before being sent back to the client?
 
 ### 1.2 A container to hold the magic
