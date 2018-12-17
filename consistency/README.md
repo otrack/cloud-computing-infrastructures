@@ -41,6 +41,8 @@ In particular, a call to `kubectl --context=your_cluster logs kvstore-i` should 
 
 In the question that follow, we implement the test suite per se. 
 A test puts the storage system under a specific load then evaluates if the system guarantees a particular level of data consistency.
+To deploy the key-value store contaiining `NNODES`, you may use function `kvs_create`.
+Notice that the first time this function is called it may take some time, as it requests a new public IP address from the cloud provider for the service `kvstore-service`.
 
 **[Q]**  Complete function `test_read_my_write` to execute a sequence of write-then-read operations on the data store.
 In this test, you should ensure that every new write operation is properly seen by a follow-up read.

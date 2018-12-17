@@ -10,6 +10,8 @@ NNODES=3
 
 source ${DIR}/utils.sh
 
+entry_point=$(kubectl get svc kvstore-service -o yaml | grep ip | awk '{print $3}') >&/dev/null
+
 # management
 
 clean_all(){

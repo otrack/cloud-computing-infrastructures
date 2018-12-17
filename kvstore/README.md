@@ -13,6 +13,13 @@ The last part of this lab refines the internal of the KVS to scale (up or down) 
 As the system is stateful, this requires to create a mechanism to migrate data.
 Finally, we assess empirically the benefits of consistent hashing over a simpler round-robin strategy to distribute data.
 
+<!-- 
+	bug with name of the KVS when all students using the same name
+	unit test consistent hashing
+	underline the fact that get and put should first check that the code is local
+-->
+
+
 ## 1. The JGroups library
 
 JGroups is a library for reliable messaging in group of distributed processes.
@@ -101,6 +108,7 @@ In the `StoreImpl` class, a field named `factory` is already available.
 We proceed in two steps.
 First, we manage local calls.
 Then, we amend our code to handle the case where a call at the `Store` interface is accessing data stored in a remote node.
+In what follows, we consider that a single client at a time may access the KVS.
 
 ### 3.1 Local operations on the data
 
