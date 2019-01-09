@@ -140,11 +140,11 @@ To facilitate the implementation of the above architecture, we provide in the Gi
 In more details, *client.py*, *worker.py* and *master.py* contain respectively the skeletons for the client, the worker and the master.
 The file *utils.py* includes a simple task definition, functions to initializes the connection to ZooKeeper and stop it upon the reception of a SIGTERM signal.
 
-**[OPT]** Complete the code of *client.py* to submit a task. Test the correctness of your implementation by listing the content of the ZK tree with zk-shell, and emulating the completion of the task. 
+**[TASK]** Complete the code of *client.py* to submit a task. Test the correctness of your implementation by listing the content of the ZK tree with zk-shell, and emulating the completion of the task. 
 
-**[OPT]** Complete the code of *worker.py* that retrieve a task assignment and execute it by calling *utils.task*. Again, you may test your code by running a client and a worker, then simulate the assignment of the task to the worker with zk-shell.
+**[TASK]** Complete the code of *worker.py* that retrieve a task assignment and execute it by calling *utils.task*. Again, you may test your code by running a client and a worker, then simulate the assignment of the task to the worker with zk-shell.
 
-**[OPT]** Finish the implementation of *master.py* and test the correctness of your work.
+**[TASK]** Finish the implementation of *master.py* and test the correctness of your work.
 
 ## 3.2. Fault-Tolerance
 
@@ -157,10 +157,10 @@ Your implementation should work correctly in all following scenarios:
 3. **(2/2/1)** workers compete in executing the tasks submitted by the clients; and 
 4. **(2/2/2)** the back-up resumes the job of the master upon a failure.
 
-**[OPT]** Provide evidences that your implementation works correctly in the 4 mentioned scenarios.
+**[TASK]** Provide evidences that your implementation works correctly in the 4 mentioned scenarios.
 You can provide logs and detailed explanations, or use tables, etc.
 
-**[OPT]** Consider scenario 4 and assume that the master lags (e.g., due to a long garbage-collection cycle) instead of crashing.
+**[TASK]** Consider scenario 4 and assume that the master lags (e.g., due to a long garbage-collection cycle) instead of crashing.
 Detail the type of scenario you are facing and how your solution behaves.
 
 ## 3.3 ZooKeeper in Cluster Mode
