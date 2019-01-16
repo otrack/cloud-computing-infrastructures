@@ -111,6 +111,15 @@ To this end, you may use either the console or type the following command line
 
 	gcloud container clusters delete my_cluster --zone=my_zone
 	
+## 3.2. B313 cluster *(intermediate)*
+
+The file `warmup/configs/b313/config` contains the configuration of the cluster running in room b313.
+If you are using the system from outside the campus, you will have to set-up an SSH bridge using the following command:
+	
+	ssh -f -i raspi/pi pirate@157.159.16.96 -L 6443:localhost:6443 -N
+
+It is also necessary to make such a bridge for every service ran in the cluster and which needs to be accessed by some client.
+If your machine is physically in room b313, no bridge is required.
 
 ## 3.3. A cluster of Raspberry Pis *(expert)*
 
