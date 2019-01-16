@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: transactions-%ID%
+  labels:
+    app: "transactions"
+    id: "%ID%"
+spec:
+  restartPolicy: Never
+  containers:
+  - name: server
+    image: "%IMAGE%"
+    imagePullPolicy: "%PULL_IMAGE%"
+    resources:
+      requests:
+        cpu: 0.01
+    env:
+    - name: IP
+      valueFrom:
+        fieldRef:
+          fieldPath: status.podIP
+    - name: CONFIG
+      value: "default-jgroups-google.xml"
+    - name: BUCKET
+      value: "%BUCKET%"
+    - name: BUCKET_KEY
+      value: "%BUCKET_KEY%"
+    - name: BUCKET_SECRET
+      value: "%BUCKET_SECRET%"
