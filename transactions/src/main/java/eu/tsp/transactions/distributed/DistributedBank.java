@@ -35,7 +35,7 @@ public class DistributedBank implements Bank{
   @Override
   public int getBalance(int id) throws IllegalArgumentException{
     // FIXME
-    return 0
+    return 0;
   }
 
   @Override

@@ -4,7 +4,7 @@ The goal of this practical is to implement a distributed banking application.
 Starting from a core of functionalities built around a small set of classes, the system is improved through successive iterations.
 First, we consider a centralized Java design and implement a REST interface.
 Then, the application is containerized and tested with remote clients.
-In a last step, the core is distributed across multiple nodes and we use transaction to maintain data consistency.
+In a last step, the core is distributed across multiple nodes and we use transactions to maintain data consistency.
 
 ## 1. A First Centralized Design
 
