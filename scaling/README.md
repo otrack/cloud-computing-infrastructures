@@ -57,7 +57,7 @@ Because the two containerized programs access different file systems, each of th
 The Docker image should be built using `python:2` as its base image and should expose port `8080`.
 
 **[Q]** Run the container locally and access it to create a pdf document from a jpg image.
-Convert the logo located [here](https://upload.wikimedia.org/wikipedia/en/6/6d/Logo_SP.jpg).
+Convert the logo located [here](https://fr.wikipedia.org/wiki/Fichier:Logo_T%C3%A9l%C3%A9com_SudParis.svg).
 Where is the pdf document on the server?
 
 Our next step consists in executing the Pdfmagic container on Kubernetes.
