@@ -55,7 +55,7 @@ Because the two containerized programs access different file systems, each of th
 
 **[Q]**  Write a Docker file for Pdfmagic under the `pdfmagic` directory.
 The Docker image should be built using `python:2` as its base image and should expose port `8080`.
-(If you are blocked at this question, you may use the file available [here](https://hub.docker.com/layers/0track/pdfmagic/latest/images/sha256-753b38d45529c7d908b1ffbbe333775172edae5b62815559a578b0cdc66d78ef?context=explore).)
+(If you are blocked at this question, you may use the file available [here](https://gist.github.com/d977bdebae3c8214d9b039db62380800).)
 
 **[Q]** Run the container locally and access it to create a pdf document from a jpg image.
 Convert the logo located [here](https://pbs.twimg.com/profile_images/1179368354819252225/BM3hRiGm_400x400.jpg).
