@@ -71,7 +71,7 @@ To this end, we need to proceed in two steps:
 
 These two steps are detailed below.
 
-## 3 Using a container registry [20']
+## 2 Using a container registry [20']
 
 A container registry is a very large database of container images.
 The registry can be private or held by some cloud provider.
@@ -79,7 +79,7 @@ Kubernetes does not enforce the use of a particular registry.
 In what follows, we use [Docker Hub](https://hub.docker.com) as this registry is free for small-scale projects.
 If you already have some preferences for another registry, feel free to use it.
 
-### 3.1 Getting an image
+### 2.1 Getting an image
 
 An image is identified in a registry with a unique identifier of the form `user_id/image_name:tag_name`.
 The field  `user_id` refers to the user that created the container image `image_name`.
@@ -104,7 +104,7 @@ Notice that it is possible to pull an image without actually executing it using 
 
     docker pull user_id/image_name:tag_name	
 
-### 3.2 Publishing an image
+### 2.2 Publishing an image
 
 It is now time to publish the Pdfmagic container image.
 When using the free tier of Docker Hub, every image is publicly available.
@@ -143,7 +143,7 @@ Then, push your image to the repository:
 	
 Your image is now publicly available for any use.
 
-## 4. Deploying the service **[10']**
+## 3. Deploying the service **[10']**
 
 At core, there are two approaches to deploy a container in Kubernetes.
 The first one consists in using the `kubectl run` command.
@@ -162,13 +162,13 @@ You should observe something of the form:
 Expose the pod with `kubectl expose pod pdfmagic --name=pdfmagic --type=NodePort`.
 Access it to transform the logo located [here](https://upload.wikimedia.org/wikipedia/en/6/6d/Logo_SP.jpg).
 
-## 5. Evaluating Pdfmagic **[30']**
+## 4. Evaluating Pdfmagic **[30']**
 
 Our end goal is to make Pdfmagic able to serve multiple clients at a time.
 A first step in this direction is to understand the current behavior of Pdfmagic under various loads.
 To this end, we first create a synthetic workload to exercise the system.
 
-### 5.1 A synthetic workload
+### 4.1 A synthetic workload
 
 Under the `client` directory, there is a proposal of workload.
 This workload consists of two shell scripts: `request.sh` and `client.sh`.
@@ -185,7 +185,7 @@ What is the average time taken by Pdfmagic to answer?
 Plot the service time distribution of Pdfmagic for 100 successive requests.
 (You may use any tool, e.g., [matplotlib](https://matplotlib.org/users/pyplot_tutorial.html), [gnuplot](www.gnuplot.info), or some spreadsheet.)
 
-### 5.2 Multiple clients
+### 4.2 Multiple clients
 
 The next step is to understand the behavior of the system when several clients access it.
 To this end, a third script named `parallel.sh` is available under the `client` directory.
@@ -195,7 +195,7 @@ It takes as input 3 parameters: the Pdfmagic host, the number of clients, and th
 **[Q]** Plot the service latency when 10 clients push concurrently 100 images.
 What do you observe?
 
-## 6. Scaling out the service **[30']**
+## 5. Scaling out the service **[30']**
 
 Our previous analysis tells us that the performance of Pdfmagic degrades when clients are accessing it concurrently.
 To remedy this problem, several approaches are possible.
