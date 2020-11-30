@@ -160,7 +160,7 @@ You should observe something of the form:
 	NAME       READY     STATUS              RESTARTS   AGE
 	pdfmagic   0/1       ContainerCreating   0          2m
 
-Expose the pod with `kubectl expose pod pdfmagic --name=pdfmagic --type=LoadBalancer` (replace `LoadBalancer` with `NodePort` when using minikube).
+Expose the pod with `kubectl expose pod pdfmagic --name=pdfmagic --type=LoadBalancer`.
 Access it to transform the logo.
 
 ## 4. Evaluating Pdfmagic **[30']**
