@@ -161,7 +161,7 @@ You should observe something of the form:
 	pdfmagic   0/1       ContainerCreating   0          2m
 
 Expose the pod with `kubectl expose pod pdfmagic --name=pdfmagic --type=NodePort`.
-Access it to transform the logo located [here](https://upload.wikimedia.org/wikipedia/en/6/6d/Logo_SP.jpg).
+Access it to transform the logo.
 
 ## 4. Evaluating Pdfmagic **[30']**
 
