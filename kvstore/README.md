@@ -24,7 +24,7 @@ Finally, we assess empirically the benefits of consistent hashing over a simpler
 
 JGroups is a library for reliable messaging in group of distributed processes.
 As most group communication library, JGroups is built upon a stack of services.
-A brief description of the different stack is given in the [following](https://docs.google.com/presentation/d/134aGQK7GCI-C9M5L6Bp-jBlEN4fDUabm0kSVwBG3BUg/edit#slide=id.ge81b53032_0_0) slides (page 60 to 68).
+A brief description of the different stack is given in the [following](https://docs.google.com/presentation/d/134aGQK7GCI-C9M5L6Bp-jBlEN4fDUabm0kSVwBG3BUg/edit#slide=id.ge81b53032_0_0) slides (page 63 to 71).
 
 In this practical, we make use of the default JGroups protocol stack.
 We shall use extensively the following three classes:
