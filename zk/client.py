@@ -12,9 +12,9 @@ class Client:
         self.zk = zk
 	
     def submit_task(self):
-		#TO COMPLETE
+        #TO COMPLETE
 		
-	#REACT to changes on the submitted task..				   
+    #REACT to changes on the submitted task..				   
     def task_completed(self,data,stat):
   	  	#TO COMPLETE
 	

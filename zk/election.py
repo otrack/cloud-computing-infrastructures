@@ -14,12 +14,38 @@ class Election:
             logging.debug("not a function "+str(func))
             raise SystemError
         
+        # Ensure the parent path, create if necessary
+        self.path = path
+        zk.ensure_path(path)        
+
+        # Record callback function
+        self.func = func
+
+        # Start election
+        zk.get_children("/master", self.ballot)
+        self.node = zk.create(path+"/election", "",
+            ephemeral=True, sequence=True)        
+            
+        
     def is_leading(self):
         return self.is_leader
 
-	# TODO perform the election
+    # TODO perform the election
     def ballot(self,event):
-                            
+        children = zk.get_children(self.path, watch=self.ballot)
+        children.sort()
+
+        # election logic
+        self.is_leader = self.path+"/"+children[0] == self.node
+        print(self.path+"/"+children[0]+","+self.node+","+str(self.is_leader))
+        
+        # if won then call callback        
+        if self.is_leading():
+            self.func()
+        
+def hello():
+    print("I won the election")
+        
 if __name__ == '__main__':
     zkhost = "127.0.0.1:2181" #default ZK host
     logging.basicConfig(format='%(asctime)s %(message)s',level=logging.DEBUG)
@@ -29,7 +55,7 @@ if __name__ == '__main__':
 
     zk = KazooClient(zkhost)
     zk.start()
-    election = Election(zk,"/master",None,[])
+    election = Election(zk,"/master",hello,[])
         
     while True:
         time.sleep(1)

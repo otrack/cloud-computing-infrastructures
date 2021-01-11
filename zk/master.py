@@ -14,7 +14,7 @@ class Master:
         ##complete initialization...
 		
     
-	#assign tasks 				   
+    #assign tasks 				   
     def assign(self,children):
  	   #todo....
                 
