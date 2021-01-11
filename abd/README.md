@@ -127,6 +127,6 @@ As seen in the course, the read-repair mechanism is necessary when the writer fa
 **[Task]** Implement the read-repair mechanism of ABD. 
 
 *(hint)* 
-To code this part of the algorithm, ww advice you to use a `Pair` object in the value of the `CompletableFuture` (this class is part of the apache-commons-lang3 library). 
+To code this part of the algorithm, we advice you to use a `Pair` object in the value of the `CompletableFuture` (this class is part of the apache-commons-lang3 library). 
 The pair should store the value and its corresponding label computed during the first phase of a read. 
 Both objects are used during the second phase of the read to repair an incomplete write.
