@@ -90,7 +90,7 @@ This last sequence of steps is recalled below:
 **[Q]** Export the Docker image in DockerHub.
 Test your application using the test suite available under `src/test/bin`.
 
-### 3. Distributing the Application
+### 4. Distributing the Application
 
 In this final step, we implement the `DistribuetdBanking` class and distribute the system across multiple nodes.
 To achieve this, we replace the `account` variable in `BaseBanking` with a distributed mapping.
