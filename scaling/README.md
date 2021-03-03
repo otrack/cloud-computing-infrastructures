@@ -152,7 +152,7 @@ The second approach relies on a template file and the command `kubectl create`.
 In what follows, we shall focus on the second approach being more versatile and powerful.
 The file `pdfmagic.yml` inside `pdfmagic` directory contains a draft of a template for the `pdfmagic` service.
 
-**[Q]** Correct the template to use your image by changing the line `image: 0track/pdfmagic:arm`.
+Correct the template to use your image by changing the line `image: 0track/pdfmagic:arm`.
 Deploy a pod by typing `kubectl create -f pdfmagic.yml`.
 Check that the pod is running by typing `kubectl get pod`.
 You should observe something of the form:
