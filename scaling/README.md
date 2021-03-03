@@ -53,7 +53,7 @@ For instance, a malicious user that spawn a shell in the container of program `A
 Say for instance, that `A` uses verson `1.2.2` of library `foo`, and program `B` version `1.3.1`.
 Because the two containerized programs access different file systems, each of them may contain a different version of the `foo` library.
 
-**[Q]**  Write a Docker file for Pdfmagic under the `pdfmagic` directory.
+Write a Docker file for Pdfmagic under the `pdfmagic` directory.
 The Docker image should be built using `python:2` as its base image and should expose port `8080`.
 (If you are blocked at this question, you may use the file available [here](https://gist.github.com/d977bdebae3c8214d9b039db62380800).)
 
