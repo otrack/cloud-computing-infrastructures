@@ -42,6 +42,6 @@ We study key notions such as data consistency, data distribution, replication an
 7. [Concurrency control & replication](https://drive.google.com/open?id=1UFOoTEHiyxdb0u_O37P1m9cKHT6bXEcTkdgF4mmwl3Q)
 8. [Coordination kernels](https://docs.google.com/presentation/d/1jVuYezqp9AgxTaNHWIiAlw5GpgQ0SLBDPNBAQFneOys/edit?usp=sharing)
 9. [The Paxos protocol](https://docs.google.com/presentation/d/1-P4nD8p2uiumkISj3BZ0GFsIvnqvofG3RUxbOYgi_2g/edit?usp=sharing)
-10. [Distributed transactional systems](https://docs.google.com/presentation/d/10pC5K4Sb4XG5U-CFqbPb3e9220ZcYbKLiWtxCVKSx9k/edit?usp=sharing)
+10. [Distributed transactional systems](https://docs.google.com/presentation/d/10pC5K4Sb4XG5UCFqbPb3e9220ZcYbKLiWtxCVKSx9k/edit?usp=sharing)
 11. [Inverted Index (by Emmanuel Bernard)](https://emmanuelbernard.com/presentations/inverted-index/#)
 12. [Replicated Data Consistency for Large Scale Distributed Systems (by Gérald Oster)](https://github.com/otrack/cloud-computing-hands-on/raw/master/lectures/Replicated%20Data%20Consistency%20for%20Large%20Scale%20Distributed%20Systems.pdf)
