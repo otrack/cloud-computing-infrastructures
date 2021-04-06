@@ -36,9 +36,9 @@ We study key notions such as data consistency, data distribution, replication an
 #### List of lectures.
 
 1. [Introduction to cloud computing architectures](https://drive.google.com/open?id=1jejBazViLenC7e80XI1guqZ_a2xo0aEr1wUV9YvBcZ0)
-2. [Hardware virtualization](https://drive.google.com/file/d/1xlIW4dH_5-yFtmwid1qGF8fKPPmoWQRG/view?usp=sharing)
-3. [Operating System-level virtualization](https://drive.google.com/file/d/1xlIW4dH_5-yFtmwid1qGF8fKPPmoWQRG/view?usp=sharing)
-4. [Serverless Computing](https://drive.google.com/file/d/1WpiT3QdDoCd2LzQW3dzKddoqazW2B56t/view?usp=sharing)
+2. [Hardware virtualization (by Mathieu Bacou)](https://drive.google.com/file/d/1xlIW4dH_5-yFtmwid1qGF8fKPPmoWQRG/view?usp=sharing)
+3. [Operating System-level virtualization (by Mathieu Bacou)](https://drive.google.com/file/d/1xlIW4dH_5-yFtmwid1qGF8fKPPmoWQRG/view?usp=sharing)
+4. [Serverless Computing (by Mathieu Bacou)](https://drive.google.com/file/d/1WpiT3QdDoCd2LzQW3dzKddoqazW2B56t/view?usp=sharing)
 5. [Data dissemination](https://drive.google.com/open?id=1PFjyNro_eNDPgBxkUdjGH647y47g3VYLLHmCS_bOpLQ)
 6. [Data distribution](https://drive.google.com/open?id=1s0LRrodaYDGN3xfGit6VR9KYeoAoeRbhELBaYFHaoDU)
 7. [Shared objects & consistency](https://drive.google.com/open?id=1-Uh3iC97elXSUNvwY1G0up-JaLmj-_wV8reS1bPTe8c)
