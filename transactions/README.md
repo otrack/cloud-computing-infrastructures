@@ -1,4 +1,4 @@
-# A Transactional Banking System
+# A Distributed Transactional Banking System
 
 The goal of this practical is to implement a distributed banking application.
 Starting from a core of functionalities built around a small set of classes, the system is improved through successive iterations.
