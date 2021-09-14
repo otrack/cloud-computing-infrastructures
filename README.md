@@ -25,7 +25,7 @@ We study key notions such as data consistency, data distribution, replication an
 
 1. [Basics of Kubernetes](https://github.com/otrack/cloud-computing-hands-on/tree/master/warmup)
 2. [Scaling horizontally a web service](https://github.com/otrack/cloud-computing-hands-on/tree/master/scaling)
-3. [Virtual Machine Management](https://drive.google.com/file/d/1gMfUOJQioDMhtLp62rLoQ8M1U3TIVaI6/view?usp=sharing)
+3. [Virtual machine management](https://drive.google.com/file/d/1gMfUOJQioDMhtLp62rLoQ8M1U3TIVaI6/view?usp=sharing)
 4. [Container.sh](https://drive.google.com/file/d/1BDPXQ3n2o9JYHzN9IGiNGumpqQu9sG1S/view?usp=sharing)
 5. [Traveling in the Big Apple](https://github.com/otrack/cloud-computing-hands-on/tree/master/spark)
 6. [A key-value store (almost) from scratch](https://github.com/otrack/cloud-computing-hands-on/tree/master/kvstore)
