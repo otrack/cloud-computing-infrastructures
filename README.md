@@ -18,7 +18,7 @@ This course studies in detail the new infrastructures that sustain the Cloud.
 We first examine the principles of resources virtualization and how to deploy and orchestrate clusters of virtual machines and containers.
 In a second part, we review some fundamentals of large-scale distributed systems.
 These ideas are then applied in a third part to the construction of modern distributed data stores.
-Such stores run on commodity servers and are able to deliver the massive performance needed by the Cloud computing services.
+Such stores run on commodity servers and are able to deliver the massive performance needed by cloud computing services.
 We study key notions such as data consistency, data distribution, replication and indexing, and we learn how to think for scalability and fault-tolerance, two fundamentals requirements of modern distributed services.
 
 #### List of practicals.
