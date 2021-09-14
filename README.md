@@ -14,7 +14,7 @@ The Cloud also frees information technologies companies from low-level tasks, su
 Finally, by employing cloud services, companies can scale up and down on an as-needed basis, paying only for what they actually use.
 For all these benefits, cloud computing is of pivotal importance today in modern software applications, and as an economical area, it displays a double-digit growth rate per annum for a decade.
 
-This course studies in detail the new infrastructures that sustain the Cloud.
+This course studies in detail the infrastructures that support the Cloud.
 We first examine the principles of resources virtualization and how to deploy and orchestrate clusters of virtual machines and containers.
 In a second part, we review some fundamentals of large-scale distributed systems.
 These ideas are then applied in a third part to the construction of modern distributed data stores.
