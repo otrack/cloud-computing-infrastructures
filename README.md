@@ -8,9 +8,9 @@ This new paradigm results from the merge of three technological advances: the vi
 Typically supported by state-of-the-art data-centers containing ensembles of networked virtual machines, the Cloud delivers a myriad of remote digital services, including Infrastructure as a Service (IaaS), Platform as a Service (PaaS) and Software as a Service (SaaS).
 Using these services, enterprises may offload their computing infrastructure to right-size their expenditure and reduce the time-to-market of their products.
 
-In detail, the Cloud brings several key benefits to mainstream computing.
+More precisely, the Cloud brings several key benefits to mainstream computing.
 First, developers with innovative ideas for new Internet services no longer require large capital outlays in hardware to deploy their services, or human expense to operate them.
-The Cloud also frees information technologies companies from low level tasks, such as setting up basic hardware and software infrastructures.
+The Cloud also frees information technologies companies from low-level tasks, such as setting up basic hardware and software infrastructures.
 Finally, by employing IaaS and Data as a Service (DaaS) services, companies can scale up and down on an as-needed basis, paying only for what they actually use.
 For all these benefits, Cloud computing is of pivotal importance today in modern software applications, and as an economical area, it displays a double-digit growth rate per annum for a decade.
 
