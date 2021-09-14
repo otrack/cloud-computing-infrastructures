@@ -5,14 +5,14 @@
 Cloud computing is a decade-old technology paradigm that enables massively distributed computation and storage.
 This new paradigm results from the merge of three technological advances: the virtualization of computing resources, the collapse of storage costs, and the ubiquitous availability of fast networks.
 
-Typically supported by state-of-the-art data-centers containing ensembles of networked virtual machines (VMs), the Cloud delivers Infrastructure as a Service (IaaS), Platform as a Service (PaaS), Software as a Service (SaaS), and Data as a Service (DaaS).
-Using these services, enterprises may offload their computing infrastructure to right-size their expenditure and reduce the time-to-market of their new products.
+Typically supported by state-of-the-art data-centers containing ensembles of networked virtual machines (VMs), the Cloud delivers a myriad of remote digital services, including Infrastructure as a Service (IaaS), Platform as a Service (PaaS) and Software as a Service (SaaS).
+Using these services, enterprises may offload their computing infrastructure to right-size their expenditure and reduce the time-to-market of their products.
 
-With more details, the Cloud brings several key benefits to mainstream computing.
+In detail, the Cloud brings several key benefits to mainstream computing.
 First, developers with innovative ideas for new Internet services no longer require large capital outlays in hardware to deploy their services, or human expense to operate them.
 The Cloud also frees information technologies companies from low level tasks, such as setting up basic hardware and software infrastructures.
-Finally, by employing IaaS and DaaS services, companies can scale up and down on an as-needed basis, paying only for what they actually use.
-For all these benefits, Cloud computing is of pivotal importance today in modern software applications, and as an economical area, it displays two digits growth rate per annum since 2010.
+Finally, by employing IaaS and Data-as-a-Service (DaaS) services, companies can scale up and down on an as-needed basis, paying only for what they actually use.
+For all these benefits, Cloud computing is of pivotal importance today in modern software applications, and as an economical area, it displays a double-digit growth rate per annum since 2010's.
 
 This course studies in detail the new infrastructures that sustain the Cloud.
 We first examine the principles of resources virtualization and how to deploy and orchestrate clusters of virtual machines and containers.
