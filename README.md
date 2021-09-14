@@ -12,7 +12,7 @@ In detail, the Cloud brings several key benefits to mainstream computing.
 First, developers with innovative ideas for new Internet services no longer require large capital outlays in hardware to deploy their services, or human expense to operate them.
 The Cloud also frees information technologies companies from low level tasks, such as setting up basic hardware and software infrastructures.
 Finally, by employing IaaS and Data as a Service (DaaS) services, companies can scale up and down on an as-needed basis, paying only for what they actually use.
-For all these benefits, Cloud computing is of pivotal importance today in modern software applications, and as an economical area, it displays a double-digit growth rate per annum since the 2010's.
+For all these benefits, Cloud computing is of pivotal importance today in modern software applications, and as an economical area, it displays a double-digit growth rate per annum for a decade.
 
 This course studies in detail the new infrastructures that sustain the Cloud.
 We first examine the principles of resources virtualization and how to deploy and orchestrate clusters of virtual machines and containers.
