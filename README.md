@@ -31,7 +31,7 @@ We study key notions such as data consistency, data distribution, replication an
 6. [A key-value store (almost) from scratch](https://github.com/otrack/cloud-computing-hands-on/tree/master/kvstore)
 7. [A single-writer multiple-readers register in message-passing](https://github.com/otrack/cloud-computing-hands-on/tree/master/abd)
 8. [Coordination in practice with Apache ZooKeeper](https://github.com/otrack/cloud-computing-hands-on/tree/master/zk)
-9. [A Transactional Banking System](https://github.com/otrack/cloud-computing-infrastructures/blob/master/transactions/README.md)
+9. [A transactional banking system](https://github.com/otrack/cloud-computing-infrastructures/blob/master/transactions/README.md)
 
 #### List of lectures.
 
