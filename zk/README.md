@@ -8,7 +8,7 @@ The most common approach to tackle this challenge is to implement redundancy and
 
 In this practical, we will implement fault-tolerance techniques in a distributed setting.
 Your objective is to build a *dependable master/worker architecture* that execute *tasks* dispatched by *clients*.
-To this end, you will leverage [Apache ZooKeeper](zookeeper.apache.org), a scalable and fault-tolerant coordination service.
+To this end, you will leverage [Apache ZooKeeper](https://zookeeper.apache.org/), a scalable and fault-tolerant coordination service.
 
 **Outline.**
 First, we learn the basics of Apache Zookeeper, its internal and how to set-up and start the service.
@@ -36,7 +36,7 @@ ZooKeeper offers an API similar to a file system with some convenient additions 
 
 **[TASK]** Read the slides available [here](https://www.usenix.org/legacy/event/atc10/tech/slides/hunt.pdf) and presenting and overview of the ZooKeeper service.
 
-**[TASK]** Following the official [guidelines](https://zookeeper.apache.org/doc/r3.1.2/zookeeperStarted.html), install ZooKeeper in stand alone mode.
+**[TASK]** Following the official [guidelines](https://zookeeper.apache.org/doc/r3.4.5/zookeeperStarted.html), install ZooKeeper in stand alone mode.
 Start the coordination service.
 
 ## 1.2 ZK-Shell
