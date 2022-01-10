@@ -15,7 +15,7 @@ class Client:
         #TO COMPLETE
 		
     # react to changes on the submitted task..				   
-    def task_completed(self,data):
+    def task_completed(self,data, stat):
   	  	#TO COMPLETE
 	
     def submit_task_loop(self):
