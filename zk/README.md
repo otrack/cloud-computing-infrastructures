@@ -8,7 +8,7 @@ The most common approach to tackle this challenge is to implement redundancy and
 
 In this practical, we will implement fault-tolerance techniques in a distributed setting.
 Your objective is to build a *dependable master/worker architecture* that execute *tasks* dispatched by *clients*.
-To this end, you will leverage [Apache ZooKeeper](zookeeper.apache.org), a scalable and fault-tolerant coordination service.
+To this end, you will leverage [Apache ZooKeeper](https://zookeeper.apache.org/), a scalable and fault-tolerant coordination service.
 
 **Outline.**
 First, we learn the basics of Apache Zookeeper, its internal and how to set-up and start the service.
