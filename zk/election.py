@@ -32,16 +32,7 @@ class Election:
 
     # TODO perform the election
     def ballot(self,event):
-        children = zk.get_children(self.path, watch=self.ballot)
-        children.sort()
-
-        # election logic
-        self.is_leader = self.path+"/"+children[0] == self.node
-        print(self.path+"/"+children[0]+","+self.node+","+str(self.is_leader))
-        
-        # if won then call callback        
-        if self.is_leading():
-            self.func()
+        return None
         
 def hello():
     print("I won the election")
