@@ -36,7 +36,7 @@ ZooKeeper offers an API similar to a file system with some convenient additions 
 
 **[TASK]** Read the slides available [here](https://www.usenix.org/legacy/event/atc10/tech/slides/hunt.pdf) and presenting and overview of the ZooKeeper service.
 
-**[TASK]** Following the official [guidelines](https://zookeeper.apache.org/doc/r3.1.2/zookeeperStarted.html), install ZooKeeper in stand alone mode.
+**[TASK]** Following the official [guidelines](https://zookeeper.apache.org/doc/r3.4.5/zookeeperStarted.html), install ZooKeeper in stand alone mode.
 Start the coordination service.
 
 ## 1.2 ZK-Shell
