@@ -92,7 +92,7 @@ Test your application using the test suite available under `src/test/bin`.
 
 ### 4. Distributing the Application
 
-In this final step, we implement the `DistribuetdBanking` class and distribute the system across multiple nodes.
+In this final step, we implement the `DistributedBanking` class and distribute the system across multiple nodes.
 To achieve this, we replace the `account` variable in `BaseBanking` with a distributed mapping.
 The mapping is implemented with [Infinispan](https://infinispan.org) (ISPN), a NoSQL transactional distributed storage from Red Hat.
 
