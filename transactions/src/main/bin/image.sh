@@ -29,4 +29,4 @@ docker build \
     -t "${IMAGE}" -f "${DOCKERFILE}" .
 
 # push image
-# xdocker push "${IMAGE}"
+# docker push "${IMAGE}"
