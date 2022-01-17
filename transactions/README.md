@@ -103,7 +103,7 @@ At the light of the CAP impossibility result, where does this system stands?
 
 A `Cache` in Infinispan implements a `ConcurrentMap` object as specified in the `java.util.concurrent` package.
 Several operational modes are possible for the cache, synchronous, asynchronous, with or without transactions.
-Depending on the configuration parameters, a cache can be local to a Java application , or spread across several nodes.
+Depending on the configuration parameters, a cache can be local to a Java application, or spread across several nodes.
 
 As a starter, we use a distributed asynchronous cache which runs in the same memory space as the application (embedded mode). 
 This means that the `ConfigurationBuilder` to deploy the cache is written as follows
