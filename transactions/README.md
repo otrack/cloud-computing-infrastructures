@@ -97,7 +97,7 @@ To achieve this, we replace the `account` variable in `BaseBanking` with a distr
 The mapping is implemented with [Infinispan](https://infinispan.org) (ISPN), a NoSQL transactional distributed storage from Red Hat.
 
 **[Q41]** To have an overview of ISPN, read the introduction (Section 1) of the  [documentation](https://infinispan.org/docs/9.4.x/user_guide/user_guide.html).
-Browse through the [online](http://wwwdocumentation) tutorials.
+Browse through the [online](https://infinispan.org/tutorials/simple/simple_tutorials.html) tutorials.
 In particular, we advice you to have a peek at [this](https://github.com/infinispan/infinispan-simple-tutorials/blob/main/infinispan-embedded/cache-distributed/src/main/java/org/infinispan/tutorial/simple/distributed/InfinispanDistributed.java) tutorial.
 At the light of the CAP impossibility result, where does this system stands?
 
