@@ -183,7 +183,8 @@ Validate your implementation of `StoreImpl` by running the method `multipleStore
 In this last part of the practical, we are interested in adding a data migration mechanism to the KVS.
 The mechanism we envision takes place while client accesses to the data store is shut-down, i.e., the service is interrupted.
 
-**[Task]** Propose and implement a mechanism to migrate data upon a view change (in the `viewAccepted` method).
+**[Task]** Propose and implement a mechanism to migrate data upon a view change (in the `viewAccepted` method). 
+For simplicity, only the case where a node is added will be considered.
 
 **[Task]** Validate your implementation by creating a test named `dataMigration` in the `StoreTest` class.
 
