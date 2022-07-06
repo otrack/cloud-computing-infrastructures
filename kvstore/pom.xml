@@ -9,7 +9,7 @@
   <name>kvstore</name>
 
   <properties>
-    <version.jgroups>3.6.14.Final</version.jgroups>
+    <version.jgroups>4.0.0.Final</version.jgroups>
     <version.maven.compiler>3.6.1</version.maven.compiler>
     <version.spark>2.5</version.spark>
     <version.junit>4.10</version.junit>
