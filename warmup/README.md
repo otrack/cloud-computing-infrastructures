@@ -80,7 +80,6 @@ Deploying a k8s cluster in GCP can be done either manually via the [console](htt
 Below, the later is explained using the Google Cloud SDK and in particular the `gcloud` program.
 
 **[Q]** Install then set-up the Google Cloud SDK by following the instructions provided [here](https://cloud.google.com/sdk/install) and [there](https://cloud.google.com/sdk/docs/initializing). 
-In room B313, it is necessary to make use of the [interactive installer](https://cloud.google.com/sdk/docs/downloads-interactive).
 
 GCP is deployed all over the world and split into regions.
 The list of regions and their respective locations is available [here](https://cloud.google.com/compute/docs/regions-zones).
