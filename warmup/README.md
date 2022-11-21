@@ -39,7 +39,7 @@ They provide an overview of the concepts in Kubernetes and how to use it in prac
 ## 3. Selecting a Kubernetes cluster [30']
 
 During the next practicals, you will use a Kubernetes cluster to practice and understand the basics of cloud infrastructures.
-Below, we propose you three possible choices of cluster: the *minikube* emulation program, the *Google Cloud Platform* and a cluster of *Raspberry Pis*.
+Below, we propose you three possible choices of cluster: the *minikube* emulation program or the *Google Cloud Platform*.
 The instructions below explain how to deploy a k8s cluster in each case.
 (Notice that it is possible to use several k8s clusters concurrently simply by switching from one kubectl configuration to another with `kubectl config use-context`.)
 
@@ -53,7 +53,7 @@ In this base approach, we emulate a cluster on a local machine using [minikube](
 Internally, the program launch a kubernetes node inside a virtual machine.
 This is similar to the environment you used in the online tutorial above.
 
-**[Q]** In room B313, the `minikube` program is already installed on every machine.
+**[Q]** To install minikube on your machine, please follow the instructions [here](https://minikube.sigs.k8s.io/docs/start/).
 Launch the program by typing `minikube start`.
 Notice that starting for the first time might take a bit of time -- this is because around 300MB are downloaded.
 
