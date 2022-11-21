@@ -60,7 +60,6 @@ Notice that starting for the first time might take a bit of time -- this is beca
 As a side note, do not forget:
 
 * to *shutdown properly* the VM with `minikube stop` when closing your session.
-   (Otherwise, the shared files in your home directory are not synced.)
 
 * the `minikube --help` command lists sub-commands that may help to manage your local cluster.
 
