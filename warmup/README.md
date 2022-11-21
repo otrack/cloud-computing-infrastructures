@@ -79,6 +79,7 @@ Deploying a k8s cluster in GCP can be done either manually via the [console](htt
 Below, the later is explained using the Google Cloud SDK and in particular the `gcloud` program.
 
 **[Q]** Install then set-up the Google Cloud SDK by following the instructions provided [here](https://cloud.google.com/sdk/install) and [there](https://cloud.google.com/sdk/docs/initializing). 
+You _must_ install a standalone version (using `curl`).
 
 GCP is deployed all over the world and split into regions.
 The list of regions and their respective locations is available [here](https://cloud.google.com/compute/docs/regions-zones).
@@ -103,6 +104,7 @@ To this end, we need to run the commands below.
 The first line installs the `gke-gcloud-auth` plug-in to authenticate us against GCP when accessing the k8s cluster. 
 
         gcloud components install gke-gcloud-auth-plugin
+        export USE_GKE_GCLOUD_AUTH_PLUGIN=True # this line has to be added to your .bashrc (or others) file
         gcloud container clusters get-credentials my_cluster --zone=my_zone
 
 **[Q]** Create a k8s cluster in GCP at the location of your choice.
