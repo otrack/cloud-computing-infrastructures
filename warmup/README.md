@@ -99,7 +99,10 @@ This deployment is made up of one [g1-small](https://cloud.google.com/compute/do
 
 The console allows to follow the creation of the cluster under *Computer -> Kubernetes engine -> clusters*.
 Once the creation is made, we need to retrieve the credentials and store them in the configuration file of kubectl.
+To this end, we need to run the commands below. 
+The first line installs the `gke-gcloud-auth` plug-in to authenticate accesses to the kubernetes cluster. 
 
+        gcloud components install gke-gcloud-auth-plugin
 	gcloud container clusters get-credentials my_cluster --zone=my_zone
 
 **[Q]** Create a k8s cluster in GCP at the location of your choice.
