@@ -103,6 +103,7 @@ To this end, we need to run the commands below.
 The first line installs the `gke-gcloud-auth` plug-in to authenticate accesses to the kubernetes cluster. 
 
         gcloud components install gke-gcloud-auth-plugin
+	
 	gcloud container clusters get-credentials my_cluster --zone=my_zone
 
 **[Q]** Create a k8s cluster in GCP at the location of your choice.
