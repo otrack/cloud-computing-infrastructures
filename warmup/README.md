@@ -95,7 +95,7 @@ For instance, the command below creates a cluster named `my_cluster` in the zone
 This deployment is made up of one [g1-small](https://cloud.google.com/compute/docs/machine-types) machine.
 (A single machine is sufficient for the beginning as we will not use many ressources.)
 
-	gcloud container clusters create my_cluster --zone=europe-west1-b --num-nodes=1 --machine-type=g1-small
+	gcloud container clusters create my_cluster --zone=europe-west1-b --num-nodes=1 --machine-type=g1-small --no-enable-ip-alias
 
 The console allows to follow the creation of the cluster under *Computer -> Kubernetes engine -> clusters*.
 Once the creation is made, we need to retrieve the credentials and store them in the configuration file of kubectl.
