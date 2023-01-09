@@ -58,7 +58,7 @@ The logging mechanism is implemented in the parent class named `Worker`.
 
 ## 2. The ABD algorithm
 
-### 3.1 Initialization 
+### 2.1 Initialization 
 
 The very first step of every implementation consists in initializing the data structures that are used later on.
 ABD makes uses of two variables at each process: 
@@ -70,7 +70,7 @@ In addition, at the writer, ABD uses the variable `max` to store the highest lab
 In the code of the `init` method, properly set-up these variables.
 Then, connect to the JChannel and register the `RegisterImpl` instance as a listener of the channel. 
 
-### 3.2 Quorum system
+### 2.2 Quorum system
 
 Several strategies are possible to implement a quorum system, each having its pros and cons.
 In this practical, we focus on the most common one, i.e., the majority quorum.
@@ -88,7 +88,7 @@ The class `Majority` contains
 **[Task]** Create a field `quorumSystem` in `RegisterImpl`.
 Upon a new view change, initialize this field by creating a new instance of `Majority`. 
 
-### 3.3 Sending and replying to requests
+### 2.3 Sending and replying to requests
 
 In ABD, every client request (read or write) starts by sending some message to a quorum of replicas.
 To leverage this observation, the provided code contains a method named `execute`.
@@ -118,7 +118,7 @@ For the moment, we do not implement the read-repair mechanism.
 
 **[Task]** Validate your implementation using the methods `sequential` and `concurrent` in `RegisterTest`.
 
-## 4. Repairing incomplete writes
+## 3. Repairing incomplete writes
 
 As seen in the course, the read-repair mechanism is necessary when the writer fails in the middle of a write operation.
 
