@@ -37,7 +37,7 @@ Update the file `exp.config` appropriately.
 **[Q]** Test that the functions `clean_all` and `kvs_create` execcute appropriately.
 In particular, a call to `kubectl --context=your_cluster logs kvstore-i` should return that `NNODES` have been created, and that they are part of the system view at each node `kvstore-i`.
 
-## 1. Black-box testing [60']
+## 2. Black-box testing [60']
 
 In the question that follow, we implement the test suite per se. 
 A test puts the storage system under a specific load then evaluates if the system guarantees a particular level of data consistency.
