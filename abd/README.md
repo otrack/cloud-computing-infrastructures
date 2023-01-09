@@ -8,7 +8,7 @@ The shared register implemented by AND is linearizable.
 This means that, from the perspective of a reader/writer, the object behaves as if it was accessed locally.
 
 In what follows, we first present the Java code base from which we start this practical.
-As in the previous lab, we use the [JGroups](www.jgroups.org) library to communicate between nodes in the distributed system.
+As in the previous lab, we use the [JGroups](http://www.jgroups.org) library to communicate between nodes in the distributed system.
 Then, we code ABD by implementing first a quorum system then the functions that handle the clients request.
 For simplicity, we initially omit the read-repair mechanism.
 This mechanism is later added to attain linearizability in case of failures.
