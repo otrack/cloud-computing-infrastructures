@@ -4,7 +4,7 @@ During this lab session, we implement a key-value store (KVS), a basic forms of 
 This abstraction is present in many existing modern storage systems, such as. [Dynamo](https://aws.amazon.com/dynamodb), [Cassandra](http://cassandra.apache.org), [Redis](https://redis.io), or [Infinispan](http://infinispan.org).
 
 To distribute evenly data among nodes, we employ a consistent hashing strategy.
-At a low-level, the dissemination of messages relies on [JGroups](www.jgroups.org) , a widely-used open-source group-communication library.
+At a low-level, the dissemination of messages relies on [JGroups](http://www.jgroups.org) , a widely-used open-source group-communication library.
 
 In what follows, we first give an overview of the JGroups library.
 Then, we present the Java code base from which you will start this practical.
