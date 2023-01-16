@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python
 import time, socket, os, uuid, sys, kazoo, logging, signal, utils
 from election import Election
 from utils import MASTER_PATH
@@ -11,11 +11,12 @@ class Worker:
     def __init__(self,zk):
         self.zk = zk
         self.uuid = uuid.uuid4()
-		#complete by creating and watching proper nodes...		 
-
+	#complete by creating and watching proper nodes..
+        
     #do something upon the change on assignment    
     def assignment_change(self,atask,stat):
-		#to complete
+        pass
+        #to complete
 
 if __name__ == '__main__':
     zk = utils.init()    

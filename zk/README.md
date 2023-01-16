@@ -25,7 +25,7 @@ Items marked **[OPT]** are optional.
 Some knowledge of the Python programming language are mandatory.
 There are plenty of very good tutorials online, and you should be able to learn the basics very quickly.
 A good tutorial is [here](http://www.learnpython.org/en/).
-We rely on Python 2.7, the most recent version of the 2.x series. 
+In this practical, we use Python 3 (2.xx is deprecated).
 
 ## 1.1 ZooKeeper
 

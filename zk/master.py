@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python
 import time, socket, os, uuid, sys, kazoo, logging, signal, utils
 from election import Election
 from utils import MASTER_PATH
@@ -11,12 +11,12 @@ class Master:
     def __init__(self,zk):
         self.master = False
         self.zk = zk
-        ##complete initialization...
-		
+        #complete initialization..		
     
     #assign tasks 				   
     def assign(self,children):
- 	   #todo....
+        pass
+        #to complete
                 
 if __name__ == '__main__':
     zk = utils.init()

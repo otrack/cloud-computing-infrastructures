@@ -12,11 +12,13 @@ class Client:
         self.zk = zk
 	
     def submit_task(self):
-        #TO COMPLETE
+        pass
+        #to complete
 		
     # react to changes on the submitted task..				   
     def task_completed(self,data, stat):
-  	  	#TO COMPLETE
+        pass
+  	#to complete
 	
     def submit_task_loop(self):
         while True:

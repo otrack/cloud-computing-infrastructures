@@ -30,7 +30,7 @@ class Election:
     def is_leading(self):
         return self.is_leader
 
-    # TODO perform the election
+    # complete this to perform the election
     def ballot(self,event):
         return None
         
