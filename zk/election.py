@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python
 import time, socket, os, uuid, sys, kazoo, logging, signal, inspect
 from kazoo.client import KazooClient
 from kazoo.client import KazooState
