@@ -23,7 +23,7 @@ class Election:
 
         # Start election
         zk.get_children("/master", self.ballot)
-        self.node = zk.create(path+"/election", "",
+        self.node = zk.create(path+"/election",
             ephemeral=True, sequence=True)        
             
         
