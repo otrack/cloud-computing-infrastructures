@@ -115,7 +115,7 @@ Infinispan relies on the JGroups library to communicate.
 When running locally, we use the default TCP-based configuration on JGroups (available under `src/main/resources/default-jgroups-tcp.xml`).
 In this configuration, JGroups relies on IP multicast to implement nodes discovery.
 This communication primitive is generally disabled at cloud service providers (like GCP).
-Consequentl, we will use a data bucket in GCP for this task (further details are available [here](http://www.jgroups.org/manual/html/protlist.html#d0e5404)).
+Consequently, we will use a data bucket in GCP for this task (further details are available [here](http://www.jgroups.org/manual/html/protlist.html#d0e5404)).
 
 **[Q42]** In GCP, create a bucket in the [Google Cloud Storage](https://cloud.google.com/storage) menu.
 Notice that bucket names are global, and as a consequence you will have to use a unique name to avoid collisions. 
