@@ -191,7 +191,7 @@ For simplicity, only the case where a node is added will be considered.
 
 **[Task]** Validate your implementation by creating a test named `dataMigration` in the `StoreTest` class.
 
-**[Task]** Implement a round-robbin strategy for data distribution.
+**[Task]** Implement a round-robbin strategy (using a modulo) for data distribution.
 Create a test named `strategyComparison` in `StoreTest`.
 This test should assess the advantage of consistent hashing over a round-robbin strategy.
 (For instance, it may compare the two strategies in regard to the number of integer pairs migrated upon the addition of a node.)
