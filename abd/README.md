@@ -67,7 +67,7 @@ ABD makes uses of two variables at each process:
 In addition, at the writer, ABD uses the variable `max` to store the highest label used so far.
 
 **[Task]** Add the `value`, `label` and `max` fields to `RegisterImpl`.
-In the code of the `init` method, properly set-up these variables.
+In the code of the `open` method, properly set-up these variables.
 Then, connect to the JChannel and register the `RegisterImpl` instance as a listener of the channel. 
 
 ### 2.2 Quorum system
