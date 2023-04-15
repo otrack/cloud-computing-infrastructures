@@ -16,14 +16,14 @@ class Election:
         
         # Ensure the parent path, create if necessary
         self.path = path
-        zk.ensure_path(path)        
+        self.zk.ensure_path(path)        
 
         # Record callback function
         self.func = func
 
         # Start election
-        zk.get_children("/master", self.ballot)
-        self.node = zk.create(path+"/election",
+        self.zk.get_children("/master", self.ballot)
+        self.node = self.zk.create(path+"/election",
             ephemeral=True, sequence=True)        
             
         
