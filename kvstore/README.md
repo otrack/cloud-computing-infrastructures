@@ -84,7 +84,7 @@ The class `StoreImpl<K,V>` is the core of our implementation.
 An instance of`StoreImpl<K,V>` class has a `name`.
 When a client wants to create a KVS, it creates a `StoreManager` and call the `newStore(String name)` method.
 A call to this method first invokes the constructor of the `StoreImpl` class with a provided name (or `StoreManager.DEFAULT_STORE`, if no name is given).
-Then, the store is initialized using the `init()` method and the object is returned to the caller.
+Then, the store is initialized using the `open()` method and the object is returned to the caller.
 
 The class `StoreTest` under the test directory contains two examples of how to use the KVS store.
 The first (JUnit) test `baseOperations` creates a store, then `put` the value `1` under key `42` in the KVS.
@@ -129,7 +129,7 @@ A callable takes care of handling a remote call and answering back to the caller
 The `ExecutorService` is a pool of threads in charge of executing the `Callable` objects.
 
 **[Task]** Add a field named `workers` to the `StoreImpl` class.
-Initialize this field inside the `init` method and using `Executors.newCachedThreadPool()`.
+Initialize this field inside the `open` method and using `Executors.newCachedThreadPool()`.
 
 **[Task]** Add a method `send(Address dst, Command command)` to `StoreImpl`.
 This method pushes a command to `dst` by bundling it inside a JGroups message.
@@ -177,6 +177,9 @@ This method should be synchronized to avoid concurrent accesses on the `pending`
 
 **[Task]** Correct your code to handle the concurrent access to data across `CmdHandler`.
 Validate your implementation of `StoreImpl` by running the method `multipleStores` in `StoreTest`.
+
+**[Tast]** Implement `StoreImpl.close()` to close the JGroups channel and stop the workers.
+Run all the tests at once to check that everything behaves as expected.
 
 ## 4. Data migration
 

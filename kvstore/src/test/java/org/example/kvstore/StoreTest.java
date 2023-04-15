@@ -18,6 +18,8 @@ public class StoreTest {
 
         assert store.put(42, 2).equals(1);
 
+        manager.stop();
+	
     }
 
     @Test
@@ -26,9 +28,9 @@ public class StoreTest {
         Random rand = new Random(System.nanoTime());
 
         StoreManager manager = new StoreManager();
-        Store<Integer, Integer> store1 = manager.newStore();
-        Store<Integer, Integer> store2 = manager.newStore();
-        Store<Integer, Integer> store3 = manager.newStore();
+        Store<Integer, Integer> store1 = manager.newStore("store1");
+        Store<Integer, Integer> store2 = manager.newStore("store2");
+        Store<Integer, Integer> store3 = manager.newStore("store3");
 
         for (int i=0; i<NCALLS; i++) {
             int k = rand.nextInt();
@@ -36,6 +38,8 @@ public class StoreTest {
             store1.put(k, v);
             assert rand.nextBoolean() ? store2.get(k).equals(v) : store3.get(k).equals(v);
         }
+
+	manager.stop();
     }
 
 }

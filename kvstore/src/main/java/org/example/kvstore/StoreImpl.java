@@ -16,7 +16,8 @@ public class StoreImpl<K,V> implements Store<K,V>{
         this.name = name;
     }
 
-    public void init() throws Exception{
+    @Override
+    public void open() throws Exception{
     }
 
     @Override
@@ -32,6 +33,10 @@ public class StoreImpl<K,V> implements Store<K,V>{
     @Override
     public String toString(){
         return "Store#"+name+"{"+data.toString()+"}";
+    }
+
+    @Override
+    public void close(){
     }
 
 }
