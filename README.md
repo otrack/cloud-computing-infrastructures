@@ -27,7 +27,7 @@ We study key notions such as data consistency, data distribution, replication an
 2. [Scaling horizontally a web service](https://github.com/otrack/cloud-computing-hands-on/tree/master/scaling)
 3. [A key-value store (almost) from scratch](https://github.com/otrack/cloud-computing-hands-on/tree/master/kvstore)
 4. [A single-writer multiple-readers register in message-passing](https://github.com/otrack/cloud-computing-hands-on/tree/master/abd)
-5. [Virtual machine management](https://drive.google.com/file/d/1gMfUOJQioDMhtLp62rLoQ8M1U3TIVaI6/view?usp=sharing)
+5. [Virtual machine management](https://www-inf.telecom-sudparis.eu/COURS/CSC5004/practicals/vm-management.pdf)
 6. [Simple container engine](https://www-inf.telecom-sudparis.eu/COURS/CSC5004/practicals/simple-container-engine.pdf)
 7. [Basics of Apache OpenWhisk](https://www-inf.telecom-sudparis.eu/COURS/CSC5004/practicals/basics-openwhisk.pdf)
 8. [Scaling horizontally a web service, revisited](https://www-inf.telecom-sudparis.eu/COURS/CSC5004/practicals/scaling-revisited.pdf)
