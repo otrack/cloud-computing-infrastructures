@@ -38,7 +38,7 @@ class Upload:
         if 'myfile' in x:            
             id=str(uuid.uuid4()) # random uuid
             path=filesdir +'/'+ str(id)
-            fout = open(path+'.jpg','w')
+            fout = open(path+'.jpg','wb')
             fout.write(x.myfile.file.read())
             fout.close()
             delegator.run('convert '+path+'.jpg '+path+'.pdf')
