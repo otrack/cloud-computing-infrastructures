@@ -2,7 +2,6 @@
 
 *<Disclaimer>* 
 This practical assumes that you know the basics of Kubernetes and have a cluster at your disposal with `kubectl` properly set-up.
-Moreover, some guidelines are only provided for [minikube](https://github.com/kubernetes/minikube), the kubernetes cluster emulator.
 *</Disclaimer>* 
 
 We are interested in scaling-up a web service named Pdfmagic.
