@@ -1,7 +1,7 @@
 # Scaling horizontally a web service
 
 *<Disclaimer>* 
-This practical assumes that you know the basics of Kubernetes and have a cluster at your disposal with `kubectl` properly set-up.
+_disclaimer:_ This practical assumes that you know the basics of Kubernetes and have a cluster at your disposal with `kubectl` properly set-up.
 *</Disclaimer>* 
 
 We are interested in scaling-up a web service named Pdfmagic.
