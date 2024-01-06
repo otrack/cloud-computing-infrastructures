@@ -41,7 +41,7 @@ We study key notions such as data consistency, data distribution, replication an
 2. [Data dissemination](https://drive.google.com/open?id=1PFjyNro_eNDPgBxkUdjGH647y47g3VYLLHmCS_bOpLQ)
 3. [Data distribution](https://drive.google.com/open?id=1s0LRrodaYDGN3xfGit6VR9KYeoAoeRbhELBaYFHaoDU)
 4. [Shared objects & consistency](https://drive.google.com/open?id=1-Uh3iC97elXSUNvwY1G0up-JaLmj-_wV8reS1bPTe8c)
-5. [Concurrency control & replication](https://drive.google.com/open?id=1UFOoTEHiyxdb0u_O37P1m9cKHT6bXEcTkdgF4mmwl3Q)
+5. [Protocols for data replication](https://drive.google.com/open?id=1UFOoTEHiyxdb0u_O37P1m9cKHT6bXEcTkdgF4mmwl3Q)
 6. [Hardware virtualization (by Mathieu Bacou)](https://www-inf.telecom-sudparis.eu/COURS/CSC5004/lectures/hardware_virtualization.pdf)
 7. [Operating system-level virtualization (by Mathieu Bacou)](https://www-inf.telecom-sudparis.eu/COURS/CSC5004/lectures/os_virtualization.pdf)
 8. [Serverless computing (by Mathieu Bacou)](https://www-inf.telecom-sudparis.eu/COURS/CSC5004/lectures/serverless.pdf)
