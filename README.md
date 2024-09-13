@@ -2,7 +2,7 @@
 
 #### Abstract.
 
-Cloud computing is a decade-old technology paradigm that enables massively distributed computation and storage.
+Cloud computing is a recent technology that enables massively distributed computation and storage.
 This new paradigm results from the merge of three technological advances: the virtualization of computing resources, the collapse of storage costs, and the ubiquitous availability of fast networks.
 
 Typically supported by state-of-the-art data-centers containing ensembles of networked virtual machines, the Cloud delivers a myriad of remote digital services, including Infrastructure as a Service (IaaS), Platform as a Service (PaaS) and Software as a Service (SaaS).
