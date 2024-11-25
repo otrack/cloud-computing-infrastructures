@@ -96,7 +96,7 @@ For instance, the command below creates a cluster named `my_cluster` in the zone
 This deployment is made up of one [g1-small](https://cloud.google.com/compute/docs/machine-types) machine.
 (A single machine is sufficient for the beginning as we will not use many ressources.)
 
-	gcloud container clusters create my_cluster --zone=europe-west1-b --num-nodes=1 --machine-type=g1-small --no-enable-ip-alias
+	gcloud container clusters create my-cluster --zone=europe-west1-b --num-nodes=1 --machine-type=g1-small --no-enable-ip-alias
 
 The console allows to follow the creation of the cluster under *Computer -> Kubernetes engine -> clusters*.
 Once the creation is made, we need to retrieve the credentials and store them in the configuration file of kubectl.
@@ -105,11 +105,11 @@ The first line installs the `gke-gcloud-auth` plug-in to authenticate us against
 
         gcloud components install gke-gcloud-auth-plugin
         export USE_GKE_GCLOUD_AUTH_PLUGIN=True # this line has to be added to your .bashrc (or others) file
-        gcloud container clusters get-credentials my_cluster --zone=my_zone
+        gcloud container clusters get-credentials my-cluster --zone=my_zone
 
 **[Q]** Create a k8s cluster in GCP at the location of your choice.
 
 As a side note, do not forget to *shutdown properly* the cluster when you have finished using it.
 To this end, you may use either the console or type the following command line
 
-	gcloud container clusters delete my_cluster --zone=my_zone
+	gcloud container clusters delete my-cluster --zone=my_zone
