@@ -105,11 +105,11 @@ The first line installs the `gke-gcloud-auth` plug-in to authenticate us against
 
         gcloud components install gke-gcloud-auth-plugin
         export USE_GKE_GCLOUD_AUTH_PLUGIN=True # this line has to be added to your .bashrc (or others) file
-        gcloud container clusters get-credentials my_cluster --zone=my_zone
+        gcloud container clusters get-credentials my-cluster --zone=my_zone
 
 **[Q]** Create a k8s cluster in GCP at the location of your choice.
 
 As a side note, do not forget to *shutdown properly* the cluster when you have finished using it.
 To this end, you may use either the console or type the following command line
 
-	gcloud container clusters delete my_cluster --zone=my_zone
+	gcloud container clusters delete my-cluster --zone=my_zone
