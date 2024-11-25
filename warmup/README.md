@@ -1,7 +1,7 @@
 # Introduction to Kubernetes
 
 Kubernetes (for short, k8s) is a software to orchestrate containers across a cluster of machines.
-This practical provides an introduction to kubernetes and explains how to access a deployment either on your machine, in room 4A301, or in the Google Cloud Platform.
+This practical provides an introduction to kubernetes and explains how to access a deployment either on your machine, or in the Google Cloud Platform.
 
 Hereafter, we assume some workable knowledge of the [Docker](https://www.docker.com) software to manage containers.
 If this is not the case, and before going further, please follow steps **1-2** of the [Docker tutorial for beginners](https://github.com/docker/labs/tree/master/beginner).
