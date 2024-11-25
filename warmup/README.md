@@ -67,7 +67,7 @@ As a side note, do not forget:
 Minikube runs such a daemon.
 To set-up the access to this daemon, we type `eval $(minikube docker-env)` in the terminal.
 
-## 3.2 Google Cloud Platform *(intermediate)*
+## 3.2 Google Cloud Platform *(intermediate, **default**)* 
 
 Google has provided us with a Google Cloud Platform (GCP) Education Grant.
 Each student has a coupon to use the GCP platform for this course.
