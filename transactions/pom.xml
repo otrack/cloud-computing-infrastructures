@@ -12,7 +12,7 @@
     <version.maven.compiler>3.6.1</version.maven.compiler>
     <version.infinispan>9.4.5.Final</version.infinispan>
     <version.spark>2.5</version.spark>
-    <version.junit>4.10</version.junit>
+    <version.junit>4.13.1</version.junit>
     <version.slf4j>1.7.21</version.slf4j>
   </properties>
 
