@@ -4,17 +4,17 @@ import java.io.Serializable;
 
 public abstract class Command<V> implements Serializable{
 
-    int  tag;
+    int label;
     V v;
 
-    public Command(V v, int tag){
-        this.tag = tag;
+    public Command(V v, int label){
+        this.label = label;
         this.v = v;
 
     }
 
-    public Integer getTag(){
-        return tag;
+    public Integer getLabel(){
+        return label;
     }
 
     public V getValue(){

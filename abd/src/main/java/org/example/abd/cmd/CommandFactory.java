@@ -6,12 +6,12 @@ public class CommandFactory<V> {
         return new ReadRequest();
     }
 
-    public ReadReply<V> newReadReply(V v, int tag){
-        return new ReadReply(v, tag);
+    public ReadReply<V> newReadReply(V v, int label){
+        return new ReadReply(v, label);
     }
 
-    public WriteRequest<V> newWriteRequest(V v, int tag){
-        return new WriteRequest<>(v, tag);
+    public WriteRequest<V> newWriteRequest(V v, int label){
+        return new WriteRequest<>(v, label);
     }
 
     public WriteReply newWriteReply(){
