@@ -4,7 +4,7 @@ Modern computing infrastructures consist of very large clusters of commodity ser
 Inside a cluster, failures are norm.
 For instance, Google [reports](http://www.cnet.com/news/google-spotlights-data-center-inner-workings) that "in each cluster’s first year, it’s typical that 1,000 individual machine failures will occur".
 To ensure high-availability of services under such circumstances, it is necessary to take actions, in particular to mask/hide/tolerate the failures of nodes in the most transparent manner.
-The most common approach to tackle this challenge is to implement redundancy and appropriate failure-handling mechanisms.
+The common approach to tackle such a challenge is to implement redundancy and appropriate failure-handling mechanisms.
 
 In this practical, we will implement fault-tolerance techniques in a distributed setting.
 Your objective is to build a *dependable master/worker architecture* that execute *tasks* dispatched by *clients*.
@@ -32,7 +32,7 @@ In this practical, we use Python 3.
 ZooKeeper is a fault-tolerant coordination kernel.
 It is at the core of the [Hadoop](http://hadoop.apache.org/) stack, a suite of softwares to mine big data.
 A coordination kernel is a type of service that allows a set of machines to synchronize in order to successfully complete a task.
-ZooKeeper offers an API similar to a file system with some convenient additions such as watches, sequential and ephemeral nodes.
+ZooKeeper offers an API similar to a file system with some convenient additions such as watches, sequential, and ephemeral nodes.
 
 **[TASK]** Read the slides available [here](https://www.usenix.org/legacy/event/atc10/tech/slides/hunt.pdf) and presenting an overview of the ZooKeeper service.
 
@@ -91,12 +91,12 @@ One or more clients connected to the ZooKeeper service submit tasks.
 The master assigns tasks to the workers.
 The workers process these tasks and report their results to the clients.
 
-The system must handle and take care of the different faults scenarios that may happen: 
+The system must handle and take care of the different fault scenarios that may happen: 
 the failure of a master, 
 the failure of a worker (before or while it is executing a task), and 
 the failure of a client before its tasks complete. 
 
-For instance, in the case of a the master node failure, a secondary master (the backup) is elected to replace it, while keeping the task processing service available for the clients.
+For instance, in the case of a master node failure, a secondary master (the backup) is elected to replace it, while keeping the task processing service available for the clients.
 An overview of the master/worker architecture is depicted below.
 
 <p align="center">
@@ -140,8 +140,8 @@ A client should:
 6. Repeat 1.
 
 
-To facilitate the implementation of the above architecture, we provide in the Git repository the skeletons of all the above components, as well as some utilities functions that can be used across all components.
-In more details, *client.py*, *worker.py* and *master.py* contain respectively the skeletons for the client, worker and master.
+To facilitate the implementation of the above architecture, we provide in the Git repository the skeletons of all the above components, as well as some utility functions that can be used across all components.
+In more details, *client.py*, *worker.py* and *master.py* contain respectively the skeletons for the client, worker, and master.
 The file *utils.py* includes the definition of a (basic) task, functions to initialize the connection to ZooKeeper, and to stop it upon the reception of a SIGTERM signal.
 
 **[TASK]** Complete the code of *client.py* to submit a task. Test the correctness of your implementation by listing the content of the ZooKeeper tree with zk-shell, and emulating the completion of the task. 
@@ -154,7 +154,7 @@ The file *utils.py* includes the definition of a (basic) task, functions to init
 
 The architecture must be resilient to different fault scenarios.
 Let us denote **C/W/M** the respective number of clients, workers and master in a scenario.
-Your implementation should work correctly in all following scenarios:
+Your implementation should work correctly in all the following scenarios:
 
 1. **(1/1/1)** a worker or a client fails;
 2. **(1/2/1)** a worker fails;
@@ -181,4 +181,4 @@ Once the ZooKeeper servers are functional, you should test your master/worker sy
 
 **[OPT]** What differences with the standalone mode do you observe ? 
 
-**[OPT]** Let one of the ZooKeeper server fail; how does the system react in this scenario ? 
+**[OPT]** Let one of the ZooKeeper server fail. How does the system react in this scenario ? 
