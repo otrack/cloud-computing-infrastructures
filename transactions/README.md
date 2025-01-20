@@ -65,7 +65,7 @@ Keys have the following meaning:
 `local` indicates if the system is deployed in k8s.
 `context` is the kubectl context under which the system is run and `image` defines the Docker image to use.
 Key `pull-image` defines the policy to use when fetching the image from a remote repository (here, DockerHub).
-The number of system nodes is set `nnodes`.
+The number of system nodes is set with key `nnodes`.
 The `exp.config` file also mentions a number of Google storage related parameters (`bucket`, `bucket_key` and `bucket_secret`).
 They are detailed later.
 
