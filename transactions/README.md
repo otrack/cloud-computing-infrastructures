@@ -31,7 +31,7 @@ If not, you may add a few methods to improve the test coverage.
 ### 2. REST Interface
 
 The application is intended to be run as a micro-service, accessible via a REST interface.
-To this end, the `Server` class makes use of the [Spark](http://sparkjava.com) framework.
+To this end, the `Server` class makes use of the [Spark](https://github.com/perwendel/spark) framework.
 This framework defines several functions (e.g., `put`, `post`) to expose with minimal effort an application to an HTTP client.
 
 **[Q21]** In `Server`, implement a handler for doing a transfer in the banking system.
