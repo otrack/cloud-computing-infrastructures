@@ -122,7 +122,7 @@ Notice that bucket names are global, and as a consequence you will have to use a
 Under `Settings`, make your bucket backward compatible and pick a pair `(key,secret)`.
 Update the file `exp.config` appropriately.
 
-Upon deploying the banking application in a container, `run.sh` picks the right JGroups configuraion with the help of the IP address of the container.
+Upon deploying the banking application in a container, `run.sh` picks the right JGroups configuration with the help of the IP address of the container.
 The chosen file is renamed as `jgroups.xml` 
 Hence, to assign a JGroups configuration in `DistributedBank`, you may use the following code:
 
