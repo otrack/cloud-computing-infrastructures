@@ -1,0 +1,109 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Heading styling */
+h1 {
+    font-size: 2rem;
+    color: #444;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#proposal-input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 40%; /* Reduced width */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#add-proposal-btn {
+    margin-left: 10px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#add-proposal-btn:hover {
+    background-color: #0056b3;
+}
+
+/* List styling */
+ul#proposal-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul#proposal-list li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-proposals: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Text and vote container */
+ul#proposal-list li > div {
+    display: flex;
+    gap: 20px; /* Added space between buttons and votes */
+    margin-left: auto; /* Moves the vote buttons to the right */
+}
+
+/* Button styling */
+button {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Upvote Button */
+button[id^="upvote"] {
+    background-color: #28a745; /* Green for upvote */
+}
+
+button[id^="upvote"]:hover {
+    background-color: #218838;
+}
+
+/* Downvote Button */
+button[id^="downvote"] {
+    background-color: #ff5c5c; /* Red for downvote */
+}
+
+button[id^="downvote"]:hover {
+    background-color: #e04848;
+}
+
+/* Votes styling */
+ul#proposal-list li::after {
+    font-weight: bold;
+    color: #666;
+    margin-left: 40px; /* Added extra space for alignment */
+}
