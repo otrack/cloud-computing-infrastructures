@@ -50,3 +50,4 @@ We study key notions such as data consistency, data distribution, replication an
 9. [Coordination in practice with Apache ZooKeeper](https://github.com/otrack/cloud-computing-hands-on/tree/master/zk)
 10. [A transactional banking system](https://github.com/otrack/cloud-computing-infrastructures/blob/master/transactions/README.md)
 11. [Traveling in the Big Apple](https://github.com/otrack/cloud-computing-hands-on/tree/master/spark)
+12. [The bachelor party](https://github.com/otrack/cloud-computing-hands-on/tree/master/localfirst)
