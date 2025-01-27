@@ -29,17 +29,18 @@ Name the map `todos`.
 In addition, create a listener for this map that logs some information in the console when a new entry is added. 
 For this, you can use the pattern `todos.observe(event => {..})`. 
 Test that your code is correct by adding a new proposal once the listener is properly registered.
+You run the code using the `node observer.js` command.
 
 To store the votes of the participants, we use a second map named `votes`. 
 For each proposal identifier, this map stores a YArray. 
 This array contains integers of the form `1` for an upvote and `-1` for a downvote. 
 To obtain the score of the proposal, we simply sum all its votes.
 
-**[Q13]** Create the `votes` map. 
+**[Q14]** Create the `votes` map. 
 Add a listener to the map that display in the console the score of each proposal. 
 Check the correctness of your code by adding proposals for the bachelor party.
 
-**[Q14]** What is the invariant in the application binding variables `todos` and `votes`? 
+**[Q15]** What is the invariant in the application binding variables `todos` and `votes`? 
 Explain why transactions in Yjs can help to maintain this invariant. 
 Amend your code to use a transaction when a new proposal is added to the application.
 
