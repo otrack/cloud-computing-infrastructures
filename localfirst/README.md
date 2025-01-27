@@ -90,7 +90,7 @@ This is done using the following code, where `id` and `score` are respectively t
 
 ```
 
-**[Q24]** Add a listener to each of the upvote and downvote buttons.
+**[Q24]** Add a listener to each of the upvote and downvote buttons. Be careful that when receiving an updates on `votes`, you must use a deep observer to be notified of modifications happening on the maps storing the score of each proposal. That is, the code of the form (`votes.observeDeep(event => {..})`).
 
 **[Q25]** Test now your application.
 In particular, verify that when the websocket server is down, the application still works locally.
