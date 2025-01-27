@@ -1,4 +1,4 @@
-# The Bachelor Party
+# The (local-first) Bachelor Party
 
 You are the best man / woman of a friend and need to prepare his / her bachelor-ette party.
 For this, you decide to write a local-first application that permits the party participants to collaboratively submit proposals of activities.
