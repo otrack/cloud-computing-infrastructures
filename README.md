@@ -33,7 +33,6 @@ We study key notions such as data consistency, data distribution, replication an
 8. [Serverless computing (by Mathieu Bacou)](https://www-inf.telecom-sudparis.eu/COURS/CSC5004/lectures/serverless-computing.pdf)
 9. [Coordination kernels](https://docs.google.com/presentation/d/1jVuYezqp9AgxTaNHWIiAlw5GpgQ0SLBDPNBAQFneOys/edit?usp=sharing)
 10. [Conflict-free replicated data types](https://docs.google.com/presentation/d/1UmvXHwi_zpJ6IB6Zozf5mi3mZdBpk_TQIrAn76iMGFg/edit?usp=drive_link)
-
 11. [The Paxos protocol](https://docs.google.com/presentation/d/1-P4nD8p2uiumkISj3BZ0GFsIvnqvofG3RUxbOYgi_2g/edit?usp=sharing)
 12. [Distributed transactional systems](https://docs.google.com/presentation/d/10pC5K4Sb4XG5U-CFqbPb3e9220ZcYbKLiWtxCVKSx9k/edit?usp=sharing)
 13. [Inverted Index (by Emmanuel Bernard)](https://emmanuelbernard.com/presentations/inverted-index/#)
