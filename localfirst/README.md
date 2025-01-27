@@ -38,6 +38,7 @@ To store the votes of the participants, we use a second map named `votes`.
 For each proposal identifier, this map stores a YArray. 
 This array contains integers of the form `1` for an upvote and `-1` for a downvote. 
 To obtain the score of the proposal, we simply sum all its votes.
+We may create this datat structure using `const ycounter = new Y.Array()`.
 
 **[Q14]** Create the `votes` map. 
 Add a listener to the map that display in the console the score of each proposal. 
