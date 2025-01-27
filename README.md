@@ -37,7 +37,6 @@ We study key notions such as data consistency, data distribution, replication an
 11. [The Paxos protocol](https://docs.google.com/presentation/d/1-P4nD8p2uiumkISj3BZ0GFsIvnqvofG3RUxbOYgi_2g/edit?usp=sharing)
 12. [Distributed transactional systems](https://docs.google.com/presentation/d/10pC5K4Sb4XG5U-CFqbPb3e9220ZcYbKLiWtxCVKSx9k/edit?usp=sharing)
 13. [Inverted Index (by Emmanuel Bernard)](https://emmanuelbernard.com/presentations/inverted-index/#)
-14. [Replicated Data Consistency for Large Scale Distributed Systems (by Gérald Oster)](https://github.com/otrack/cloud-computing-hands-on/raw/master/lectures/Replicated%20Data%20Consistency%20for%20Large%20Scale%20Distributed%20Systems.pdf)
 
 #### List of practicals.
 
