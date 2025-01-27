@@ -4,6 +4,9 @@ You are the best man / woman of a friend and need to prepare his / her bachelor-
 For this, you decide to write a local-first application that permits the party participants to collaboratively submit proposals of activities.
 Participants can also upvote or downvote proposals.
 
+In the first part of this practical, we get familiar with the technologies used.
+The second part is about coding the web application.
+
 ## 1. First steps
 
 To write the application, we will use the [Yjs](https://github.com/yjs/yjs) library.
@@ -44,10 +47,10 @@ Check the correctness of your code by adding proposals for the bachelor party.
 Explain why transactions in Yjs can help to maintain this invariant. 
 Amend your code to use a transaction when a new proposal is added to the application.
 
-## 2. Interface
+## 2. Writing the application
 
-We are now moving to write down the web interface of the application.
-The `bachelor.html`, `bachelor.css` and `bachelor.js` files provide  a skeleton.
+We are now coding the application.
+The `bachelor.html`, `bachelor.css` and `bachelor.js` files provide a skeleton for it.
 The first two files hold the static content of the application, that is an HTML file for presentation and a CSS file for decoration.
 The third file contains the logic of the application.
 
