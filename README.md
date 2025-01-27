@@ -32,10 +32,12 @@ We study key notions such as data consistency, data distribution, replication an
 7. [Operating system-level virtualization (by Mathieu Bacou)](https://www-inf.telecom-sudparis.eu/COURS/CSC5004/lectures/os-virtualization.pdf)
 8. [Serverless computing (by Mathieu Bacou)](https://www-inf.telecom-sudparis.eu/COURS/CSC5004/lectures/serverless-computing.pdf)
 9. [Coordination kernels](https://docs.google.com/presentation/d/1jVuYezqp9AgxTaNHWIiAlw5GpgQ0SLBDPNBAQFneOys/edit?usp=sharing)
-10. [The Paxos protocol](https://docs.google.com/presentation/d/1-P4nD8p2uiumkISj3BZ0GFsIvnqvofG3RUxbOYgi_2g/edit?usp=sharing)
-11. [Distributed transactional systems](https://docs.google.com/presentation/d/10pC5K4Sb4XG5U-CFqbPb3e9220ZcYbKLiWtxCVKSx9k/edit?usp=sharing)
-12. [Inverted Index (by Emmanuel Bernard)](https://emmanuelbernard.com/presentations/inverted-index/#)
-13. [Replicated Data Consistency for Large Scale Distributed Systems (by Gérald Oster)](https://github.com/otrack/cloud-computing-hands-on/raw/master/lectures/Replicated%20Data%20Consistency%20for%20Large%20Scale%20Distributed%20Systems.pdf)
+10. [Conflict-free replicated data types](https://docs.google.com/presentation/d/1UmvXHwi_zpJ6IB6Zozf5mi3mZdBpk_TQIrAn76iMGFg/edit?usp=drive_link)
+
+11. [The Paxos protocol](https://docs.google.com/presentation/d/1-P4nD8p2uiumkISj3BZ0GFsIvnqvofG3RUxbOYgi_2g/edit?usp=sharing)
+12. [Distributed transactional systems](https://docs.google.com/presentation/d/10pC5K4Sb4XG5U-CFqbPb3e9220ZcYbKLiWtxCVKSx9k/edit?usp=sharing)
+13. [Inverted Index (by Emmanuel Bernard)](https://emmanuelbernard.com/presentations/inverted-index/#)
+14. [Replicated Data Consistency for Large Scale Distributed Systems (by Gérald Oster)](https://github.com/otrack/cloud-computing-hands-on/raw/master/lectures/Replicated%20Data%20Consistency%20for%20Large%20Scale%20Distributed%20Systems.pdf)
 
 #### List of practicals.
 
@@ -50,4 +52,4 @@ We study key notions such as data consistency, data distribution, replication an
 9. [Coordination in practice with Apache ZooKeeper](https://github.com/otrack/cloud-computing-hands-on/tree/master/zk)
 10. [A transactional banking system](https://github.com/otrack/cloud-computing-infrastructures/blob/master/transactions/README.md)
 11. [Traveling in the Big Apple](https://github.com/otrack/cloud-computing-hands-on/tree/master/spark)
-12. [The bachelor party](https://github.com/otrack/cloud-computing-hands-on/tree/master/localfirst)
+12. [The (local-first) bachelor party](https://github.com/otrack/cloud-computing-hands-on/tree/master/localfirst)
