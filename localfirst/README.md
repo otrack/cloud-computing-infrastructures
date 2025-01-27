@@ -1,7 +1,7 @@
 # The (local-first) Bachelor Party
 
 You are the best man / woman of a friend and need to prepare his / her bachelor-ette party.
-For this, you decide to write a local-first application that permits the party participants to collaboratively submit proposals of activities.
+For this, you decide to write a local-first web application that permits the party participants to collaboratively submit proposals of activities.
 Participants can also upvote or downvote proposals.
 
 In the first part of this practical, we get familiar with the technologies used.
