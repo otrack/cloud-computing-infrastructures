@@ -9,11 +9,14 @@
   <name>transactions</name>
 
   <properties>
-    <version.maven.compiler>3.6.1</version.maven.compiler>
-    <version.infinispan>9.4.5.Final</version.infinispan>
+    <version.maven.compiler>3.13.0</version.maven.compiler>
+    <maven.compiler.release>17</maven.compiler.release>
+    <version.infinispan>14.0.33.Final</version.infinispan>
+    <version.infinispan-protostream>5.0.12.Final</version.infinispan-protostream>
     <version.spark>2.5</version.spark>
     <version.junit>4.10</version.junit>
     <version.slf4j>1.7.21</version.slf4j>
+    <version.protobuff>3.23.4</version.protobuff>
   </properties>
 
   <organization>
@@ -39,21 +42,25 @@
       <artifactId>infinispan-core</artifactId>
       <version>${version.infinispan}</version>
     </dependency>
-    
+
     <dependency>
-      <groupId>org.infinispan</groupId>
-      <artifactId>infinispan-core</artifactId>
-      <version>${version.infinispan}</version>
-      <type>test-jar</type>
+      <groupId>org.infinispan.protostream</groupId>
+      <artifactId>protostream</artifactId>
+      <version>${version.infinispan-protostream}</version>
     </dependency>
-    
+
     <dependency>
-      <groupId>org.infinispan</groupId>
-      <artifactId>infinispan-commons-test</artifactId>
-      <version>${version.infinispan}</version>
-      <type>test-jar</type>
+      <groupId>org.infinispan.protostream</groupId>
+      <artifactId>protostream-processor</artifactId>
+      <version>${version.infinispan-protostream}</version>
     </dependency>
-    
+
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>${version.protobuff}</version>
+    </dependency>
+
     <!-- test Dependencies -->
     
     <dependency>
@@ -66,14 +73,20 @@
   </dependencies>
 
   <build>
+    <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${version.maven.compiler}</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.infinispan.protostream</groupId>
+              <artifactId>protostream-processor</artifactId>
+              <version>${version.infinispan-protostream}</version>
+            </path>
+          </annotationProcessorPaths>
         </configuration>
       </plugin>
       <plugin>

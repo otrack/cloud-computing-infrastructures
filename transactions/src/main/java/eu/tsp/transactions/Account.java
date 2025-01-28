@@ -1,26 +1,27 @@
 package eu.tsp.transactions;
 
-import java.io.Serializable;
-  
 public class Account {
-  private int id;
-  private int balance;
 
-  public Account(int id, int balance){
-    this.id = id;;
-    this.balance = balance;
-  }
+    int id;
 
-  public int getId(){
-    return this.id;
-  }
+    int balance;
 
-  public int getBalance(){
-    return this.balance;
-  }
+    public Account(int id, int balance) {
+        this.id = id;
+        this.balance = balance;
+    }
 
-  public void setBalance(int balance){
-    this.balance = balance;    
-  }
-  
+    public Account() {}
+
+    public int getId() {
+        return id;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
 }

@@ -113,37 +113,65 @@ This means that the `ConfigurationBuilder` to deploy the cache is written as fol
 
 Infinispan relies on the JGroups library to communicate.
 When running locally, we use the default TCP-based configuration on JGroups (available under `src/main/resources/default-jgroups-tcp.xml`).
-In this configuration, JGroups relies on IP multicast to implement nodes discovery.
+In this configuration, JGroups uses IP multicast to implement nodes discovery.
 This communication primitive is generally disabled at cloud service providers (like GCP).
-Consequently, we will use a data bucket in GCP for this task (further details are available [here](http://www.jgroups.org/manual/html/protlist.html#d0e5404)).
+To make things work in a Kubernetes clusters, we will use a DNS-based discovery service instead.
 
-**[Q42]** In GCP, create a bucket in the [Google Cloud Storage](https://cloud.google.com/storage) menu.
-Notice that bucket names are global, and as a consequence you will have to use a unique name to avoid collisions. 
-Under `Settings`, make your bucket backward compatible and pick a pair `(key,secret)`.
-Update the file `exp.config` appropriately.
-
-Upon deploying the banking application in a container, `run.sh` picks the right JGroups configuration with the help of the IP address of the container.
-The chosen file is renamed as `jgroups.xml` 
-Hence, to assign a JGroups configuration in `DistributedBank`, you may use the following code:
+From now on, the right JGroups configuration file is `src/main/resources/default-jgroups-google.xml`. 
+This file is renamed as `jgroups.xml` when the container is deployed in a Kubernetes cluster (`local=true` in `exp.config`).
+To assign a JGroups configuration in `DistributedBank`, you may use the following code:
 
     GlobalConfigurationBuilder gbuilder = GlobalConfigurationBuilder.defaultClusteredBuilder();
     gbuilder.transport().addProperty("configurationFile", "jgroups.xml");
-	
+
 **[Q43]** Create a variable `accounts` in `DistributedBank` backed by an Infinispan cache.
 Implement the `Bank` interface using `put` and `get` operations, as in `BaseBank`.
 Deploy the application over multiple nodes in GCP (e.g., 3).
-Test the application with the scripts `test.sh` and the flag `concurrent-run`.
-If you set a small number of bank accounts, what do you observe when concurrent operations take place?
+Test the application with the scripts `test.sh`.
+What do you observe and what is the root cause of this problem?
+
+**[Q44]** ISPN relies on protobuf to marshal/un-marshal data between nodes.
+To make the `Account` class understandable with protobuf, we need to anotate it.
+Read the documentation [here](https://infinispan.org/docs/stable/titles/encoding/encoding.html#protostream-sci-implementations_marshalling) and add appropriate protobuf protostream annotations to `Account`.
+
+Annotations are pre-processed at compile time by an appropriate engine.
+This corresponds to the following lines in `pom.xm` which configure the Maven compiler plugin.
+
+	<path>
+	<groupId>org.infinispan.protostream</groupId>
+	<artifactId>protostream-processor</artifactId>
+	<version>${version.infinispan-protostream}</version>
+	</path>
+
+The engine needs some context to automate serialization.
+Namely, it requires to know which protobuf file is generated, for which package, and where.
+
+**[Q45]** To provide such information, create an `AccountSchemaBuilder` class in `tsp.transactions.distributed`.
+This class should extend `org.infinispan.protostream.SerializationContextInitializer`.
+Annotates the class as follows:
+
+	@AutoProtoSchemaBuilder(
+        includeClasses = {Account.class}, // List the classes to include in the schema
+        schemaFileName = "account.proto", // The schema file that will be generated
+        schemaFilePath = "proto/",        // Path where the schema file will be generated
+        schemaPackageName = "eu.tsp.transactions" // Package name for the schema
+	)
+
+Execute again the application and verify that the error is gone.
+
+The benchmark `test.sh` offers also the possibility to run execute multiple operations concurrently;
+this is achieved with the `concurrent-run` flag.
+
+**[Q44]** If you set a small number of bank accounts, what do you observe when concurrent operations take place?
 What is the name of this anomaly?
 
-**[Q44]** To fix the above problem, we use the transaction support provided by Infinispan.
+To fix the above problem, we use the transaction support provided by Infinispan.
 Change the cache object to be transactional.
 This can be done programmatically as follows:
 
     builder.transaction().transactionMode(TransactionMode.TRANSACTIONAL).lockingMode(LockingMode.PESSIMISTIC);
 	
-Modify `performTransfer` to execute a transaction and check that your code is fully functional.
+Modify `performTransfer` to execute a transaction and check that your code is now fully functional.
 
 **[OPT]** To make the system usable, it would be necessary to add data persistence.
 Another interesting option is to replicate accounts across several nodes to improve system availability.
-

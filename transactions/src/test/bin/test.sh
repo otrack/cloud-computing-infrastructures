@@ -19,7 +19,6 @@ if [[ "$1" == "-create" ]]
 then    
     if [ "$(config local)" == "false" ]
     then
-	gsutil rm -r gs://$(config bucket)/* >&/dev/null # clean bucket
     	k8s_create_all_pods
     fi
 elif [[ "$1" == "-delete" ]]

@@ -120,7 +120,7 @@ k8s_pod_name() {
         exit -1
     fi
     local file=$1
-    grep -E "^  name: " ${file} | awk '{ print $2 }'
+    grep -E "^  name: " ${file} | awk '{ print $2 }' | head -n 1
 }
 
 k8s_pod_status() {
@@ -136,7 +136,6 @@ k8s_pod_status() {
 
 k8s_clean_all(){
     k8s_delete_all_pods $(config context) >&/dev/null
-    gsutil rm -r gs://$(config bucket)/* >&/dev/null
     info "cleaned"
 }
 
