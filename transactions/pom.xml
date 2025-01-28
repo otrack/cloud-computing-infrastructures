@@ -14,7 +14,7 @@
     <version.infinispan>14.0.33.Final</version.infinispan>
     <version.infinispan-protostream>5.0.12.Final</version.infinispan-protostream>
     <version.spark>2.5</version.spark>
-    <version.junit>4.10</version.junit>
+    <version.junit>4.13.1</version.junit>
     <version.slf4j>1.7.21</version.slf4j>
     <version.protobuff>3.23.4</version.protobuff>
   </properties>
