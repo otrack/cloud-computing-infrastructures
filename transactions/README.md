@@ -124,13 +124,13 @@ To assign a JGroups configuration in `DistributedBank`, you may use the followin
     GlobalConfigurationBuilder gbuilder = GlobalConfigurationBuilder.defaultClusteredBuilder();
     gbuilder.transport().addProperty("configurationFile", "jgroups.xml");
 
-**[Q43]** Create a variable `accounts` in `DistributedBank` backed by an Infinispan cache.
+**[Q42]** Create a variable `accounts` in `DistributedBank` backed by an Infinispan cache.
 Implement the `Bank` interface using `put` and `get` operations, as in `BaseBank`.
 Deploy the application over multiple nodes in GCP (e.g., 3).
 Test the application with the scripts `test.sh`.
 What do you observe and what is the root cause of this problem?
 
-**[Q44]** ISPN relies on protobuf to marshal/un-marshal data between nodes.
+**[Q43]** ISPN relies on protobuf to marshal/un-marshal data between nodes.
 To make the `Account` class understandable with protobuf, we need to anotate it.
 Read the documentation [here](https://infinispan.org/docs/stable/titles/encoding/encoding.html#protostream-sci-implementations_marshalling) and add appropriate protobuf protostream annotations to `Account`.
 
@@ -146,7 +146,7 @@ This corresponds to the following lines in `pom.xm` which configure the Maven co
 The engine needs some context to automate serialization.
 Namely, it requires to know which protobuf file is generated, for which package, and where.
 
-**[Q45]** To provide such information, create an `AccountSchemaBuilder` class in `tsp.transactions.distributed`.
+**[Q44]** To provide such information, create an `AccountSchemaBuilder` class in `tsp.transactions.distributed`.
 This class should extend `org.infinispan.protostream.SerializationContextInitializer`.
 Annotates the class as follows:
 
@@ -162,7 +162,7 @@ Execute again the application and verify that the error is gone.
 The benchmark `test.sh` offers also the possibility to run execute multiple operations concurrently;
 this is achieved with the `concurrent-run` flag.
 
-**[Q44]** If you set a small number of bank accounts, what do you observe when concurrent operations take place?
+**[Q45]** If you set a small number of bank accounts, what do you observe when concurrent operations take place?
 What is the name of this anomaly?
 
 To fix the above problem, we use the transaction support provided by Infinispan.
