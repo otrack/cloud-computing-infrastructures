@@ -221,13 +221,13 @@ Plot the service latency when 10 clients push concurrently 100 images.
 Make a plot of the time distribution.
 Do you think that this modification is satisfying? 
 
-**[Q]** *(optional)* Analyze the performance of a single instance of Pdfmagic.
+**[Q]** Analyze the performance of a single instance of Pdfmagic.
 For instance, you may scale it horizontally by changing the amount of allocated CPU (in the YAML files, under `resources -> requests -> cpu`).
 Do you think that the idea of scaling-out the service was the right one?
 What is the underlying problem with the implementation of Pdfmagic?
 Try to find a compromise between horizontal and vertical scale-up to accomodate at best the 10 clients.  
 
-**[Q]** *(optional)* Transform the workload `client.sh` into a Kubernetes [job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion).
+**[Q]** Transform the workload `client.sh` into a Kubernetes [job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion).
 Run a workload with 50 parallel clients.
 Plot the latency of the service over time.
 What is the advantage of having jobs over the previous approach to measure service performance? 
