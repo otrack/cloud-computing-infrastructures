@@ -13,13 +13,6 @@ The last part of this lab refines the internal of the KVS to scale (up or down) 
 As the system is stateful, this requires to create a mechanism to migrate data.
 Finally, we assess empirically the benefits of consistent hashing over a simpler round-robin strategy to distribute data.
 
-<!-- 
-	bug with name of the KVS when all students using the same name
-	unit test consistent hashing
-	underline the fact that get and put should first check that the code is local
--->
-
-
 ## 1. The JGroups library
 
 JGroups is a library for reliable messaging in group of distributed processes.
