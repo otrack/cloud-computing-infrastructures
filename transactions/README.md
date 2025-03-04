@@ -85,7 +85,7 @@ This last sequence of steps is recalled below:
     gcloud container clusters get-credentials ${CLUSTER_NAME} --zone ${ZONE_NAME}  
     kubectl config set-context ${CLUSTER_NAME}  --cluster=gke_${GCP_PROJECT}_${ZONE_NAME}_${CLUSTER_NAME} --user=gke_${GCP_PROJECT}_${ZONE_NAME}_${CLUSTER_NAME}  
 
-**[Q34]** Export the Docker image in DockerHub.
+**[Q33]** Export the Docker image in DockerHub.
 Test your application using the test suite available under `src/test/bin`.
 
 ### 4. Distributing the Application
