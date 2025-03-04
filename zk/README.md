@@ -181,4 +181,4 @@ Once the ZooKeeper servers are functional, you should test your master/worker sy
 
 **[OPT]** What differences with the standalone mode do you observe ? 
 
-**[OPT]** Let one of the ZooKeeper server fail. How does the system react in this scenario ? 
+**[OPT]** Let one of the ZooKeeper servers fail. How does the system react in this scenario ? 
