@@ -1,9 +1,10 @@
 ## Cloud Computing Infrastructures
 
-#### Abstract.
+#### Context.
 
 Cloud computing is a recent technology that enables massively distributed computation and storage.
-This new paradigm results from the merge of three technological advances: the virtualization of computing resources, the collapse of storage costs, and the ubiquitous availability of fast networks.
+This new paradigm results from the merge of three technological advances: 
+the virtualization of computing resources, the collapse of storage costs, and the ubiquitous availability of fast networks.
 
 Typically supported by state-of-the-art data-centers containing ensembles of networked virtual machines, the Cloud delivers a myriad of remote digital services, including Infrastructure as a Service (IaaS), Platform as a Service (PaaS) and Software as a Service (SaaS).
 Using these services, enterprises may offload their computing infrastructure to right-size their expenditure and reduce the time-to-market of their products.
@@ -14,12 +15,17 @@ The Cloud also frees information technologies companies from low-level tasks, su
 Finally, by employing cloud services, companies can scale up and down on an as-needed basis, paying only for what they actually use.
 For all these benefits, cloud computing is of pivotal importance today in modern software applications, and as an economical area, it displays a double-digit growth rate per annum for a decade.
 
-This course studies in detail the infrastructures that support the Cloud.
-We first examine the principles of resources virtualization and how to deploy and orchestrate clusters of virtual machines and containers.
-In a second part, we review some fundamentals of large-scale distributed systems.
-These ideas are then applied in a third part to the construction of modern distributed data stores.
-Such stores run on commodity servers and are able to deliver the massive performance needed by cloud services.
-We study key notions such as data consistency, data distribution, replication and indexing, and we learn how to think for scalability and fault-tolerance, two fundamentals requirements of modern distributed applications.
+#### Content.
+
+The course studies in detail the key infrastructures that support the cloud. 
+It first examines the principles of resources virtualization and how to deploy and orchestrate clusters of virtual machines and containers. 
+In a second part, it reviews the fundamentals of large-scale distributed systems. 
+These ideas are then applied in a third part to the construction of modern distributed data stores. 
+These stores run on commodity servers and are able to deliver the massive performance needed by cloud services.
+
+In this course, students learn key notions such as data consistency, data distribution and replication, data indexing, and learn how to think about scalability and fault-tolerance, two fundamentals requirements for modern distributed applications.
+
+The course is given in the curriculum of [Télécom SudParis](https://www.telecom-sudparis.eu/) as well as part of the [Parallel and Distributed Systems](https://cs.ip-paris.fr/courses/tracks/pds/?page=main) (PDS) Master at [Institut Polytechnique de Paris](https://www.ip-paris.fr/).
 
 #### List of lectures.
 
