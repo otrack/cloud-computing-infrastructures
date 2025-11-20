@@ -53,7 +53,7 @@ The course is given in the curriculum of [Télécom SudParis](https://www.teleco
 6. [Simple container engine](https://www-inf.telecom-sudparis.eu/COURS/CSC5004/practicals/simple-container-engine.pdf)
 7. [Basics of Apache OpenWhisk](https://www-inf.telecom-sudparis.eu/COURS/CSC5004/practicals/basics-openwhisk.pdf)
 8. [Scaling horizontally a web service, revisited](https://www-inf.telecom-sudparis.eu/COURS/CSC5004/practicals/scaling-revisited.pdf)
-9. [Coordination in practice with Apache ZooKeeper](https://github.com/otrack/cloud-computing-hands-on/tree/master/zk)
+9. [Coordination in practice with etcd](https://github.com/otrack/cloud-computing-hands-on/tree/master/etcd) ([old](https://github.com/otrack/cloud-computing-hands-on/tree/master/zk) version using ZooKeeper)
 10. [A transactional banking system](https://github.com/otrack/cloud-computing-infrastructures/blob/master/transactions/README.md)
 11. [Traveling in the Big Apple](https://github.com/otrack/cloud-computing-hands-on/tree/master/spark)
 12. [The (local-first) bachelor party](https://github.com/otrack/cloud-computing-hands-on/tree/master/localfirst)
