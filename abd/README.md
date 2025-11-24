@@ -1,4 +1,4 @@
-# A Single-Writer Multiple-Readers Register for Message-passing Systems
+# A Single-Writer Multiple-Readers Register in Message passing
 
 The objective of this lab is to implement the ABD algorithm of Attiya et al.
 ABD allows to share a register among a set of distributed processes in a message-passing system.
