@@ -39,7 +39,7 @@ They provide an overview of the concepts in Kubernetes and how to use it in prac
 ## 3. Selecting a Kubernetes cluster [30']
 
 During the next practicals, you will use a Kubernetes cluster to practice and understand the basics of cloud infrastructures.
-Below, we propose you three possible choices of cluster: the *minikube* emulation program or the *Google Cloud Platform*.
+Below, we propose you two possible choices of cluster: the *minikube* emulation program or the *Google Cloud Platform*.
 The instructions below explain how to deploy a k8s cluster in each case.
 (Notice that it is possible to use several k8s clusters concurrently simply by switching from one kubectl configuration to another with `kubectl config use-context`.)
 
