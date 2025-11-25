@@ -27,7 +27,7 @@ In case you do not have sudoer rights on the machine you are using, you may inst
 Then, add this directory to the `$PATH` variable by modifying appropriately `~/.bashrc`.
 For the moment, there is no need to configure kubectl and you may skip this part of the guide.
 
-**[Q]** Install the completion for the `kubectl` command, as explained [here](https://kubernetes.io/docs/tasks/tools/included/).
+**[Q]** Install the completion for the `kubectl` command, as explained [here](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_completion/).
 
 ## 2. Learning the basics [60']
 
