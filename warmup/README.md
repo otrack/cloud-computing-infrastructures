@@ -78,7 +78,7 @@ Use the online [calculator](https://cloud.google.com/products/calculator/#tab=co
 Deploying a k8s cluster in GCP can be done either manually via the [console](https://console.cloud.google.com), or programmatically.
 Below, the later is explained using the Google Cloud SDK and in particular the `gcloud` program.
 
-**[Q]** Install then set-up the Google Cloud SDK by following the instructions provided [here](https://cloud.google.com/sdk/install) and [there](https://cloud.google.com/sdk/docs/initializing). 
+**[Q]** Install then set-up the Google Cloud SDK by following the instructions provided [here](https://cloud.google.com/sdk/install) and [there](https://cloud.google.com/sdk/docs/initializing) (skip the what's next part). 
 You _must_ install a standalone version (using `curl`).
 
 GCP is deployed all over the world and split into regions.
