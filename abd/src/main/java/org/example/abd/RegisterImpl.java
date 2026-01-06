@@ -20,16 +20,13 @@ public class RegisterImpl<V> extends ReceiverAdapter implements Register<V>{
         this.factory = new CommandFactory<>();
     }
 
-    public void open(boolean isWritable) throws Exception{}
-
     @Override
     public void viewAccepted(View view) {}
 
     // Client part
 
     @Override
-    public void open() {
-    }
+    public void open(boolean isWritable) throws Exception {}
 
     @Override
     public V read() {

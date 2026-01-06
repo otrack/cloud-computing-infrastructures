@@ -2,7 +2,7 @@ package org.example.abd;
 
 public interface Register<V> {
 
-    void open();
+    void open(boolean isWritable) throws Exception;
 
     V read();
 
