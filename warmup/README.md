@@ -23,11 +23,11 @@ With Kubernetes, you are able to:
 
 To operate a kubernetes cluster, we use the `kubectl` program.
 To install this program, please read the [following](https://kubernetes.io/docs/tasks/tools/install-kubectl) guide.
-In case you do not have sudoer rights on the machine you are using, you may install `kubectl` under `~/.local/bin` (or any other appropriate directory) as detailed [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-using-curl).
+In case you do not have sudoer rights on the machine you are using, you may install `kubectl` under `~/.local/bin` (or any other appropriate directory).
 Then, add this directory to the `$PATH` variable by modifying appropriately `~/.bashrc`.
 For the moment, there is no need to configure kubectl and you may skip this part of the guide.
 
-**[Q]** Install the completion for the `kubectl` command, as explained [here](https://kubernetes.io/docs/tasks/tools/included/).
+**[Q]** Install the completion for the `kubectl` command, as explained [here](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_completion/).
 
 ## 2. Learning the basics [60']
 
@@ -39,7 +39,7 @@ They provide an overview of the concepts in Kubernetes and how to use it in prac
 ## 3. Selecting a Kubernetes cluster [30']
 
 During the next practicals, you will use a Kubernetes cluster to practice and understand the basics of cloud infrastructures.
-Below, we propose you three possible choices of cluster: the *minikube* emulation program or the *Google Cloud Platform*.
+Below, we propose you two possible choices of cluster: the *minikube* emulation program or the *Google Cloud Platform*.
 The instructions below explain how to deploy a k8s cluster in each case.
 (Notice that it is possible to use several k8s clusters concurrently simply by switching from one kubectl configuration to another with `kubectl config use-context`.)
 
@@ -78,7 +78,7 @@ Use the online [calculator](https://cloud.google.com/products/calculator/#tab=co
 Deploying a k8s cluster in GCP can be done either manually via the [console](https://console.cloud.google.com), or programmatically.
 Below, the later is explained using the Google Cloud SDK and in particular the `gcloud` program.
 
-**[Q]** Install then set-up the Google Cloud SDK by following the instructions provided [here](https://cloud.google.com/sdk/install) and [there](https://cloud.google.com/sdk/docs/initializing). 
+**[Q]** Install then set-up the Google Cloud SDK by following the instructions provided [here](https://cloud.google.com/sdk/install) and [there](https://cloud.google.com/sdk/docs/initializing) (skip the what's next part). 
 You _must_ install a standalone version (using `curl`).
 
 GCP is deployed all over the world and split into regions.

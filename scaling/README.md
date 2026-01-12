@@ -1,4 +1,4 @@
-# Scaling horizontally a web service
+# Scaling Horizontally a Web Service
 
 *<Disclaimer>* 
 _Disclaimer:_ This practical assumes that you know the basics of Kubernetes and have a cluster at your disposal with `kubectl` properly set-up.

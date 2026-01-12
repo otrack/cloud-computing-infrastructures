@@ -69,7 +69,7 @@ The addresses of the nodes in the view are available as a [list](http://www.jgro
 
 The implementation of the ring is based on the fact that a JGroups address is per default a `org.jgroups.UUID`.
 As a consequence, for some address `addr` the return value of `addr.hashcode()` is [portable](http://www.jgroups.org/javadoc/org/jgroups/util/UUID.html#hashCode--) across machines.
-Thanks to o this observation, to add an address to the ring, we simply use its hash code.
+Thanks to this observation, to add an address to the ring, we simply use its hash code.
 
 ### 2.4 Data storage
 
