@@ -104,7 +104,7 @@ For instance, in the case of a master node failure, a secondary master (the back
 An overview of the master/worker architecture is depicted below.
 
 <p align="center">
-<img src="https://github.com/otrack/cloud-computing-infrastructure/blob/master/cloud/etcd/architecture.png" width="600">
+<img src="https://github.com/otrack/cloud-computing-infrastructure/blob/master/etcd/architecture.png" width="600">
 </p>
 
 **[Task]** What kind of usage do you see of the master/worker type of architecture?
