@@ -107,6 +107,8 @@ An overview of the master/worker architecture is depicted below.
 <img src="https://github.com/otrack/cloud-computing-infrastructure/blob/master/cloud/etcd/architecture.png" width="600">
 </p>
 
+**[Task]** What kind of usage do you see of the master/worker type of architecture?
+
 ## 3.1 The master and worker components
 
 In our implementation of the master/worker architecture, we use etcd for all the communications  between clients, workers, the master and its backup(s).
