@@ -103,11 +103,11 @@ the failure of a client before its tasks complete.
 For instance, in the case of a master node failure, a secondary master (the backup) is elected to replace it, while keeping the task processing service available for the clients.
 An overview of the master/worker architecture is depicted below.
 
+**[Task]** What kind of usage do you see of the master/worker type of architecture?
+
 <p align="center">
 <img src="https://github.com/otrack/cloud-computing-infrastructures/blob/master/etcd/architecture.png" width="600">
 </p>
-
-**[Task]** What kind of usage do you see of the master/worker type of architecture?
 
 ## 3.1 The master and worker components
 
