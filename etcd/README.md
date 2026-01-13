@@ -28,7 +28,7 @@ This practical uses the Python programming language.
 
 etcd is a distributed reliable key-value store for the most critical data of a distributed system.
 It is written in Go and uses the Raft consensus algorithm to manage a highly-available replicated log.
-etcd is used in production by many companies including Kubernetes, which uses it as its primary datastore for cluster configuration and state.
+etcd is used in production by many companies and services, including Kubernetes, which uses it as its primary datastore for cluster configuration and state.
 etcd offers a key-value API with support for watch operations, lease-based key expiration, and atomic compare-and-swap operations.
 
 **[Task]** Following the official [installation guide](https://etcd.io/docs/latest/install/), install etcd in standalone mode.
