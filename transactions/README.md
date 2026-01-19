@@ -173,8 +173,7 @@ Then, run the concurrent test with a small number of accounts and verify that th
 
 **[Q51]** Now let's add data replication for fault tolerance. 
 Deploy additional Cassandra nodes to create a cluster.
-
-Deploy two more Cassandra nodes (cassandra-2 and cassandra-3):
+For instance, we may add the nodes cassandra-2 and cassandra-3 as follows:
 
     kubectl apply -f cassandra-2.yaml
     kubectl apply -f cassandra-3.yaml
