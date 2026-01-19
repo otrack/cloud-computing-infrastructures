@@ -15,15 +15,8 @@ spec:
       requests:
         cpu: 0.1
     env:
-    - name: IP
-      valueFrom:
-        fieldRef:
-          fieldPath: status.podIP
-    - name: CONFIG
-      value: "default-jgroups-google.xml"
-    - name: BUCKET
-      value: "%BUCKET%"
-    - name: BUCKET_KEY
-      value: "%BUCKET_KEY%"
-    - name: BUCKET_SECRET
-      value: "%BUCKET_SECRET%"
+    - name: CASSANDRA_HOST
+      value: "cassandra.default.svc.cluster.local"
+    - name: CASSANDRA_PORT
+      value: "9042"
+

@@ -8,7 +8,7 @@ CONFIG_FILE="${DIR}/exp.config"
 config() {
     if [ $# -ne 1 ]; then
         echo "usage: config key"
-        exit 1
+        exit -1
     fi
     local key=$1
     cat ${CONFIG_FILE} | grep -E "^${key}=" | cut -d= -f2
@@ -30,7 +30,7 @@ log() {
 k8s_create() {
     if [ $# -ne 2 ] && [ $# -ne 3 ]; then
         echo "usage: k8s_create template.yaml context [id]"
-        exit 1
+        exit -1
     fi
     local template=$1
     local context=$2
@@ -68,7 +68,7 @@ k8s_create() {
 k8s_delete() {
     if [ $# -ne 2 ] && [ $# -ne 3 ]; then
         echo "usage: k8s_delete template.yaml context [id]"
-        exit 1
+        exit -1
     fi
     local template=$1
     local context=$2
@@ -80,8 +80,8 @@ k8s_delete() {
     # loop until pod is down
     while [ "${pod_status}" != "NotFound" ]; do
         kubectl --context="${context}" delete pod ${pod_name} \
-		--grace-period=0 --force \
-		>&/dev/null
+            --grace-period=0 --force \
+            >&/dev/null
         sleep 1
         pod_status=$(k8s_pod_status ${context} ${pod_name})
     done
@@ -100,16 +100,13 @@ k8s_create_all_pods(){
 
 k8s_delete_all_pods() {
     local context=$(config context)
-    local service=$(cat ${CONFIG_FILE} | grep -ioh "/.*:" | sed s,[/:],,g)
-    
-    # Delete only service pods
-    kubectl --context=${context} delete pods -l app=${service} \
+    kubectl --context=${context} delete pods --all \
 	    --grace-period=0 --force \
 	    2>/dev/null &
 
-    # wait for service pods to terminate
+    # wait for all pods to terminate
     while [ "${empty}" != "1" ]; do
-        empty=$(kubectl --context=${context} get pods -l app=${service} 2>&1 |
+        empty=$(kubectl --context=${context} get pods 2>&1 |
 		    grep "No resources found" |
 		    wc -l |
 		    xargs echo
@@ -120,7 +117,7 @@ k8s_delete_all_pods() {
 k8s_pod_name() {
     if [ $# -ne 1 ]; then
         echo "usage: k8s_pod_name file"
-        exit 1
+        exit -1
     fi
     local file=$1
     grep -E "^  name: " ${file} | awk '{ print $2 }' | head -n 1
@@ -129,7 +126,7 @@ k8s_pod_name() {
 k8s_pod_status() {
     if [ $# -ne 2 ]; then
         echo "usage: k8s_pod_status context pod_name"
-        exit 1
+        exit -1
     fi
     local context=$1
     local pod_name=$2
@@ -151,7 +148,6 @@ k8s_get_service(){
 	proxy=$(kubectl --context="${context}" get svc ${service} -o yaml | grep ip | awk '{print $3}')
         sleep 1
     done
-    proxy=$(echo "${proxy}" | tr -d '[:space:]')
     info "service ${service} @ ${proxy}"
     echo ${proxy}
 }

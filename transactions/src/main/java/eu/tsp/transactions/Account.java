@@ -3,15 +3,20 @@ package eu.tsp.transactions;
 public class Account {
 
     int id;
-
     int balance;
+    String countryCode;
 
-    public Account(int id, int balance) {
+    // Constructor with country code
+    public Account(int id, int balance, String countryCode) {
         this.id = id;
         this.balance = balance;
+        this.countryCode = countryCode;
     }
 
-    public Account() {}
+    // Constructor with default country code
+    public Account(int id, int balance) {
+        this(id, balance, "FR");
+    }
 
     public int getId() {
         return id;
@@ -23,5 +28,13 @@ public class Account {
 
     public void setBalance(int balance) {
         this.balance = balance;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
     }
 }

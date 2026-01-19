@@ -11,18 +11,3 @@ spec:
     targetPort: 8080
   type: LoadBalancer
 
----
-
-kind: Service
-apiVersion: v1
-metadata:
-  name: jgroups
-  namespace: default
-spec:
-  clusterIP: None
-  selector:
-    app: "transactions"
-  ports:
-    - protocol: TCP
-      port: 7600
-

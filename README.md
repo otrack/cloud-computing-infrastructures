@@ -54,6 +54,6 @@ The course is given in the curriculum of [Télécom SudParis](https://www.teleco
 7. [Basics of Apache OpenWhisk](https://www-public9.imtbs-tsp.eu/~mbacou/cours/practicals/basics-openwhisk.pdf)
 8. [Scaling horizontally a web service, revisited](https://www-public9.imtbs-tsp.eu/~mbacou/cours/practicals/scaling-revisited.pdf)
 9. [Coordination in practice with etcd](https://github.com/otrack/cloud-computing-hands-on/tree/master/etcd) ([old](https://github.com/otrack/cloud-computing-hands-on/tree/master/zk) version using ZooKeeper)
-10. [A transactional banking system](https://github.com/otrack/cloud-computing-infrastructures/blob/master/transactions/README.md)
+10. [A transactional banking system](https://github.com/otrack/cloud-computing-infrastructures/blob/master/transactions/README.md) ([old](https://github.com/otrack/cloud-computing-hands-on/tree/master/ispn/transactions) version using Infinispan)
 11. [Traveling in the Big Apple](https://github.com/otrack/cloud-computing-hands-on/tree/master/spark)
 12. [The (local-first) bachelor party](https://github.com/otrack/cloud-computing-hands-on/tree/master/localfirst)

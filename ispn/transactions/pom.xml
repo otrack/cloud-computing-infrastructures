@@ -11,10 +11,12 @@
   <properties>
     <version.maven.compiler>3.13.0</version.maven.compiler>
     <maven.compiler.release>17</maven.compiler.release>
-    <version.cassandra-driver>4.19.2</version.cassandra-driver>
+    <version.infinispan>14.0.33.Final</version.infinispan>
+    <version.infinispan-protostream>5.0.12.Final</version.infinispan-protostream>
     <version.spark>2.5</version.spark>
     <version.junit>4.10</version.junit>
     <version.slf4j>1.7.21</version.slf4j>
+    <version.protobuff>3.23.4</version.protobuff>
   </properties>
 
   <organization>
@@ -36,15 +38,27 @@
     </dependency>
 
     <dependency>
-      <groupId>org.apache.cassandra</groupId>
-      <artifactId>java-driver-core</artifactId>
-      <version>${version.cassandra-driver}</version>
+      <groupId>org.infinispan</groupId>
+      <artifactId>infinispan-core</artifactId>
+      <version>${version.infinispan}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.apache.cassandra</groupId>
-      <artifactId>java-driver-query-builder</artifactId>
-      <version>${version.cassandra-driver}</version>
+      <groupId>org.infinispan.protostream</groupId>
+      <artifactId>protostream</artifactId>
+      <version>${version.infinispan-protostream}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.infinispan.protostream</groupId>
+      <artifactId>protostream-processor</artifactId>
+      <version>${version.infinispan-protostream}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>${version.protobuff}</version>
     </dependency>
 
     <!-- test Dependencies -->
@@ -65,6 +79,15 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${version.maven.compiler}</version>
+        <configuration>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.infinispan.protostream</groupId>
+              <artifactId>protostream-processor</artifactId>
+              <version>${version.infinispan-protostream}</version>
+            </path>
+          </annotationProcessorPaths>
+        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-dependency-plugin</artifactId>

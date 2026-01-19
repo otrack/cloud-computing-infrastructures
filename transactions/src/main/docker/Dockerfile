@@ -1,19 +1,16 @@
-FROM openjdk:17-slim
+FROM eclipse-temurin:17.0.17_10-jre
 
 ENV NAME=transactions
-ENV BUCKET=undefined
-ENV BUCKET_KEY=undefined
-ENV BUCKET_SECRET=undefined
-ENV IP=127.0.0.1
+ENV CASSANDRA_HOST=cassandra
+ENV CASSANDRA_PORT=9042
+ENV COUNTRY_CODE=FR
 ENV JAR=$NAME-1.0.jar
 
 WORKDIR $NAME
 
 ADD target/$JAR .
 ADD target/lib lib
-ADD src/main/resources/default-jgroups-tcp.xml  .
-ADD src/main/resources/default-jgroups-google.xml  .
 ADD src/main/bin/run.sh  .
 RUN chmod +x .
 
-CMD ["bash", "/transactions/run.sh"]
+CMD ["/bin/sh", "/transactions/run.sh"]

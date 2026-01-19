@@ -6,7 +6,7 @@ First, we consider a centralized Java design and implement a REST interface.
 Then, the application is containerized and tested with remote clients.
 In a last step, the core is distributed across multiple nodes and we use transactions to maintain data consistency.
 
-## 1. A First Centralized Design
+### 1. A First Centralized Design
 
 The bank application is built using [Maven](https://maven.apache.org).
 Several parts are already provided under `src`.
@@ -75,7 +75,8 @@ The former script defines banking operations, while the later contains a set of 
 The directory `templates` contains the k8s templates of the banking system (both the system and the load balancer).
 
 **[Q32]** Create a cluster in Google Cloud Platform to host the containers.
-(As we will scale-out the system later on, it is advised to already provision a few nodes.)
+As we will scale-out the system later on, it is advised to already provision a few nodes (use at least three e2-standard-2 machines).
+Ensure that your cluster is zonal, that is deployed over a single availability zone.
 Import the credentials of the cluster, and create an appropriate context with the `kubectl` command.
 This last sequence of steps is recalled below:
 
@@ -90,86 +91,162 @@ Test your application using the test suite available under `src/test/bin`.
 
 ### 4. Distributing the Application
 
-In this final step, we implement the `DistributedBanking` class and distribute the system across multiple nodes.
-To achieve this, we replace the `account` variable in `BaseBanking` with a distributed mapping.
-The mapping is implemented with [Infinispan](https://infinispan.org) (ISPN), a NoSQL transactional distributed storage from Red Hat.
+In a next step, we implement the `DistributedBanking` class and distribute the system across multiple nodes.
+To achieve this, we replace the `account` variable in `BaseBanking` with a distributed data store.
+The storage is implemented with [Apache Cassandra](https://cassandra.apache.org), a distributed NoSQL database designed for high availability and scalability.
 
-**[Q41]** To have an overview of ISPN, read the introduction (Section 1) of the  [documentation](https://infinispan.org/docs/9.4.x/user_guide/user_guide.html).
-Browse through the [online](https://infinispan.org/tutorials/simple/simple_tutorials.html) tutorials.
-In particular, we advice you to have a peek at [this](https://github.com/infinispan/infinispan-simple-tutorials/blob/main/infinispan-embedded/cache-distributed/src/main/java/org/infinispan/tutorial/simple/distributed/InfinispanDistributed.java) tutorial.
-At the light of the CAP impossibility result, where does this system stands?
+**[Q41]** To have an overview of Cassandra, read the introduction of the [documentation](https://cassandra.apache.org/doc/latest/).
+Browse through the [online tutorials](https://cassandra.apache.org/doc/latest/cassandra/getting-started/index.html).
+In particular, we advice you to understand Cassandra's architecture and data model.
+At the light of the CAP impossibility result, where does this system stand?
 
-A `Cache` in Infinispan implements a `ConcurrentMap` object as specified in the `java.util.concurrent` package.
-Several operational modes are possible for the cache, synchronous, asynchronous, with or without transactions.
-Depending on the configuration parameters, a cache can be local to a Java application, or spread across several nodes.
+Cassandra provides a distributed, partitioned row store with tunable consistency levels.
+The system uses a peer-to-peer architecture with no single point of failure.
+Data can be automatically replicated across multiple nodes for fault tolerance.
 
-As a starter, we use a distributed asynchronous cache which runs in the same memory space as the application (embedded mode). 
-This means that the `ConfigurationBuilder` to deploy the cache is written as follows
+To connect to Cassandra from our Java application, we use the Apache Cassandra Java Driver (version 4.19.2).
+This driver provides a `CqlSession` object to execute CQL (Cassandra Query Language) statements.
+The basic setup is as follows:
 
-    ConfigurationBuilder builder = new ConfigurationBuilder();
-    builder.clustering().cacheMode(CacheMode.DIST_SYNC);
+    CqlSession session = CqlSession.builder()
+        .addContactPoint(new InetSocketAddress(cassandraHost, cassandraPort))
+        .withLocalDatacenter("datacenter1")
+        .build();
 
-Infinispan relies on the JGroups library to communicate.
-When running locally, we use the default TCP-based configuration on JGroups (available under `src/main/resources/default-jgroups-tcp.xml`).
-In this configuration, JGroups uses IP multicast to implement nodes discovery.
-This communication primitive is generally disabled at cloud service providers (like GCP).
-To make things work in a Kubernetes clusters, we will use a DNS-based discovery service instead.
+**[Q42]** As a first step, deploy a single Cassandra node in your Kubernetes cluster using the template under `src/test/bin/templates/cassandra.yaml.tmpl`.
+The `cassandra-service.yaml.tmpl` creates a headless service for node discovery.
 
-From now on, the right JGroups configuration file is `src/main/resources/default-jgroups-google.xml`. 
-This file is renamed as `jgroups.xml` when the container is deployed in a Kubernetes cluster (`local=true` in `exp.config`).
-To assign a JGroups configuration in `DistributedBank`, you may use the following code:
+First, create the Cassandra service:
 
-    GlobalConfigurationBuilder gbuilder = GlobalConfigurationBuilder.defaultClusteredBuilder();
-    gbuilder.transport().addProperty("configurationFile", "jgroups.xml");
+    kubectl apply -f cassandra-service.yaml
 
-**[Q42]** Create a variable `accounts` in `DistributedBank` backed by an Infinispan cache.
-Implement the `Bank` interface using `put` and `get` operations, as in `BaseBank`.
-Deploy the application over multiple nodes in GCP (e.g., 3).
-Test the application with the scripts `test.sh`.
-What do you observe and what is the root cause of this problem?
+Then, deploy a single Cassandra node:
 
-**[Q43]** ISPN relies on protobuf to marshal/un-marshal data between nodes.
-To make the `Account` class understandable with protobuf, we need to anotate it.
-Read the documentation [here](https://infinispan.org/docs/stable/titles/encoding/encoding.html#protostream-sci-implementations_marshalling) and add appropriate protobuf protostream annotations to `Account`.
+    kubectl apply -f cassandra-1.yaml
 
-Annotations are pre-processed at compile time by an appropriate engine.
-This corresponds to the following lines in `pom.xm` which configure the Maven compiler plugin.
+Wait for the node to be ready. You can check the status with:
 
-	<path>
-	<groupId>org.infinispan.protostream</groupId>
-	<artifactId>protostream-processor</artifactId>
-	<version>${version.infinispan-protostream}</version>
-	</path>
+    kubectl exec -it cassandra-1 -- nodetool status
 
-The engine needs some context to automate serialization.
-Namely, it requires to know which protobuf file is generated, for which package, and where.
+**[Q43]** In `DistributedBank`, create a connection to the Cassandra node using `CqlSession`.
+The implementation uses CQL prepared statements for efficient query execution.
+Create a keyspace named `banking` with a replication factor of 1 (since we have only one node):
 
-**[Q44]** To provide such information, create an `AccountSchemaBuilder` class in `tsp.transactions.distributed`.
-This class should extend `org.infinispan.protostream.SerializationContextInitializer`.
-Annotates the class as follows:
+    CREATE KEYSPACE IF NOT EXISTS banking 
+    WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1}
 
-	@AutoProtoSchemaBuilder(
-        includeClasses = {Account.class}, // List the classes to include in the schema
-        schemaFileName = "account.proto", // The schema file that will be generated
-        schemaFilePath = "proto/",        // Path where the schema file will be generated
-        schemaPackageName = "eu.tsp.transactions" // Package name for the schema
-	)
+Then create a table for accounts. 
+We use a composite primary key with `country_code` as the partition key:
 
-Execute again the application and verify that the error is gone.
+    CREATE TABLE IF NOT EXISTS banking.accounts (
+        country_code text,
+        id int,
+        balance int,
+        PRIMARY KEY (country_code, id)
+    )
 
-The benchmark `test.sh` offers also the possibility to run execute multiple operations concurrently;
-this is achieved with the `concurrent-run` flag.
+The `country_code` serves as the partition key, allowing all accounts in the same country to be stored together.
+This design enables efficient batch operations within a single partition.
+By default, all accounts are created with `country_code = "FR"`.
 
-**[Q45]** If you set a small number of bank accounts, what do you observe when concurrent operations take place?
-What is the name of this anomaly?
+Implement the `Bank` methods using CQL statements. 
+Use prepared statements for better performance, such as:
 
-To fix the above problem, we use the transaction support provided by Infinispan.
-Change the cache object to be transactional.
-This can be done programmatically as follows:
+    PreparedStatement insertStmt = session.prepare(
+        "INSERT INTO banking.accounts (country_code, id, balance) VALUES (?, ?, ?) IF NOT EXISTS"
+    );
 
-    builder.transaction().transactionMode(TransactionMode.TRANSACTIONAL).lockingMode(LockingMode.PESSIMISTIC);
+For `performTransfer`, read the current balances, calculate the new balances, and update them.
+
+**[Q44]** Deploy the banking application over GCP.
+The pods connect to the Cassandra cluster using the `CASSANDRA_HOST` and `CASSANDRA_PORT` environment variables.
+Test your general architecture by running the benchamrk suite: 
+
+	test.sh -populate
 	
-Modify `performTransfer` to execute a transaction and check that your code is now fully functional.
+Then, run the concurrent test with a small number of accounts and verify that the total sum is still zero.
 
-**[OPT]** To make the system usable, it would be necessary to add data persistence.
-Another interesting option is to replicate accounts across several nodes to improve system availability.
+    test.sh -concurrent-run
+	test.sh -check
+
+### 5. Data Replication and Consistency
+
+**[Q51]** Now let's add data replication for fault tolerance. 
+Deploy additional Cassandra nodes to create a cluster.
+
+Deploy two more Cassandra nodes (cassandra-2 and cassandra-3):
+
+    kubectl apply -f cassandra-2.yaml
+    kubectl apply -f cassandra-3.yaml
+
+These nodes will automatically discover and join the cluster using the **seed node** (cassandra-1).
+A seed node is a well-known node that new nodes contact to learn about the cluster topology.
+In our configuration (see `cassandra.yaml.tmpl`), cassandra-1 is designated as the seed node via the `CASSANDRA_SEEDS` environment variable.
+
+Before deploying the banking application, verify that all Cassandra nodes are up and running.
+Use the `nodetool status` command to check the cluster status:
+
+    kubectl exec -it cassandra-1 -- nodetool status
+
+You should see all three nodes listed with status "UN" (Up/Normal). 
+Example output:
+
+    Datacenter: datacenter1
+    =======================
+    Status=Up/Down
+    |/ State=Normal/Leaving/Joining/Moving
+    --  Address     Load       Tokens  Owns    Host ID                               Rack
+    UN  10.244.1.5  108.45 KiB  256     ?       8d5ed9f4-89c0-4cc0-b890-e6ec2ac1fb93  rack1
+    UN  10.244.2.5  108.45 KiB  256     ?       5a3d6e91-6b9c-4d2e-a1b7-3f8c9a2d1e4f  rack1
+    UN  10.244.3.5  108.45 KiB  256     ?       2c7f8a3b-5e6d-4f1c-b9a2-8d4e6f7a9b1c  rack1
+
+Wait until all nodes show "UN" status before proceeding. This may take a few minutes as nodes join the cluster.
+
+**[Q52]** Update the keyspace replication factor to 3 to replicate data across all nodes.
+Connect to one of the Cassandra nodes using `cqlsh` and alter the keyspace:
+
+    kubectl exec -it cassandra-1 -- cqlsh
+
+Once in the cqlsh prompt, run:
+
+    ALTER KEYSPACE banking WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
+
+You can verify the keyspace configuration:
+
+    DESCRIBE KEYSPACE banking;
+
+And verify the table schema:
+
+    DESCRIBE TABLE banking.accounts;
+
+You can also query the database to check the data:
+
+    SELECT * FROM banking.accounts;
+
+This ensures that each piece of data is stored on three different nodes, providing fault tolerance.
+
+**[Q53]** Re-execute the concurrent benchmark, as in question Q44
+You should notice that the total balance across all accounts is incorrect after the test completes.
+What is the name of this consistency anomaly?
+
+**[Q54]** To fix the above problem, we need to use **conditional writes** (lightweight transactions) in Cassandra.
+These use the Paxos consensus protocol to ensure that updates only succeed if the value hasn't changed since we read it.
+
+Modify the prepared statement to include an `IF` condition:
+
+    PreparedStatement updateConditionalStmt = session.prepare(
+        "UPDATE banking.accounts SET balance = ? WHERE id = ? IF balance = ?"
+    );
+
+Then update `performTransfer` to use conditional updates.
+
+The `IF balance = ?` condition ensures that the update only succeeds if the balance hasn't changed since we read it.
+If another transaction modified the balance, the condition fails and we retry.
+
+Deploy this corrected implementation and run the concurrent test again. 
+You should now see that the total balance is preserved correctly.
+
+Note that lightweight transactions have higher latency than regular writes (typically 4x slower) because they use the Paxos protocol.
+However, they are necessary for correctness when concurrent updates to the same data are possible.
+
+Verify that the system now handles concurrent operations correctly while providing fault tolerance through replication.
