@@ -181,6 +181,7 @@ For instance, we may add the nodes cassandra-2 and cassandra-3 as follows:
 These nodes will automatically discover and join the cluster using the **seed node** (cassandra-1).
 A seed node is a well-known node that new nodes contact to learn about the cluster topology.
 In our configuration (see `cassandra.yaml.tmpl`), cassandra-1 is designated as the seed node via the `CASSANDRA_SEEDS` environment variable.
+More precisely, the Cassandra (headless) service is reporting the IP address of this pod thanks to the selectors (`spec.selector`).
 
 Before deploying the banking application, verify that all Cassandra nodes are up and running.
 Use the `nodetool status` command to check the cluster status:
@@ -237,15 +238,14 @@ Modify the prepared statement to include an `IF` condition:
         "UPDATE banking.accounts SET balance = ? WHERE id = ? IF balance = ?"
     );
 
-Then update `performTransfer` to use conditional updates.
-
 The `IF balance = ?` condition ensures that the update only succeeds if the balance hasn't changed since we read it.
 If another transaction modified the balance, the condition fails and we retry.
 
+Update `performTransfer` to use conditional updates.
 Deploy this corrected implementation and run the concurrent test again. 
 You should now see that the total balance is preserved correctly.
 
-Note that lightweight transactions have higher latency than regular writes (typically 4x slower) because they use the Paxos protocol.
-However, they are necessary for correctness when concurrent updates to the same data are possible.
-
-Verify that the system now handles concurrent operations correctly while providing fault tolerance through replication.
+**[Q55]** Create a test scenario to verify that the system provides fault tolerance through data replication, while still handling concurrent updates properly.
+One possibility is to plot the throughtput over time and fail one of the data replicas.
+Do you think that all failures have the same impact on performance? 
+If not, provide an explanation.
