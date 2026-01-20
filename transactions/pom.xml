@@ -13,7 +13,7 @@
     <maven.compiler.release>17</maven.compiler.release>
     <version.cassandra-driver>4.19.2</version.cassandra-driver>
     <version.spark>2.5</version.spark>
-    <version.junit>4.10</version.junit>
+    <version.junit>4.13.1</version.junit>
     <version.slf4j>1.7.21</version.slf4j>
   </properties>
 
