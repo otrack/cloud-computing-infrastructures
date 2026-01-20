@@ -120,22 +120,22 @@ First, create the Cassandra service:
 
     kubectl apply -f cassandra-service.yaml
 
-Then, deploy a single Cassandra node:
+Then, deploy a single Cassandra node by instanciating the template:
 
     kubectl apply -f cassandra-1.yaml
 
-Wait for the node to be ready. You can check the status with:
+Wait for the node to be ready. 
+You can check the status using `kubectl describe` as well as using the `nodetool` utility from Cassandra:
 
     kubectl exec -it cassandra-1 -- nodetool status
 
 **[Q43]** In `DistributedBank`, create a connection to the Cassandra node using `CqlSession`.
-The implementation uses CQL prepared statements for efficient query execution.
-Create a keyspace named `banking` with a replication factor of 1 (since we have only one node):
+Create a keyspace named `banking` with a replication factor of 1 (since we have only one node so far):
 
     CREATE KEYSPACE IF NOT EXISTS banking 
     WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1}
 
-Then create a table for accounts. 
+Then create a table for accounts. in this keyspace.
 We use a composite primary key with `country_code` as the partition key:
 
     CREATE TABLE IF NOT EXISTS banking.accounts (
@@ -156,15 +156,15 @@ Use prepared statements for better performance, such as:
         "INSERT INTO banking.accounts (country_code, id, balance) VALUES (?, ?, ?) IF NOT EXISTS"
     );
 
-For `performTransfer`, read the current balances, calculate the new balances, and update them.
+For `performTransfer`, read the current balances, calculate the new ones, and update the accounts.
 
-**[Q44]** Deploy the banking application over GCP.
+**[Q44]** Deploy the banking application over multiple nodes in GCP.
 The pods connect to the Cassandra cluster using the `CASSANDRA_HOST` and `CASSANDRA_PORT` environment variables.
 Test your general architecture by running the benchamrk suite: 
 
 	test.sh -populate
 	
-Then, run the concurrent test with a small number of accounts and verify that the total sum is still zero.
+Then, run the concurrent test with a small number of accounts and verify that the total sum is zero as expected.
 
     test.sh -concurrent-run
 	test.sh -check
