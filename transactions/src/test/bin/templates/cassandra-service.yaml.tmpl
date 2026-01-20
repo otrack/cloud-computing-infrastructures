@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: cassandra
+  namespace: default
+spec:
+  clusterIP: None
+  selector:
+    app: "cassandra"
+    id: "1"
+  ports:
+    - name: cql
+      protocol: TCP
+      port: 9042
+    - name: intra-node
+      protocol: TCP
+      port: 7000
