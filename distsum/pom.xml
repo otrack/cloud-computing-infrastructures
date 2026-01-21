@@ -9,7 +9,7 @@
     <name>distributed-sum</name>
 
     <properties>
-        <infinispan.version>8.0.1.Final</infinispan.version>
+        <infinispan.version>11.0.6.Final</infinispan.version>
     </properties>
 
     <organization>
