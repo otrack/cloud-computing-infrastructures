@@ -86,6 +86,8 @@ The leader election algorithm works as follows:
 **[Task]** Send SIGTERM to some of the running *election.py* instances. 
 Ensure your code is correct, that is, *(i)* at most one leader is elected, and *(ii)* eventually, a running process is elected. 
 
+**[Task]** What are the liveness and safety properties of the election service? Justify.
+
 ## 3. A dependable master/worker architecture
 
 The core service implemented in this practical is a fault-tolerant (dependable) task processing service.

@@ -223,7 +223,8 @@ You can also query the database to check the data:
 
     SELECT * FROM banking.accounts;
 
-This ensures that each piece of data is stored on three different nodes, providing fault tolerance.
+Which amount of data each node now owns?
+Explain why this provides fault tolerance.
 
 **[Q53]** Re-execute the concurrent benchmark, as in question Q44
 You should notice that the total balance across all accounts is incorrect after the test completes.
@@ -241,7 +242,7 @@ Modify the prepared statement to include an `IF` condition:
 The `IF balance = ?` condition ensures that the update only succeeds if the balance hasn't changed since we read it.
 If another transaction modified the balance, the condition fails and we retry.
 
-Update `performTransfer` to use conditional updates.
+Update `performTransfer` to use conditional (a batch of) updates.
 Deploy this corrected implementation and run the concurrent test again. 
 You should now see that the total balance is preserved correctly.
 
