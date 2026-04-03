@@ -242,7 +242,7 @@ Modify the prepared statement to include an `IF` condition:
 The `IF balance = ?` condition ensures that the update only succeeds if the balance hasn't changed since we read it.
 If another transaction modified the balance, the condition fails and we retry.
 
-Update `performTransfer` to use conditional (a batch of) updates.
+Update `performTransfer` to use (a batch of) conditional updates.
 Deploy this corrected implementation and run the concurrent test again. 
 You should now see that the total balance is preserved correctly.
 
