@@ -22,7 +22,10 @@ Hereafter, we will use Javascript (JS) ones.
 For this practical , it is highly recommended to use an IDE that supports and understand JS.
 If you are familiar with TypeScript, feel free to adjust the provided code base and use TypeScript instead.
 
-**[Q12]** Install Yjs and y-websocket following the guidelines provided in the [Getting Started]( https://github.com/yjs/yjs#getting-started) section. Start a [websocket](https://en.wikipedia.org/wiki/WebSocket) server. Run `node observer.js` in the terminal, using the following command: `PORT=1234 node ./node_modules/y-websocket/bin/server.cjs`. The program should display `connected`, indicating that it managed to connect to the server.
+**[Q12]** Install Yjs and y-websocket following the guidelines provided in the [Getting Started]( https://github.com/yjs/yjs#getting-started) section.
+Start a [websocket](https://en.wikipedia.org/wiki/WebSocket) server using the following command: `PORT=1234 node ./node_modules/y-websocket/bin/server.cjs`.
+Execute `node observer.js` in the terminal.
+The program should display `connected`, indicating that it managed to connect to the server.
 
 We will store the proposals in a [YMap](https://github.com/yjs/yjs?tab=readme-ov-file#api) of the form `(String id, String text)`, where `id` is a unique identifier of the proposal and `text` a description.
 
