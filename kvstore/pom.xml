@@ -11,7 +11,7 @@
   <properties>
     <version.jgroups>3.6.14.Final</version.jgroups>
     <version.maven.compiler>3.6.1</version.maven.compiler>
-    <version.spark>2.5</version.spark>
+    <version.spark>2.7.2</version.spark>
     <version.junit>4.10</version.junit>
   </properties>
   
