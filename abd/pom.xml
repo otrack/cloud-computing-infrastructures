@@ -12,7 +12,7 @@
     <version.jgroups>3.6.14.Final</version.jgroups>
     <version.maven.compiler>3.6.1</version.maven.compiler>
     <version.spark>2.5</version.spark>
-    <version.junit>4.10</version.junit>
+    <version.junit>4.13.1</version.junit>
     <version.apache.commons-lang3>3.7</version.apache.commons-lang3>
   </properties>
   
