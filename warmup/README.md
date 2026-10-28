@@ -51,7 +51,7 @@ Then, you may deploy a small application following the steps proposed in either 
 
 Google has provided us with a Google Cloud Platform (GCP) Education Grant.
 Each student has a coupon to use the GCP platform for this course.
-To retrieve a coupon, follow the link provided in commentary of slide 5 in this course syllabus.
+To retrieve a coupon, follow the link provided in commentary of slide **6** in this course syllabus.
 Notice that credits are limited per coupon.
 Use the online [calculator](https://cloud.google.com/products/calculator/#tab=container) to approximate the resources at your disposal for the course.
 
