@@ -39,35 +39,15 @@ They provide an overview of the concepts in Kubernetes and how to use it in prac
 ## 3. Selecting a Kubernetes cluster [30']
 
 During the next practicals, you will use a Kubernetes cluster to practice and understand the basics of cloud infrastructures.
-Below, we propose you two possible choices of cluster: the *minikube* emulation program or the *Google Cloud Platform*.
-The instructions below explain how to deploy a k8s cluster in each case.
+The instructions below explain how to deploy a k8s cluster on Google Cloud Platform.
+Alternatively, if you are offline, you can also use minikube, a cluster emulation program.
 (Notice that it is possible to use several k8s clusters concurrently simply by switching from one kubectl configuration to another with `kubectl config use-context`.)
 
 Once your k8s cluster is deployed, you may need to check that everything is functional.
 To this end, type `kubectl get nodes` to observe the cluster nodes.
 Then, you may deploy a small application following the steps proposed in either [this](https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment) or [that](https://cloud.google.com/kubernetes-engine/docs/quickstart) tutorial.
 
-## 3.1. Minikube  *(beginner)*
-
-In this base approach, we emulate a cluster on a local machine using [minikube](https://github.com/kubernetes/minikube).
-Internally, the program launch a kubernetes node inside a virtual machine.
-This is similar to the environment you used in the online tutorial above.
-
-**[Q]** To install minikube on your machine, please follow the instructions [here](https://minikube.sigs.k8s.io/docs/start/).
-Launch the program by typing `minikube start`.
-Notice that starting for the first time might take a bit of time -- this is because around 300MB are downloaded.
-
-As a side note, do not forget:
-
-* to *shutdown properly* the VM with `minikube stop` when closing your session.
-
-* the `minikube --help` command lists sub-commands that may help to manage your local cluster.
-
-**[Q]** We use docker during the practicals and consequently an access to a docker daemon is required.
-Minikube runs such a daemon.
-To set-up the access to this daemon, we type `eval $(minikube docker-env)` in the terminal.
-
-## 3.2 Google Cloud Platform *(intermediate, _default_)* 
+## 3.1 Google Cloud Platform
 
 Google has provided us with a Google Cloud Platform (GCP) Education Grant.
 Each student has a coupon to use the GCP platform for this course.
@@ -113,3 +93,23 @@ As a side note, do not forget to *shutdown properly* the cluster when you have f
 To this end, you may use either the console or type the following command line
 
 	gcloud container clusters delete my-cluster --zone=my_zone
+
+## 3.2. Minikube *(offline emulation)*
+
+Alternatively, we can emulate a cluster on our local machine using [minikube](https://github.com/kubernetes/minikube).
+Internally, the program launch a k8s node inside a virtual machine.
+This is similar to the environment you used in the online tutorial above.
+
+**[Q]** To install minikube on your machine, please follow the instructions [here](https://minikube.sigs.k8s.io/docs/start/).
+Launch the program by typing `minikube start`.
+Notice that starting for the first time might take a bit of time -- this is because around 300MB are downloaded.
+
+As a side note, do not forget:
+
+* to *shutdown properly* the VM with `minikube stop` when closing your session.
+
+* the `minikube --help` command lists sub-commands that may help to manage your local cluster.
+
+**[Q]** We use docker during the practicals and consequently an access to a docker daemon is required.
+Minikube runs such a daemon.
+To set-up the access to this daemon, we type `eval $(minikube docker-env)` in the terminal.
