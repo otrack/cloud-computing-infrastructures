@@ -24,14 +24,15 @@ This service relies on the `convert` command as well as two external Python libr
  * [delegator](https://github.com/kennethreitz/delegator.py) is a utility library that allows to call a system sub-routine.
  * [webpy](http://webpy.org) contains several building blocks to create a web server in Python. 
 In a nutshell, the Pdfmagic service works as follows.
-When a client connects to the service for the first time (lines 25-33 in pdfmagic.py), a welcome page is sent that contains a form with a single input field named `myfile`.
+When a client connects to the service for the first time (lines 16-24 in pdfmagic.py), a welcome page is sent that contains a form with a single input field named `myfile`.
 This field is of the `file` type and serves to upload the jpg image.
-When Pdfmagic receives the file via a POST request (lines 35-45), the `convert` utility of Linux is called.
+When Pdfmagic receives the file via a POST request (lines 26-44), the `convert` utility of Linux is called.
 This utility does the actual transformation.
-The client is then asked to fetch a page that holds the result.
-To avoid collisions on the file names between several clients, Pdfmagic generates a random unique identifier for each request (line 39).
+The jpg file and the resulting pdf document are stored in temporary files, which are deleted once the conversion is over.
+The pdf document is sent back to the client in the response to its POST request.
+To avoid collisions on the file names between several clients, Pdfmagic generates a random unique identifier for each request (line 30).
 
-**[Q]** Quickly browse through the source code of the Pdfmagic service.
+**[Q1]** Quickly browse through the source code of the Pdfmagic service.
 Where is stored the jpg file on the server after it was received from the client?
 
 ### 1.2 A container to hold the magic
@@ -52,11 +53,12 @@ For instance, a malicious user that spawn a shell in the container of program `A
 Say for instance, that `A` uses version `1.2.2` of library `foo`, and program `B` version `1.3.1`.
 Because the two containerized programs access different file systems, each of them may contain a different version of the `foo` library.
 
-**[Q]** Write a Docker file for Pdfmagic under the `pdfmagic` directory.
-The Docker image should be built using `python:3.10` as its base image and should expose port `8080`.
+**[Q2]** Write a Docker file for Pdfmagic under the `pdfmagic` directory.
+The Docker image should be built using `python:3.10-bookworm` as its base image and should expose port `8080`.
+Add the instruction `STOPSIGNAL SIGINT`: when it runs as the first process of a container, Python ignores the signal `SIGTERM` that stops it, and Kubernetes would wait 30 seconds before killing a pod.
 (If you are blocked at this question, you may use the file available [here](https://gist.github.com/otrack/d0f1f0eff4a4271c71196a572f721d78)).
 
-**[Q]** Run the container locally and access it to create a pdf document from a jpg image.
+**[Q3]** Run the container locally and access it to create a pdf document from a jpg image.
 Convert the logo located [here](https://inscriptions.polytechnique.fr/inscriptions/commun/assets/img/logo_ip_paris_vertical_blanc.jpg).
 Where is stored the converted pdf document before it is sent back to a client?
 
@@ -150,7 +152,7 @@ The second approach relies on a template file and the command `kubectl create`.
 In what follows, we shall focus on the second approach being more versatile and powerful.
 The file `pdfmagic.yml` inside `pdfmagic` directory contains a draft of a template for the `pdfmagic` service.
 
-**[Q]** Correct the template to use your image by changing the line `image: 0track/pdfmagic:latest`.
+**[Q4]** Correct the template to use your image by changing the line `image: 0track/pdfmagic:latest`.
 Deploy a pod by typing `kubectl create -f pdfmagic.yml`.
 Check that the pod is running by typing `kubectl get pod`.
 You should observe something of the form:
@@ -173,15 +175,19 @@ To this end, we first create a synthetic workload to exercise the system.
 Under the `client` directory, there is a proposal of workload.
 This workload consists of two shell scripts: `request.sh` and `client.sh`.
 
- * The script `request.sh` takes as input a Pdfmagic deployment and push a random image to it.
-The size of the image is configurable (currently, 640x480 bytes).
+ * The script `request.sh` takes as input a Pdfmagic deployment and pushes a random image to it.
+The image is generated anew at each call, in a temporary file, and the pdf document returned by the service is discarded.
+The size of the image is configurable (currently, 640x480 pixels).
 
  * The second script is `client.sh`.
 This script simulates a client that pushes several successive images to Pdfmagic.
 It is parameterized with the host of the Pdfmagic service and the number of times the service is called.
+It writes the duration of each call in a file `client#<pid>.dat`, in the current directory, where `<pid>` is its process identifier.
 
-**[Q]** Run the workload for one client by varying the number of images that are pushed.
+**[Q5]** Run the workload for one client by varying the number of images that are pushed.
 What is the average time taken by Pdfmagic to answer?
+What are its tail latencies, i.e., the 95th and the 99th percentiles?
+What is its throughput, i.e., the number of requests served per second?
 Plot the service time distribution of Pdfmagic for 100 successive requests.
 (You may use any tool, e.g., [matplotlib](https://matplotlib.org/users/pyplot_tutorial.html), [gnuplot](www.gnuplot.info), or some spreadsheet.)
 
@@ -192,10 +198,14 @@ To this end, a third script named `parallel.sh` is available under the `client` 
 This script calls `client.sh` in parallel.
 It takes as input 3 parameters: the Pdfmagic host, the number of clients, and the number of times each client calls the service.
 
-**[Q]** Plot the service latency when 10 clients push concurrently 100 images.
+**[Q6]** Plot the service latency when 10 clients push concurrently 100 images.
+Compute again the average latency, the 95th and 99th percentiles, and the throughput.
 What do you observe?
+Relate your observation to the FIFO queueing policy seen in the lecture: what does a request wait for?
+The outcome depends on the size of the node: a pod without a CPU limit may use all the cores of its node.
+If you observe no degradation (e.g., on a node with many cores), add a CPU limit to the pod (`resources -> limits -> cpu: 0.5` in `pdfmagic.yml`) and measure again.
 
-## 5. Scaling out the service **[30']**
+## 5. Scaling out the service **[45']**
 
 Our previous analysis tells us that the performance of Pdfmagic degrades when clients are accessing it concurrently.
 To remedy this problem, several approaches are possible.
@@ -214,20 +224,58 @@ Before going further, make sure that you provisioned enough nodes in the Kuberne
 If this is not the case, destroy the Kubernetes cluster and create a larger one.
 (For minikube, you can safely skip this part.)
 
-**[Q]** 
-Correct `deployment.yml` to use your Docker image and 3 pods.
-Add a load balancer to balance the traffic between the pods.
+First, delete the pod and the service created in section 3, as the new service bears the same name, and would also send traffic to the old pod:
+
+    kubectl delete pod pdfmagic
+    kubectl delete service pdfmagic
+
+**[Q7]** Correct `deployment.yml` to use your Docker image and 3 pods.
+Add a load balancer to balance the traffic between the pods, that is a service of type `LoadBalancer`.
+(With minikube, the external IP of such a service stays `<pending>`: get its address with `minikube service pdfmagic --url`.)
 Plot the service latency when 10 clients push concurrently 100 images.
 Make a plot of the time distribution.
 Do you think that this modification is satisfying? 
 
-**[Q]** Analyze the performance of a single instance of Pdfmagic.
-For instance, you may scale it horizontally by changing the amount of allocated CPU (in the YAML files, under `resources -> requests -> cpu`).
+**[Q8]** Find on which node each replica runs, with `kubectl get pods -o wide` (the column `NODE`).
+Are the replicas spread over the nodes, or packed on a few of them?
+Each replica requests 0.1 CPU: explain the placement with the two steps of the scheduler seen in the lecture, *filter* and *score*.
+What would happen to the placement, and to the latency, if all the replicas landed on the same node?
+
+**[Q9]** Analyze the performance of a single instance of Pdfmagic.
+For instance, you may scale it vertically by changing the amount of allocated CPU (in the YAML files, under `resources -> requests -> cpu`).
 Do you think that the idea of scaling-out the service was the right one?
 What is the underlying problem with the implementation of Pdfmagic?
 Try to find a compromise between horizontal and vertical scale-up to accomodate at best the 10 clients.  
 
-**[Q]** Transform the workload `client.sh` into a Kubernetes [job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion).
+### 5.1 Requests, limits, and QoS classes
+
+The pods of Pdfmagic *request* 0.1 CPU, and set no *limit*.
+The scheduler places a pod according to its requests only, whereas the kernel enforces its limits at runtime:
+above its CPU limit, a container is throttled; above its memory limit, it is killed (OOM).
+From the requests and limits of its containers, Kubernetes derives the [Quality of Service class](https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/) of a pod, which sets the order of eviction when a node runs out of memory.
+
+**[Q10]** What is the QoS class of a Pdfmagic pod?
+Check your answer with the following command:
+
+    kubectl get pod <pod name> -o jsonpath='{.status.qosClass}'
+
+Without a limit, how much CPU may a Pdfmagic container use?
+
+**[Q11]** Add a CPU limit equal to the request (`resources -> limits -> cpu: 0.1`) to the deployment, and apply it.
+Measure again the latency with 10 clients.
+What do you observe, and why?
+
+**[Q12]** Make the Pdfmagic pods *Guaranteed*, with a CPU and a memory request equal to their limits.
+Choose values that keep the latency measured in Q7, without a CPU limit.
+Check the QoS class of the pods.
+Why would you prefer a Guaranteed pod for a production service?
+
+**[Opt]** Set a small memory limit (e.g., `64Mi`) and push a large image (e.g., 4000x3000) to the service.
+What happens to the pod (`kubectl get pods`, `kubectl describe pod <pod name>`)?
+
+### 5.2 Generating the load from the cluster
+
+**[Q13]** Transform the workload `client.sh` into a Kubernetes [job](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion).
 Run a workload with 50 parallel clients.
 Plot the latency of the service over time.
 What is the advantage of having jobs over the previous approach to measure service performance? 

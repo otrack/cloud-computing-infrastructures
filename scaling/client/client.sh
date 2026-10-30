@@ -7,7 +7,7 @@ if [ $# -ne 2 ]; then
     exit 1;
 fi
 
-clientID="client#$(( ( RANDOM % 1000 )  + 1 ))"
+clientID="client#$$" # the process identifier: distinct among concurrent clients
 rm -f ${clientID}.dat
 host=$1
 ncalls=$2

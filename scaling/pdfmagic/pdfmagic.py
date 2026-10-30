@@ -2,24 +2,15 @@ import web
 import delegator
 import uuid
 import socket
+import os
 
 urls = (
     '/', 'Upload',
-    '/Download/(.+)', 'Download'
     )    
     
 filesdir = '/tmp'
 host = str(socket.gethostbyname(socket.gethostname()))
     
-class Download:
-
-    def GET(self,id):
-        path=filesdir +'/'+str(id)+'.pdf'
-        web.header('Content-Disposition', 'attachment; filename="'+str(id)+'.pdf"')
-        web.header('Content-type','application/pdf')
-        web.header('Content-transfer-encoding','binary') 
-        return open(path, 'rb').read()
-
 class Upload:
         
     def GET(self):        
@@ -38,11 +29,19 @@ class Upload:
         if 'myfile' in x:            
             id=str(uuid.uuid4()) # random uuid
             path=filesdir +'/'+ str(id)
-            fout = open(path+'.jpg','wb')
-            fout.write(x.myfile.file.read())
-            fout.close()
-            delegator.run('convert '+path+'.jpg '+path+'.pdf')
-            raise web.seeother('/Download/'+id)
+            try:
+                fout = open(path+'.jpg','wb')
+                fout.write(x.myfile.file.read())
+                fout.close()
+                delegator.run('convert '+path+'.jpg '+path+'.pdf')
+                pdf = open(path+'.pdf', 'rb').read()
+            finally: # the files live only during the request
+                for f in (path+'.jpg', path+'.pdf'):
+                    if os.path.exists(f):
+                        os.remove(f)
+            web.header('Content-Disposition', 'attachment; filename="'+id+'.pdf"')
+            web.header('Content-type','application/pdf')
+            return pdf
 
 if __name__ == "__main__":
    app = web.application(urls, globals()) 
