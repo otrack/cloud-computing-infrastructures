@@ -30,7 +30,7 @@ The course is given in the curriculum of [Télécom SudParis](https://www.teleco
 #### List of lectures.
 
 1. [Introduction to cloud computing](https://drive.google.com/open?id=1jejBazViLenC7e80XI1guqZ_a2xo0aEr1wUV9YvBcZ0)
-2. [Data dissemination](https://drive.google.com/open?id=1PFjyNro_eNDPgBxkUdjGH647y47g3VYLLHmCS_bOpLQ)
+2. [Principles of cluster sharing, and Kubernetes](https://drive.google.com/file/d/1nyugQx7Ixe2xwNG5iDDhnr2LML7wBI3B/view?usp=drive_link)
 3. [Data distribution](https://drive.google.com/open?id=1s0LRrodaYDGN3xfGit6VR9KYeoAoeRbhELBaYFHaoDU)
 4. [Shared objects & consistency](https://drive.google.com/open?id=1-Uh3iC97elXSUNvwY1G0up-JaLmj-_wV8reS1bPTe8c)
 5. [Protocols for data replication](https://drive.google.com/open?id=1UFOoTEHiyxdb0u_O37P1m9cKHT6bXEcTkdgF4mmwl3Q)
