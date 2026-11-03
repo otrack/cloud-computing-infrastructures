@@ -45,7 +45,7 @@ The course is given in the curriculum of [Télécom SudParis](https://www.teleco
 
 #### List of practicals.
 
-1. [Basics of Kubernetes](https://github.com/otrack/cloud-computing-hands-on/tree/master/warmup)
+1. [Introduction to Kubernetes](https://github.com/otrack/cloud-computing-hands-on/tree/master/warmup)
 2. [Scaling horizontally a web service](https://github.com/otrack/cloud-computing-hands-on/tree/master/scaling)
 3. [A key-value store (almost) from scratch](https://github.com/otrack/cloud-computing-hands-on/tree/master/kvstore)
 4. [A single-writer multiple-readers register in message-passing](https://github.com/otrack/cloud-computing-hands-on/tree/master/abd)
