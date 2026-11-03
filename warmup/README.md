@@ -97,14 +97,20 @@ To this end, you may use either the console or type the following command line
 ## 3.2. Minikube *(offline emulation)*
 
 Alternatively, we can emulate a cluster on our local machine using [minikube](https://github.com/kubernetes/minikube).
+This is the program you have used during the official Kubernetes tutorial,
 Internally, the program launch a k8s node inside a virtual machine.
 This is similar to the environment you used in the online tutorial above.
 
-**[Q]** To install minikube on your machine, please follow the instructions [here](https://minikube.sigs.k8s.io/docs/start/).
+**[Q]** If you have not installed minikube earlier, please follow the instructions [here](https://minikube.sigs.k8s.io/docs/start/).
 Launch the program by typing `minikube start`.
 Notice that starting for the first time might take a bit of time -- this is because around 300MB are downloaded.
 
-As a side note, do not forget:
+Importanly, set up minikube to use at least **4 cores**. 
+This can be done programmatically (at any time) using with the following command:
+
+	minikube config set cpus 4
+
+Also, do not forget:
 
 * to *shutdown properly* the VM with `minikube stop` when closing your session.
 
