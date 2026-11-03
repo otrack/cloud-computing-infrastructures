@@ -72,11 +72,17 @@ The [console](https://console.cloud.google.com) lists all the services available
 In this course, we focus on the Kubernetes Eengine (available under *Compute*).
 To create a k8s cluster, it is necessary to define the parameters of the deployment.
 These parameters include the name of the cluster, its zone, the number of nodes and their types.
-For instance, the command below creates a cluster named `my_cluster` in the zone `europe-west1-b`.
+For instance, the command below creates a cluster named `my_cluster` in `europe-west1-b`.
 This deployment is made up of one [g1-small](https://cloud.google.com/compute/docs/machine-types) machine.
-(A single machine is sufficient for the beginning as we will not use many ressources.)
+(A single machine is sufficient for the beginning as we will not use many ressources during this practical.)
 
 	gcloud container clusters create my-cluster --zone=europe-west1-b --num-nodes=1 --machine-type=g1-small --no-enable-ip-alias
+
+The text `europe-west1-b` reads as follows: `europe-west1` is the datacenter (here, located in Belgium), and `-b` is the second availability zone in the datacenter.
+An availability zone is an isolated portion of a datacenter which contains a set of resources.
+If spining up the cluster takes too long, it is likely that the cloud resources are contented.
+In which case, you can try another availability zone and/or datacenter.
+[This](https://cloud.google.com/about/locations) map lists all the cloud resources available in GCP.
 
 The console allows to follow the creation of the cluster under *Computer -> Kubernetes engine -> clusters*.
 Once the creation is made, we need to retrieve the credentials and store them in the configuration file of kubectl.
